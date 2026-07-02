@@ -1,0 +1,60 @@
+body{
+    margin:0;
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image: url("image/home.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: sans-serif;
+
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height:100vh;
+}
+
+h1 {
+    font-family: "Mochiy Pop One", sans-serif;
+    width: 80%;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.menu-btn{
+    width:280px;
+    height: 90px;
+
+    font-size: 30px;
+
+    margin: 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #87CEEB;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+menu-btn:hover{
+    background: #5ba9d6;
+}
+

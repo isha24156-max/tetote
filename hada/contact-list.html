@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>連絡先一覧</title>
+<link rel="stylesheet" href="contact-list.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>連絡先一覧・登録</h1>
+
+<h2>登録済み連絡先</h2>
+
+<ul id="mailList">
+
+</ul>
+
+<input
+type="text"
+id="name"
+placeholder="名前を入力">
+
+<br><br>
+
+<input
+type="email"
+id="mail"
+placeholder="メールアドレスを入力">
+
+<button onclick="addMail()">
+追加
+</button>
+
+<br>
+
+<button onclick="location.href='home.html'">
+ホームへ戻る
+</button>
+
+</div>
+
+<script src="contact-list.js"></script>
+
+</body>
+</html>

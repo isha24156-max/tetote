@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>ご利用になりたいボタンを押してください</h1>
+        <button class="menu-btn" onclick="location.href='map.html'">
+            避難開始
+        </button>
+
+        <button class="menu-btn" onclick="location.href='check.html'">
+            持ち物チェック
+        </button>
+
+        <button class="menu-btn" onclick="sendSafetyMail()">
+            無事です
+        </button>
+
+        <button class="menu-btn" onclick="location.href='contact-list.html'">
+            連絡先一覧・登録
+        </button>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
