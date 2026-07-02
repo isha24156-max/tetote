@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image:url("img/start.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    background-color: #e8e6c0;
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+.container{
+    text-align: center;
+}
+
+.title{
+    font-size: 90px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 50px;
+    letter-spacing:15px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow:3px 3px 8px rgba(0,0,0,0.08)
+}
+
+.small{
+    font-size: 55px;
+}
+
+button{
+    font-size: 40px;
+    padding: 25px 90px;
+    border: none;
+    border-radius: 15px;
+    background-color: #618a3d;
+    color: rgb(255, 255, 255);
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+.green{
+    color:#82a065;
+}
+
+.orange{
+    color:#F4A261;
+}
+
+.block{
+    color:#538ec1;
+}
+
