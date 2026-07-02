@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>持ち物チェック</title>
+        <link rel="stylesheet" href="checklist.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>持ち物チェック</h1>
+        
+        <div id="itemArea">
+            <ul id="itemList">
+                <li><input type="checkbox"><span class="itemName">水・食料</span><button class="deleteBtn">✕</button></li>
+                <li><input type="checkbox"><span class="itemName">非常用トイレ</span><button class="deleteBtn">✕</button></li>
+                <li><input type="checkbox"><span class="itemName">薬</span><button class="deleteBtn">✕</button></li>
+            </ul>
+        </div>
+
+        <p id="progressText">0 / 0個 完了</p>
+        <button id="addBtn">＋</button>
+        <button id="editBtn">編集</button>
+        
+        <div id="modal" class="hidden">
+            <div class="modal-content">
+                <button id="closeBtn">✕</button>
+                
+                <h2>持ち物を追加</h2>
+
+                <input type="text" id="itemInput" placeholder="ここに入力">
+
+                <button id="saveBtn">追加</button>
+            </div>
+        </div>
+
+        <div id="deleteModal" class="hidden">
+            <div class="modal-content">
+                <h2>削除しますか？</h2>
+
+                <button id="cancelDeleteBtn">キャンセル</button>
+                <button id="confirmDeleteBtn">削除</button>
+            </div>
+        </div>
+        
+        <script src="checklist.js"></script>
+    
+    </body>
+</html>
