@@ -30,12 +30,12 @@ body {
 
 input{
 
-    width:500px;
+    width:100%;
+    max-width: 500px;
+    height:70px;
 
-    height:200px;
-
-    font-size:70px;
-
+    font-size:40px;
+    box-sizing: border-box;
 }
 
 button{
