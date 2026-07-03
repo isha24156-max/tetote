@@ -15,12 +15,12 @@ body {
 }
 
 .container {
-    width: 90px;
+    width: 500px;
     max-width: 90%;
 
     background: rgba(255, 255, 255, 0.9);
 
-    padding: 40px;
+    padding: 30px;
 
     border-radius: 20px;
 
