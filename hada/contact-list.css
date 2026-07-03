@@ -56,3 +56,8 @@ button{
     margin-top:15px;
 
 }
+
+.form-container {
+    transform: scale(1.2);
+    transform-origin: center;
+}
