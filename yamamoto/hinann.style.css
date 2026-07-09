@@ -1,9 +1,9 @@
-html,body{
+body{
     margin:0;
     text-align:center;
-    /* position: fixed;   /* 画面全体を画面にピン留め */ */
+    
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;  /* スクロール完全に禁止 */
     display: flex;
     flex-direction: column;
