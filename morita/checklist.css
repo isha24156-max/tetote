@@ -82,13 +82,13 @@ h1 {
     position: absolute;
     top: 15px;
     right: 15px;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 70px;
     border: 1px solid #000;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    border-radius: 50%;
+    border-radius: 20px;
     background-color: #ffd6d6;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1;
     padding: 0;
     cursor: pointer;
