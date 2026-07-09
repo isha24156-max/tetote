@@ -32,8 +32,8 @@ div[style*="margin-bottom"] {
 }
 
 button{
-    font-size: 40px;
-    padding: 10px, 70px;
+    font-size: 30px;
+    padding: 10px, 60px;
     border: none;
     border-radius: 15px;
     background-color: #618a3d;
@@ -42,4 +42,3 @@ button{
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
     cursor: pointer;
 }
-
