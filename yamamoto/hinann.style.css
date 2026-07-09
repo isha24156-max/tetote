@@ -26,10 +26,13 @@ div[style*="margin-bottom"] {
     margin-bottom: 5px !important;
 }
 
-#map {
+/* #map {
     flex: 1;                  /* 余った画面の縦幅をぴったり自動で埋める */
     height: auto !important;  /* 固定のpxを解除する */
-}
+} */
+#map {
+    width: 100%;
+    height: 520px;
 
 button{
     font-size: 40px;
