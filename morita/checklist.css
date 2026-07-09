@@ -260,11 +260,34 @@ input[type="checkbox"] {
     margin-right: 15px;
 }
 
-#home {
-    #home,
-    #home:visited,
-    #home:hover,
-    #home:active {
-        text-decoration: none;
-        color: black;
+#home,
+#home:visited,
+#home:hover,
+#home:active {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    width: 140px;
+    height: 70px;
+
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: #eee;
+
+    font-size: 22px;
+    font-family: "Ki Maru", sans-serif;
+    color: #000;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.1),
+        0 10px 25px rgba(0,0,0,0.15);
+
+    cursor: pointer;
+    z-index: 1000;
 }
