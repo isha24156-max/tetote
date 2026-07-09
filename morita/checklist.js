@@ -45,7 +45,7 @@ saveBtn.addEventListener("click", () => {
     li.innerHTML = `
         <input type="checkbox">
         <span class="itemName">${itemName}</span>
-        <button class="deleteBtn">✕</button>
+        <button class="deleteBtn">削除</button>
     `;
 
     // 新しいチェックボックスを取得
