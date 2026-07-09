@@ -25,7 +25,7 @@ function showList(){
 
 }
 
-function showList(){
+/*function showList(){
 
     const list=document.getElementById("mailList");
 
@@ -61,4 +61,29 @@ function showList(){
     
     }
 
+}*/
+
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+async function showList() {
+    const list = document.getElementById("mailList");
+    list.innerHTML = "";
+
+    const snapshot = await getDocs(collection(db, "contacts"));
+
+    snapshot.forEach((doc) => {
+        const contact = doc.data();
+
+        list.innerHTML += `
+            <li>
+                <strong>${contact.name}</strong><br>
+                📧 ${contact.email}
+            </li>
+            <br>
+        `;
+    });
 }
+
+showList();
