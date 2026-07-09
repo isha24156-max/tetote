@@ -63,26 +63,44 @@ function showList(){
 
 }*/
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+    authDomain: "tetote-f459b.firebaseapp.com",
+    projectId: "tetote-f459b",
+    storageBucket: "tetote-f459b.firebasestorage.app",
+    messagingSenderId: "4402684573",
+    appId: "1:4402684573:web:09529c707357ce437dea74",
+    measurementId: "G-CSGLSRBLDR"
+};
+
+
+const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function showList() {
+
+async function showList(){
+
     const list = document.getElementById("mailList");
     list.innerHTML = "";
 
-    const snapshot = await getDocs(collection(db, "contacts"));
+    const snapshot = await getDocs(collection(db,"contacts"));
 
-    snapshot.forEach((doc) => {
+    snapshot.forEach((doc)=>{
+
         const contact = doc.data();
 
         list.innerHTML += `
-            <li>
-                <strong>${contact.name}</strong><br>
-                📧 ${contact.email}
-            </li>
-            <br>
+        <li>
+            <strong>${contact.name}</strong><br>
+            📧 ${contact.email}
+        </li>
+        <br>
         `;
+
     });
 }
 
