@@ -259,3 +259,13 @@ input[type="checkbox"] {
     word-break: break-word;
     margin-right: 15px;
 }
+
+#home {
+    #home,
+#home:visited,
+#home:hover,
+#home:active {
+    text-decoration: none;
+    color: black;
+}
+}
