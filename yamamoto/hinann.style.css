@@ -32,8 +32,8 @@ div[style*="margin-bottom"] {
 }
 
 button{
-    font-size: 20px;
-    padding: 8px, 20px;
+    font-size: 40px;
+    padding: 30px, 60px;
     border: none;
     border-radius: 15px;
     background-color: #618a3d;
@@ -41,4 +41,8 @@ button{
     font-weight:bold;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
     cursor: pointer;
+}
+.home-btn {
+    font-size: 18px;
+    padding: 8px 16px;
 }
