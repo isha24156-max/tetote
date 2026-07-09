@@ -28,16 +28,16 @@
     <h2 class = "family-name">家族①のお名前🌿</h2>
 
 
-<input type="text" placeholder="👤お名前を入力してください">
+<input id="name1" type="text" placeholder="👤お名前を入力してください">
 
-<input type="email" placeholder="✉️メールアドレスを入力してください">
+<input id="mail1" type="email" placeholder="✉️メールアドレスを入力してください">
 <h2 class = "family-name">家族②のお名前🌿</h2>
 
 <input type="text" placeholder="👤お名前を入力してください">
 
 <input type="email" placeholder="✉️メールアドレスを入力してください">
 
-<a href = "../hada/home.html"><button class="button">
+<a href = "../hada/home.html"><button id="registerBtn" class="button">
 登録する
 </button></a>
 
@@ -49,9 +49,10 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
-
+const db = getFirestore(app);
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -67,6 +68,18 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+document.getElementById("registerBtn").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    await addDoc(collection(db, "contacts"), {
+        name: document.getElementById("name1").value,
+        email: document.getElementById("mail1").value,
+        createdAt: Date.now()
+    });
+
+    alert("保存しました");
+});
 </script>
 
 </body>
