@@ -33,9 +33,9 @@
 <input id="mail1" type="email" placeholder="✉️メールアドレスを入力してください">
 <h2 class = "family-name">家族②のお名前🌿</h2>
 
-<input type="text" placeholder="👤お名前を入力してください">
+<input id="name2" type="text" placeholder="👤お名前を入力してください">
 
-<input type="email" placeholder="✉️メールアドレスを入力してください">
+<input id="mail2" type="email" placeholder="✉️メールアドレスを入力してください">
 
 <!--<a href = "../hada/home.html">--><button id="registerBtn" class="button">
 登録する
@@ -78,6 +78,17 @@ document.getElementById("registerBtn").addEventListener("click", async (e) => {
         email: document.getElementById("mail1").value,
         createdAt: Date.now()
     });
+
+    const name2 = document.getElementById("name2").value.trim();
+    const mail2 = document.getElementById("mail2").value.trim();
+
+    if (name2 && mail2) {
+        await addDoc(collection(db, "contacts"), {
+            name: name2,
+            email: mail2,
+            createdAt: Date.now()
+        });
+    }
 
     window.location.href = "../hada/home.html";
 });
