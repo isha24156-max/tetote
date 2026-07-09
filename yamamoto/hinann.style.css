@@ -26,10 +26,7 @@ div[style*="margin-bottom"] {
     margin-bottom: 5px !important;
 }
 
-/* #map {
-    flex: 1;                  /* 余った画面の縦幅をぴったり自動で埋める */
-    height: auto !important;  /* 固定のpxを解除する */
-} */
+
 
 #map {
     width: 100%;
