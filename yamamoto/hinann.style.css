@@ -27,3 +27,16 @@ div[style*="margin-bottom"] {
     flex: 1;                  /* 余った画面の縦幅をぴったり自動で埋める */
     height: auto !important;  /* 固定のpxを解除する */
 }
+
+button{
+    font-size: 40px;
+    padding: 25px 90px;
+    border: none;
+    border-radius: 15px;
+    background-color: #618a3d;
+    color: rgb(255, 255, 255);
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
