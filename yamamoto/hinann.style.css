@@ -8,6 +8,7 @@ body{
     display: flex;
     flex-direction: column;
     font-weight: bold;
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
 }
 
 
