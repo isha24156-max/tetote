@@ -267,23 +267,5 @@ input[type="checkbox"] {
 #home:active {
     text-decoration: none;
     color: black;
-        position: fixed;
-    right: 30px;
-    bottom: 40px;
-    z-index: 1;
-    width: 100px;
-    height: 70px;
-    border-radius: 20px;
-    border: 1px solid #000;
-    background-color: #9fd8ff;
-    font-size: 24px;
-    line-height: 1;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 
-        0 0 20px rgba(0,0,0,0.1),
-        0 10px 25px rgba(0,0,0,0.15);
+
 }
