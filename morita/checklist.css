@@ -291,3 +291,25 @@ input[type="checkbox"] {
     cursor: pointer;
     z-index: 1000;
 }
+
+#home button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    width: 140px;
+    height: 70px;
+
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: #eee;
+
+    font-size: 22px;
+    font-family: "Ki Maru", sans-serif;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.1),
+        0 10px 25px rgba(0,0,0,0.15);
+
+    cursor: pointer;
+}
