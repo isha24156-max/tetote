@@ -27,8 +27,7 @@ div[style*="margin-bottom"] {
 }
 
 
-
-#map {
+map {
     flex: 1;
     height: auto !important;
 }
