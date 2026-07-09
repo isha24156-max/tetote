@@ -29,7 +29,8 @@ div[style*="margin-bottom"] {
 
 #map {
     flex: 1;
-    height: auto !important;
+    width: 100%;
+    min-height: 300px;
 }
 
 button{
