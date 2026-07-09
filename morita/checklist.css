@@ -259,26 +259,3 @@ input[type="checkbox"] {
     word-break: break-word;
     margin-right: 15px;
 }
-
-#homeBtn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-
-    width: 140px;
-    height: 60px;
-
-    background-color: #eee;
-    border: 1px solid #000;
-    border-radius: 20px;
-
-    font-size: 22px;
-    font-family: "Ki Maru", sans-serif;
-    cursor: pointer;
-
-    box-shadow:
-        0 0 20px rgba(0,0,0,0.1),
-        0 10px 25px rgba(0,0,0,0.15);
-
-    z-index: 1000;
-}
