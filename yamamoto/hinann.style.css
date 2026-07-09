@@ -31,7 +31,7 @@ div[style*="margin-bottom"] {
 
 button{
     font-size: 40px;
-    padding: 25px 90px;
+    padding: 10px, 70px;
     border: none;
     border-radius: 15px;
     background-color: #618a3d;
