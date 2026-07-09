@@ -17,6 +17,8 @@ body{
 h1 {
     font-size: 40px;       /* 文字の大きさを少しすっきりさせる */
     margin: 10px 0 5px 0;  /* 上下に余計な空白ができないように制限する */
+    font-family: "Mochiy Pop One", sans-serif;
+}
 }
 
 /* ボタンの上下の隙間も少し狭くする */
