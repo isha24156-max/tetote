@@ -132,14 +132,14 @@ h1 {
 
 .deleteBtn {
     margin-left: auto;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 70px;
     border: none;
-    border-radius: 50%;
+    border-radius: 20px;
     background: #ffe5e5;
     color: #d9534f;
     border: 1px solid #000;
-    font-size: 20px;
+    font-size: 24px;
     display: none;
     justify-content: center;
     align-items: center;
