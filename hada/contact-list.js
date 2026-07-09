@@ -68,13 +68,13 @@ import { getFirestore, collection, getDocs } from "https://www.gstatic.com/fireb
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
-    authDomain: "tetote-f459b.firebaseapp.com",
-    projectId: "tetote-f459b",
-    storageBucket: "tetote-f459b.firebasestorage.app",
-    messagingSenderId: "4402684573",
-    appId: "1:4402684573:web:09529c707357ce437dea74",
-    measurementId: "G-CSGLSRBLDR"
+  apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+  authDomain: "tetote-f459b.firebaseapp.com",
+  projectId: "tetote-f459b",
+  storageBucket: "tetote-f459b.firebasestorage.app",
+  messagingSenderId: "4402684573",
+  appId: "1:4402684573:web:09529c707357ce437dea74",
+  measurementId: "G-CSGLSRBLDR"
 };
 
 
@@ -85,11 +85,17 @@ const db = getFirestore(app);
 async function showList(){
 
     const list = document.getElementById("mailList");
-    list.innerHTML = "";
 
-    const snapshot = await getDocs(collection(db,"contacts"));
+    console.log("showList開始");
+
+    const snapshot = await getDocs(collection(db, "contacts"));
+
+    console.log(snapshot);
+
 
     snapshot.forEach((doc)=>{
+
+        console.log(doc.data());
 
         const contact = doc.data();
 
@@ -98,10 +104,10 @@ async function showList(){
             <strong>${contact.name}</strong><br>
             📧 ${contact.email}
         </li>
-        <br>
         `;
 
     });
+
 }
 
 showList();
