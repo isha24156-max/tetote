@@ -8,8 +8,8 @@ body{
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    /* font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif; */
-    font-family: "Mochiy Pop One", sans-serif;
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+    
 }
 
 
