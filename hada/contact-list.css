@@ -27,20 +27,6 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-input{
-
-    width:100%;
-    max-width: 680px;
-    height:90px;
-
-    font-size:50px;
-    box-sizing: border-box;
-    margin-bottom:35px;
-    padding: 0 20px;
-    border: 2px solid #bdbdbd;
-    border-radius: 12px;
-}
-
 button{
 
     width:100%;
@@ -64,11 +50,6 @@ button{
 h1{
     font-size:72px;
     margin:20px 0 50px;
-}
-
-h2{
-    font-size:48px;
-    margin-bottom:60px;
 }
 
 .contact-list {
