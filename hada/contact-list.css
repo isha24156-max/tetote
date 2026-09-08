@@ -75,10 +75,6 @@ h2{
     height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: white;
-    border-radius: 10px;
-    padding: 5px 10px;
-    margin-bottom: 15px;
 }
 
 .contact-list ul {
