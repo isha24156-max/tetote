@@ -4,45 +4,52 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
 }).addTo(map);
 
-//テスト用の現在地を作る
-console.log("位置情報がOFFのため、テスト用位置（出雲市役所）を表示します。");
+let currentLat = null;
+let currentLng = null;
+let currentMarker = null;
 
-// テスト用の座標（大津小学校）
-const testLat = 35.3752; 
-const testLng = 132.7705; 
+navigator.geolocation.getCurrentPosition(
+    function(position) {
+        currentLat = position.coords.latitude;
+        currentLng = position.coords.longitude;
 
-// 地図をテスト位置へ強制移動
-map.setView([testLat, testLng], 15);
+        console.log("現在地:", currentLat, currentLng);
 
-// マーカー設置
-L.marker([testLat, testLng])
-    .addTo(map)
-    .bindPopup("現在地（テスト用：大津小学校）") 
-    .openPopup();
+        map.setView([currentLat, currentLng], 15);
 
-    // // テスト用の座標（出雲市役所付近）
-    // const testLat = 35.3664;
-    // const testLng = 132.7554;
+        currentMarker = L.marker([currentLat, currentLng])
+            .addTo(map)
+            .bindPopup("現在地")
+            .openPopup();
+    },
+    function(error) {
+        alert("現在地を取得できませんでした。位置情報を許可してください。");
+    },
+    {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+    }
+    );
 
-    // // 地図をテスト位置へ強制移動
-    // map.setView([testLat, testLng], 15);
-
-    // // マーカー設置
-    // L.marker([testLat, testLng])
-    //     .addTo(map)
-    //     .bindPopup("現在地（テスト用：出雲市役所）")
-    //     .openPopup();
-
-
-    
     window.findNearestShelter = function() {
+
+    if (currentLat === null || currentLng === null) {
+        alert("現在地を取得中です。少し待ってからもう一度押してください。");
+        return;
+    }
     let nearestShelter = null;
-    let minDistance = Infinity; // 一番小さい距離を記録する変数
+
+    let minDistance = Infinity; // 一番小さい距離を記録
 
     // 3つの避難所をループして、現在地からの距離を計算する
     shelters.forEach(function(shelter) {
-        // Leafletの機能を使って、現在地と避難所の距離（メートル）を計算
-        const distance = map.distance([testLat, testLng], [shelter.lat, shelter.lng]);
+        //現在地と避難所の距離（メートル）を計算
+    const distance = map.distance(
+        [currentLat, currentLng],
+        [shelter.lat, shelter.lng]
+    );
+
         
         // もし今までの最小距離より小さければ、記録を更新
         if (distance < minDistance) {
@@ -82,7 +89,7 @@ window.setDestination = function(destLat, destLng, destName) {
     // 道路に沿ってナビの線を引く
     routingControl = L.Routing.control({
         waypoints: [
-            L.latLng(testLat, testLng), // 出発地
+            L.latLng(currentLat, currentLng), // 現在地
             L.latLng(destLat, destLng)  // 目的地
         ],
         routeWhileDragging: false,
