@@ -1,1 +1,159 @@
+body {
+    font-family: "Yomogi", cursive;
+    margin: 0;
+    padding: 30px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
 
+    /* スタート画面と同じ背景 */
+    background-image: url("../hana/start.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow-y: auto;
+}
+
+
+/* 全体 */
+.consent-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto 50px;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 30px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* タイトル */
+h1 {
+    text-align: center;
+
+    font-size: 36px;
+    font-weight: bold;
+
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    line-height: 1.4;
+}
+
+
+/* 本文 */
+.consent-text {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.consent-text p {
+    margin: 0 0 20px;
+}
+
+
+/* 利用目的のリスト */
+.consent-text ul {
+    padding-left: 30px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.consent-text li {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+    line-height: 1.7;
+
+    /* 通常のliのデザインをリセット */
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+
+    display: list-item;
+    list-style: disc;
+}
+
+
+/* 太字 */
+.consent-text strong {
+    font-weight: bold;
+}
+
+
+/* 同意チェック */
+.consent-check {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    font-size: 20px;
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+
+/* チェックボックス */
+.consent-check input {
+    flex-shrink: 0;
+
+    width: 25px;
+    height: 25px;
+
+    margin-top: 5px;
+}
+
+
+/* 同意して次へ */
+#nextBtn {
+    display: block;
+
+    margin: 30px auto 10px;
+
+    width: 80%;
+    max-width: 350px;
+
+    padding: 18px 20px;
+
+    font-family: "Yomogi", cursive;
+    font-size: 24px;
+
+    color: white;
+
+    background-color: #638f3d;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* チェックしていないとき */
+#nextBtn:disabled {
+    background-color: #aaa;
+
+    color: #eee;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+
+/* 押したとき */
+#nextBtn:active:not(:disabled) {
+    transform: translateY(2px);
+}
