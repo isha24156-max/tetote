@@ -6,7 +6,7 @@ body {
     box-sizing: border-box;
 
     /* スタート画面と同じ背景 */
-    background-image: url("../hana/start.png");
+    background-image: url("start.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
