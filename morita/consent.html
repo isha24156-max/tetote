@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>個人情報の取り扱いについて</title>
+
+    <link rel="stylesheet" href="consent.css">
+
+    <!-- Yomogi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="consent-container">
+
+        <h1>個人情報の取り扱いについて</h1>
+
+        <div class="consent-text">
+
+            <p>
+                このアプリでは、避難時の安否確認を支援するため、
+                <strong>氏名およびメールアドレス</strong>を取得します。
+            </p>
+
+            <p>
+                取得した情報は、以下の目的で利用します。
+            </p>
+
+            <ul>
+                <li>安否確認を行うため</li>
+                <li>安否確認の際に、登録したメールアドレスを宛先として利用するため</li>
+                <li>課題研究におけるアプリの開発・検証を行うため</li>
+            </ul>
+
+            <p>
+                登録したメールアドレスは、安否確認の際にメールの宛先として使用されます。
+            </p>
+
+            <p>
+                メールの本文はアプリによって自動的に作成されますが、
+                <strong>メールの送信は利用者自身が確認したうえで行います。</strong>
+            </p>
+
+            <p>
+                入力された情報は、Firebaseを利用して保存・管理します。
+            </p>
+
+            <p>
+                また、課題研究の発表・評価等でデータを利用する場合は、
+                <strong>個人が特定されない形で取り扱います。</strong>
+            </p>
+
+        </div>
+
+        <label class="consent-check">
+            <input type="checkbox" id="consentCheckbox">
+            <span>
+                上記の内容を確認し、個人情報の取り扱いに同意します
+            </span>
+        </label>
+
+        <button id="nextBtn" disabled>
+            同意して次へ
+        </button>
+
+    </main>
+
+    <script src="consent.js"></script>
+
+</body>
+</html>
