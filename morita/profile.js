@@ -17,6 +17,10 @@ registerBtn.addEventListener("click", () => {
         return;
     }
 
+    // 入力内容を消す
+    nameInput.value = "";
+    emailInput.value = "";
+
     // 登録完了を表示
     completeModal.classList.remove("hidden");
 
