@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>連絡先登録</title>
+
+    <link rel="stylesheet" href="profile.css">
+
+    <!-- Yomogi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="profile-container">
+
+        <h1>連絡先登録</h1>
+
+        <div class="input-area">
+
+            <label for="nameInput">名前</label>
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="名前を入力してください"
+            >
+
+            <label for="emailInput">メールアドレス</label>
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="メールアドレスを入力してください"
+            >
+
+        </div>
+
+        <button id="registerBtn">
+            登録
+        </button>
+
+    </main>
+
+
+    <!-- 登録完了モーダル -->
+    <div id="completeModal" class="hidden">
+
+        <div class="completeBox">
+            <p>登録完了</p>
+        </div>
+
+    </div>
+
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>
