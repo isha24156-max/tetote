@@ -23,58 +23,66 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-async function showList(){
+async function showList() {
 
     const list = document.getElementById("mailList");
 
     list.innerHTML = "";
 
-    console.log("showList開始");
-
     const snapshot = await getDocs(collection(db, "contacts"));
 
-    console.log(snapshot);
+    snapshot.forEach((docSnapshot) => {
 
+        const contact = docSnapshot.data();
 
-    snapshot.forEach((docSnapshot)=>{
+        const li = document.createElement("li");
 
-        console.log(docSnapshot.data());
+        li.innerHTML = `
+            <strong>${contact.name}</strong><br>
+            📧 ${contact.email}<br>
+        `;
 
-const contact = docSnapshot.data();
-        
-       const li = document.createElement("li");
+        const deleteButton = document.createElement("button");
 
-li.innerHTML = `
-    <strong>${contact.name}</strong><br>
-    📧 ${contact.email}
-`;
+        deleteButton.textContent = "削除";
 
-const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
 
-deleteButton.textContent = "削除";
+        deleteButton.addEventListener("click", async () => {
 
-deleteButton.classList.add("delete-button");
+            const result = confirm(
+                `${contact.name}さんの連絡先を削除しますか？`
+            );
 
-deleteButton.addEventListener("click", async () => {
+            if (!result) {
+                return;
+            }
 
-    const result = confirm(
-        `${contact.name}さんの連絡先を削除しますか？`
-    );
+            try {
 
-    if (!result) {
-        return;
-    }
+                await deleteDoc(
+                    doc(db, "contacts", docSnapshot.id)
+                );
 
-    await deleteDoc(
-        doc(db, "contacts", docSnapshot.id)
-    );
+                alert("削除しました");
 
-    alert("削除しました");
+                showList();
 
-    showList();
+            } catch (error) {
 
-});
+                console.error(error);
 
-li.appendChild(deleteButton);
-list.appendChild(li);
+                alert("削除できませんでした");
+
+            }
+
+        });
+
+        li.appendChild(deleteButton);
+
+        list.appendChild(li);
+
+    });
+
+}
 showList();
