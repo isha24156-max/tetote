@@ -4,17 +4,19 @@
 
 body {
     margin: 0;
+
     background-image: url("images/background.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 
-    font-family:
+    color: #222;
+
+    /* 丸みのあるフォント */
+    font-family: "Mochiy Pop One",
         "Hiragino Maru Gothic ProN",
         "Yu Gothic",
         sans-serif;
-
-    color: #222;
 }
 
 
@@ -30,22 +32,27 @@ body {
 /* タイトル */
 h1 {
     text-align: center;
-    font-size: 42px;
-    margin: 0 0 15px;
 
-    font-family:
-        "Hiragino Mincho ProN",
-        "Yu Mincho",
-        serif;
+    font-family: "Mochiy Pop One",
+        "Hiragino Maru Gothic ProN",
+        sans-serif;
+
+    font-size: 46px;
+
+    margin: 0 0 20px;
 }
 
 
 /* 最初の説明 */
 .intro {
     text-align: center;
-    font-size: 22px;
-    line-height: 1.8;
-    margin-bottom: 50px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    line-height: 2;
+
+    margin-bottom: 55px;
 }
 
 
@@ -53,12 +60,12 @@ h1 {
 .tutorial-item {
     display: flex;
 
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
 
     border-radius: 25px;
 
     margin-bottom: 45px;
-    padding: 35px 45px;
+    padding: 40px 45px;
 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
@@ -68,8 +75,8 @@ h1 {
 .number {
     flex-shrink: 0;
 
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
 
     border-radius: 50%;
 
@@ -95,64 +102,73 @@ h1 {
 
 /* 見出し */
 h2 {
-    margin: 0 0 20px;
+    margin: 0 0 25px;
 
-    font-size: 32px;
+    font-family: "Mochiy Pop One",
+        "Hiragino Maru Gothic ProN",
+        sans-serif;
 
-    font-family:
-        "Hiragino Mincho ProN",
-        "Yu Mincho",
-        serif;
+    font-size: 36px;
 }
 
 
 /* 説明文章 */
 .explanation {
-    font-size: 21px;
-    line-height: 1.9;
+    font-size: 24px;
+
+    font-weight: bold;
+
+    line-height: 2;
+
+    letter-spacing: 0.03em;
 }
 
 .explanation p {
-    margin: 0 0 18px;
+    margin: 0 0 20px;
 }
 
 
 /* 注意事項 */
 .attention {
-    margin-top: 25px;
-    padding: 20px 25px;
+    margin-top: 30px;
+    padding: 25px 30px;
 
     background-color: #fff4e8;
 
     border: 3px solid #e3a15c;
-    border-radius: 15px;
+
+    border-radius: 18px;
 }
 
+
+/* 注意のタイトル */
 .attention strong {
     display: block;
 
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 27px;
+
+    margin-bottom: 10px;
 
     color: #b45f00;
 }
 
+
+/* 注意文 */
 .attention p {
-    margin: 5px 0;
+    margin: 6px 0;
 
-    font-size: 19px;
-    line-height: 1.7;
-}
+    font-size: 22px;
 
-
-/* スクショを入れる場所 */
-.screen-area {
-    margin-top: 25px;
-    text-align: center;
+    line-height: 1.8;
 }
 
 
 /* スクショ */
+.screen-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
 .screen-area img {
     max-width: 100%;
     width: 700px;
@@ -170,18 +186,22 @@ h2 {
 .finish {
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
 
     border-radius: 25px;
 
-    padding: 40px 30px;
+    padding: 45px 30px;
 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
+
 .finish p {
-    font-size: 22px;
-    line-height: 1.8;
+    font-size: 25px;
+
+    font-weight: bold;
+
+    line-height: 2;
 }
 
 
@@ -189,28 +209,30 @@ h2 {
 .home-button {
     display: inline-block;
 
-    margin-top: 20px;
-    padding: 18px 60px;
+    margin-top: 25px;
+
+    padding: 20px 65px;
 
     background-color: #628f3d;
     color: white;
 
     text-decoration: none;
 
-    border-radius: 12px;
+    border-radius: 15px;
 
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .home-button:hover {
     opacity: 0.85;
 }
 
 
-/* スマホ・画面が小さい場合 */
+/* 画面が小さい場合 */
 @media screen and (max-width: 700px) {
 
     .tutorial {
@@ -219,45 +241,45 @@ h2 {
     }
 
     h1 {
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .intro {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .tutorial-item {
-        padding: 25px 20px;
+        padding: 30px 20px;
         display: block;
     }
 
     .number {
-        margin: 0 auto 20px;
+        margin: 0 auto 25px;
     }
 
     h2 {
         text-align: center;
-        font-size: 27px;
+        font-size: 29px;
     }
 
     .explanation {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .attention strong {
-        font-size: 21px;
+        font-size: 23px;
     }
 
     .attention p {
-        font-size: 17px;
-    }
-
-    .finish p {
         font-size: 19px;
     }
 
-    .home-button {
+    .finish p {
         font-size: 20px;
-        padding: 15px 40px;
+    }
+
+    .home-button {
+        font-size: 22px;
+        padding: 17px 45px;
     }
 }
