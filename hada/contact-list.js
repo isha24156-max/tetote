@@ -49,7 +49,7 @@ async function showList() {
 
         // ゴミ箱ボタン
         const deleteButton = document.createElement("button");
-        deleteButton.textContent = "🗑️";
+        deleteButton.textContent = "×";
         deleteButton.classList.add("delete-button");
 
         // 削除ボタン
