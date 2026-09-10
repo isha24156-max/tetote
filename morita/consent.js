@@ -6,5 +6,5 @@ consentCheckbox.addEventListener("change", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-    window.location.href = "../hana/mail.html";
+    window.location.href = "../yamamoto/login.html";
 });
