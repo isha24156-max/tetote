@@ -1,0 +1,182 @@
+body {
+    font-family: "Yomogi", cursive;
+    margin: 0;
+    padding: 20px;
+
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    /* スタート画面と同じ背景 */
+    background-image: url("start.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* 連絡先登録のカード */
+.profile-container {
+    width: 90%;
+    max-width: 600px;
+
+    margin: 80px auto;
+
+    padding: 40px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* タイトル */
+h1 {
+    text-align: center;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+
+/* 入力部分 */
+.input-area {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 名前・メールアドレスの文字 */
+.input-area label {
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+/* 入力欄 */
+.input-area input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 18px;
+
+    margin-bottom: 30px;
+
+    font-family: "Yomogi", cursive;
+    font-size: 22px;
+
+    border: 2px solid #aaa;
+    border-radius: 15px;
+
+    background: white;
+}
+
+
+/* 入力欄を選択したとき */
+.input-area input:focus {
+    outline: none;
+    border-color: #638f3d;
+}
+
+
+/* 登録ボタン */
+#registerBtn {
+    display: block;
+
+    width: 70%;
+
+    margin: 10px auto 0;
+
+    padding: 18px;
+
+    font-family: "Yomogi", cursive;
+    font-size: 28px;
+    font-weight: bold;
+
+    color: white;
+
+    background-color: #638f3d;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 登録ボタンを押したとき */
+#registerBtn:active {
+    transform: translateY(2px);
+}
+
+
+/* =========================
+   登録完了モーダル
+   ========================= */
+
+
+/* 最初は非表示 */
+#completeModal.hidden {
+    display: none;
+}
+
+
+/* 画面全体を暗くする */
+#completeModal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+/* 登録完了の白い四角 */
+.completeBox {
+    width: 60%;
+    max-width: 400px;
+
+    padding: 45px 30px;
+
+    box-sizing: border-box;
+
+    background: white;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 登録完了の文字 */
+.completeBox p {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+}
