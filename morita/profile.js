@@ -30,5 +30,5 @@ registerBtn.addEventListener("click", () => {
 const homeBtn = document.getElementById("homeBtn");
 
 homeBtn.addEventListener("click", () => {
-    window.location.href = "../hada.home.html";
+    window.location.href = "../hada/home.html";
 });
