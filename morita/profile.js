@@ -26,3 +26,9 @@ registerBtn.addEventListener("click", () => {
     }, 2000);
 
 });
+
+const homeBtn = document.getElementById("homeBtn");
+
+homeBtn.addEventListener("click", () => {
+    window.location.href = "../hada.home.html";
+});
