@@ -97,7 +97,7 @@ h1{
 }
 
 /* ゴミ箱ボタン */
-.contact-list .name-area .delete-button {
+/*.contact-list .name-area .delete-button {
     width: 45px !important;
     height: 45px !important;
     min-width: 45px;
@@ -116,7 +116,7 @@ h1{
     justify-content: center;
     
     cursor: pointer;
-}
+}*/
 
 /* 名前 */
 .name-area strong {
