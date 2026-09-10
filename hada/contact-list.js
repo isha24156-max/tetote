@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
 import {
     getFirestore,
     collection,
@@ -29,18 +30,25 @@ async function showList() {
 
     list.innerHTML = "";
 
-    const snapshot = await getDocs(collection(db, "contacts"));
+
+    const snapshot = await getDocs(
+        collection(db, "contacts")
+    );
+
 
     snapshot.forEach((docSnapshot) => {
 
         const contact = docSnapshot.data();
 
+
         const li = document.createElement("li");
+
 
         li.innerHTML = `
             <strong>${contact.name}</strong><br>
             📧 ${contact.email}<br>
         `;
+
 
         const deleteButton = document.createElement("button");
 
@@ -48,15 +56,18 @@ async function showList() {
 
         deleteButton.classList.add("delete-button");
 
+
         deleteButton.addEventListener("click", async () => {
 
             const result = confirm(
                 `${contact.name}さんの連絡先を削除しますか？`
             );
 
+
             if (!result) {
                 return;
             }
+
 
             try {
 
@@ -64,19 +75,23 @@ async function showList() {
                     doc(db, "contacts", docSnapshot.id)
                 );
 
+
                 alert("削除しました");
+
 
                 showList();
 
+
             } catch (error) {
 
-                console.error(error);
+                console.error("削除エラー:", error);
 
                 alert("削除できませんでした");
 
             }
 
         });
+
 
         li.appendChild(deleteButton);
 
@@ -85,4 +100,6 @@ async function showList() {
     });
 
 }
+
+
 showList();
