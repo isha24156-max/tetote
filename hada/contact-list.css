@@ -91,39 +91,36 @@ h1{
     opacity: 0.8;
 }
 
-/* 名前とゴミ箱を横並びにする */
+/* 名前とゴミ箱を横並び */
 .name-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+}
+
+/* ゴミ箱ボタン */
+.contact-list .name-area .delete-button {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px;
+    padding: 0;
+    margin: 0;
+    
+    border: none;
+    border-radius: 10px;
+    background: #e57373;
+    
+    font-size: 22px;
+    line-height: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
 }
 
 /* 名前 */
 .name-area strong {
     font-size: 28px;
-}
-
-/* ゴミ箱ボタン */
-.delete-button {
-    width: 45px;
-    height: 45px;
-    padding: 0;
-    border: none;
-    border-radius: 10px;
-    background: #e57373;
-    font-size: 22px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 押したとき */
-.delete-button:hover {
-    opacity: 0.8;
-}
-
-/* 連絡先同士の間隔 */
-.contact-list li {
-    margin-bottom: 25px;
 }
