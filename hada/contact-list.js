@@ -42,17 +42,39 @@ async function showList(){
 
         const contact = doc.data();
 
-        list.innerHTML += `
-            <li>
-                <strong>${contact.name}</strong><br>
-                📧 ${contact.email}
-            </li>
-            <br>
-        `;
+       const li = document.createElement("li");
 
-    });
+li.innerHTML = `
+    <strong>${contact.name}</strong><br>
+    📧 ${contact.email}
+`;
 
-}
+const deleteButton = document.createElement("button");
 
+deleteButton.textContent = "削除";
 
+deleteButton.classList.add("delete-button");
+
+deleteButton.addEventListener("click", async () => {
+
+    const result = confirm(
+        `${contact.name}さんの連絡先を削除しますか？`
+    );
+
+    if (!result) {
+        return;
+    }
+
+    await deleteDoc(
+        doc(db, "contacts", docSnapshot.id)
+    );
+
+    alert("削除しました");
+
+    showList();
+
+});
+
+li.appendChild(deleteButton);
+list.appendChild(li);
 showList();
