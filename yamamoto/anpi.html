@@ -1,121 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安否確認</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #f4f8f6;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      width: min(90%, 520px);
-      padding: 32px 24px;
-      text-align: center;
-    }
-
-    .title {
-      margin-bottom: 10px;
-      color: #26332e;
-      font-size: 28px;
-    }
-
-    .description {
-      margin: 0 0 28px;
-      color: #53615b;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .safety-button {
-      width: 100%;
-      min-height: 120px;
-      border: none;
-      border-radius: 24px;
-      background: #16845b;
-      color: white;
-      font-family: inherit;
-      font-size: 26px;
-      font-weight: 700;
-      cursor: pointer;
-
-      box-shadow:
-        0 6px 0 #0d6041,
-        0 10px 24px rgba(0, 0, 0, 0.12);
-
-      transition: transform 0.1s, box-shadow 0.1s;
-    }
-
-    .safety-button:hover {
-      background: #137650;
-    }
-
-    .safety-button:active {
-      transform: translateY(5px);
-      box-shadow:
-        0 1px 0 #0d6041,
-        0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    .icon {
-      display: block;
-      font-size: 38px;
-      margin-bottom: 8px;
-    }
-
-    .note {
-      margin-top: 24px;
-      color: #66736d;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
 
-  <main class="container">
-    <h1 class="title">安否確認</h1>
+        <h1>安否確認</h1>
 
-    <p class="description">
-      ボタンを押すと、登録している連絡先に<br>
-      「無事です」とお知らせします。
-    </p>
+        <p>現在の状況を選択してください</p>
 
-    <button
-      class="safety-button"
-      type="button"
-      onclick="sendSafetyConfirmation()"
-    >
-      <span class="icon">✓</span>
-      安否確認を送る
-    </button>
+        <button class="menu-btn" onclick="sendSafetyMail()">
+            無事です
+        </button>
 
-    <p class="note">
-      登録している家族・介護者などに<br>
-      安否確認を送信します。
-    </p>
-  </main>
+        <button class="menu-btn" onclick="location.href='home.html'">
+            戻る
+        </button>
 
-  <script>
-    function sendSafetyConfirmation() {
-      // ここに実際の送信処理を追加
-      alert("登録している連絡先に安否確認を送信します。");
-    }
-  </script>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
