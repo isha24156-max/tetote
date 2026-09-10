@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウント登録</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>アカウント登録</h1>
+
+  <p>名前・メールアドレス・パスワードを入力してください</p>
+
+  <input
+    type="text"
+    id="name"
+    placeholder="名前"
+  >
+
+  <input
+    type="email"
+    id="email"
+    placeholder="メールアドレス"
+  >
+
+  <input
+    type="password"
+    id="password"
+    placeholder="パスワード（6文字以上）"
+  >
+
+  <button class="menu-btn safety-btn" id="registerBtn">
+    登録する
+  </button>
+
+  <button class="menu-btn back-btn" onclick="location.href='login.html'">
+    ログイン画面へ
+  </button>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+
+// Firebaseの設定
+const firebaseConfig = {
+  apiKey: "AIzaSyA6stEZ00HAtMNEuVzG47zIUArCFJgsfTA",
+  authDomain: "tetote-f459b.firebaseapp.com",
+  projectId: "tetote-f459b",
+  storageBucket: "tetote-f459b.firebasestorage.app",
+  messagingSenderId: "4402684573",
+  appId: "1:4402684573:web:09529c707357ce437dea74",
+  measurementId: "G-CSGLSRBLDR"
+};
+
+
+// Firebaseを初期化
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+// 登録ボタン
+document.getElementById("registerBtn").addEventListener("click", async () => {
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+
+  // 入力チェック
+  if (!name || !email || !password) {
+    alert("すべて入力してください。");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("パスワードは6文字以上にしてください。");
+    return;
+  }
+
+
+  try {
+
+    // Firebase Authenticationにアカウントを作成
+    const userCredential =
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    // 登録されたユーザーのUID
+    const uid = userCredential.user.uid;
+
+
+    // Firestoreに名前を保存
+    await setDoc(doc(db, "users", uid), {
+      name: name,
+      email: email,
+      createdAt: Date.now()
+    });
+
+
+    alert("アカウントを登録しました！");
+
+    // ホーム画面へ
+    location.href = "home.html";
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    if (error.code === "auth/email-already-in-use") {
+      alert("このメールアドレスはすでに登録されています。");
+    } else if (error.code === "auth/invalid-email") {
+      alert("メールアドレスの形式が正しくありません。");
+    } else if (error.code === "auth/weak-password") {
+      alert("パスワードが弱すぎます。6文字以上にしてください。");
+    } else {
+      alert("登録に失敗しました。もう一度お試しください。");
+    }
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
