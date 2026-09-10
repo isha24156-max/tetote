@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アカウント登録</title>
+
+  <title>新規登録</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +17,9 @@
 
 <div class="container">
 
-  <h1>アカウント登録</h1>
+  <h1>新規登録</h1>
 
-  <p>名前・メールアドレス・パスワードを入力してください</p>
+  <p>アカウントを作成してください</p>
 
   <input
     type="text"
@@ -43,7 +44,7 @@
   </button>
 
   <button class="menu-btn back-btn" onclick="location.href='login.html'">
-    ログイン
+    ログイン画面へ
   </button>
 
 </div>
@@ -66,9 +67,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
-// Firebaseの設定
 const firebaseConfig = {
-  apiKey: "AIzaSyA6stEZ00HAtMNEuVzG47zIUArCFJgsfTA",
+  apiKey: "AIzaSyA6stEZ00HAtMNEuV..." ,
   authDomain: "tetote-f459b.firebaseapp.com",
   projectId: "tetote-f459b",
   storageBucket: "tetote-f459b.firebasestorage.app",
@@ -78,14 +78,12 @@ const firebaseConfig = {
 };
 
 
-// Firebaseを初期化
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-// 登録ボタン
 document.getElementById("registerBtn").addEventListener("click", async () => {
 
   const name = document.getElementById("name").value.trim();
@@ -93,7 +91,6 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
   const password = document.getElementById("password").value;
 
 
-  // 入力チェック
   if (!name || !email || !password) {
     alert("すべて入力してください。");
     return;
@@ -107,7 +104,7 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
 
   try {
 
-    // Firebase Authenticationにアカウントを作成
+    // Firebase Authenticationに登録
     const userCredential =
       await createUserWithEmailAndPassword(
         auth,
@@ -115,11 +112,11 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
         password
       );
 
-    // 登録されたユーザーのUID
+    // この人専用のUID
     const uid = userCredential.user.uid;
 
 
-    // Firestoreに名前を保存
+    // Firestoreに名前とメールアドレスを保存
     await setDoc(doc(db, "users", uid), {
       name: name,
       email: email,
@@ -127,7 +124,7 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
     });
 
 
-    alert("アカウントを登録しました！");
+    alert("登録しました！");
 
     // ホーム画面へ
     location.href = "home.html";
@@ -138,13 +135,21 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
     console.error(error);
 
     if (error.code === "auth/email-already-in-use") {
+
       alert("このメールアドレスはすでに登録されています。");
+
     } else if (error.code === "auth/invalid-email") {
+
       alert("メールアドレスの形式が正しくありません。");
+
     } else if (error.code === "auth/weak-password") {
-      alert("パスワードが弱すぎます。6文字以上にしてください。");
+
+      alert("パスワードは6文字以上にしてください。");
+
     } else {
-      alert("登録に失敗しました。もう一度お試しください。");
+
+      alert("登録に失敗しました。");
+
     }
 
   }
