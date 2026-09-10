@@ -36,12 +36,12 @@ async function showList(){
     console.log(snapshot);
 
 
-    snapshot.forEach((doc)=>{
+    snapshot.forEach((docSnapshot)=>{
 
-        console.log(doc.data());
+        console.log(docSnapshot.data());
 
-        const contact = doc.data();
-
+const contact = docSnapshot.data();
+        
        const li = document.createElement("li");
 
 li.innerHTML = `
