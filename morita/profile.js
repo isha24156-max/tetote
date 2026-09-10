@@ -1,12 +1,12 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
 import {
     getFirestore,
     collection,
     addDoc
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
-// Firebaseの設定
 const firebaseConfig = {
     apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
     authDomain: "tetote-f459b.firebaseapp.com",
@@ -18,9 +18,10 @@ const firebaseConfig = {
 };
 
 
-// Firebaseを初期化
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
+
 
 const registerBtn = document.getElementById("registerBtn");
 
@@ -29,33 +30,56 @@ const emailInput = document.getElementById("emailInput");
 
 const completeModal = document.getElementById("completeModal");
 
+const homeBtn = document.getElementById("homeBtn");
 
-registerBtn.addEventListener("click", () => {
+
+registerBtn.addEventListener("click", async (e) => {
+
+    e.preventDefault();
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
 
-    // 名前かメールアドレスが空の場合
-    if (name === "" || email === "") {
+    // 未入力チェック
+    if (!name || !email) {
         alert("名前とメールアドレスを入力してください。");
         return;
     }
 
-    // 入力内容を消す
-    nameInput.value = "";
-    emailInput.value = "";
+    try {
 
-    // 登録完了を表示
-    completeModal.classList.remove("hidden");
+        // contactsに登録
+        await addDoc(collection(db, "contacts"), {
+            name: name,
+            email: email,
+            createdAt: Date.now()
+        });
 
-    // 2秒後に登録完了を消す
-    setTimeout(() => {
-        completeModal.classList.add("hidden");
-    }, 2000);
+
+        // 入力欄を消す
+        nameInput.value = "";
+        emailInput.value = "";
+
+
+        // 登録完了を表示
+        completeModal.classList.remove("hidden");
+
+
+        // 2秒後に登録完了を消す
+        setTimeout(() => {
+            completeModal.classList.add("hidden");
+        }, 2000);
+
+
+    } catch (error) {
+
+        console.error("登録エラー:", error);
+
+        alert("登録に失敗しました。");
+    }
 
 });
 
-const homeBtn = document.getElementById("homeBtn");
 
 homeBtn.addEventListener("click", () => {
     window.location.href = "../hada/home.html";
