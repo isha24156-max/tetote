@@ -74,3 +74,19 @@ h1{
     line-height: 1.6;
     margin-bottom: 25px;
 }
+
+.delete-button {
+    margin-top: 8px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 15px;
+    background: #e57373;
+    color: white;
+    font-size: 16px;
+    font-family: "Yomogi", cursive;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    opacity: 0.8;
+}
