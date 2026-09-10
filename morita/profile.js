@@ -1,3 +1,27 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+// Firebaseの設定
+const firebaseConfig = {
+    apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+    authDomain: "tetote-f459b.firebaseapp.com",
+    projectId: "tetote-f459b",
+    storageBucket: "tetote-f459b.firebasestorage.app",
+    messagingSenderId: "4402684573",
+    appId: "1:4402684573:web:09529c707357ce437dea74",
+    measurementId: "G-CSGLSRBLDR"
+};
+
+
+// Firebaseを初期化
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const registerBtn = document.getElementById("registerBtn");
 
 const nameInput = document.getElementById("nameInput");
