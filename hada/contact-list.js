@@ -30,44 +30,38 @@ async function showList() {
 
     list.innerHTML = "";
 
-
     const snapshot = await getDocs(
         collection(db, "contacts")
     );
-
 
     snapshot.forEach((docSnapshot) => {
 
         const contact = docSnapshot.data();
 
-
         const li = document.createElement("li");
 
+        // 名前を表示する部分
+        const nameArea = document.createElement("div");
+        nameArea.classList.add("name-area");
 
-        li.innerHTML = `
-            <strong>${contact.name}</strong><br>
-            📧 ${contact.email}<br>
-        `;
+        const name = document.createElement("strong");
+        name.textContent = contact.name;
 
-
+        // ゴミ箱ボタン
         const deleteButton = document.createElement("button");
-
-        deleteButton.textContent = "削除";
-
+        deleteButton.textContent = "🗑️";
         deleteButton.classList.add("delete-button");
 
-
+        // 削除ボタン
         deleteButton.addEventListener("click", async () => {
 
             const result = confirm(
                 `${contact.name}さんの連絡先を削除しますか？`
             );
 
-
             if (!result) {
                 return;
             }
-
 
             try {
 
@@ -75,12 +69,9 @@ async function showList() {
                     doc(db, "contacts", docSnapshot.id)
                 );
 
-
                 alert("削除しました");
 
-
                 showList();
-
 
             } catch (error) {
 
@@ -92,14 +83,22 @@ async function showList() {
 
         });
 
+        nameArea.appendChild(name);
+        nameArea.appendChild(deleteButton);
 
-        li.appendChild(deleteButton);
+
+        // メールアドレス
+        const email = document.createElement("div");
+        email.innerHTML = `📧 ${contact.email}`;
+
+
+        li.appendChild(nameArea);
+        li.appendChild(email);
 
         list.appendChild(li);
 
     });
 
 }
-
 
 showList();
