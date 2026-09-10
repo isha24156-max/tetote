@@ -120,6 +120,30 @@ h1 {
     transform: translateY(2px);
 }
 
+#homeBtn {
+    display: block;
+
+    width: 70%;
+
+    margin: 20px auto 0;
+
+    padding: 15px;
+
+    font-family: "Yomogi", cursive;
+    font-size: 22px;
+
+    background-color: #eee;
+
+    border: 1px solid #000;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+#homeBtn:active {
+    transform: translateY(2px);
+}
+
 
 /* =========================
    登録完了モーダル
