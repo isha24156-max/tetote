@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family:
+        "Hiragino Maru Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+
+    color: #222;
+}
+
+
+/* 全体 */
+.tutorial {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 0 80px;
+}
+
+
+/* タイトル */
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin: 0 0 15px;
+
+    font-family:
+        "Hiragino Mincho ProN",
+        "Yu Mincho",
+        serif;
+}
+
+
+/* 最初の説明 */
+.intro {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+
+/* 1つの説明 */
+.tutorial-item {
+    display: flex;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-radius: 25px;
+
+    margin-bottom: 45px;
+    padding: 35px 45px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ①②③④ */
+.number {
+    flex-shrink: 0;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background-color: #628f3d;
+    color: white;
+
+    font-size: 38px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 30px;
+}
+
+
+/* 内容 */
+.content {
+    flex: 1;
+}
+
+
+/* 見出し */
+h2 {
+    margin: 0 0 20px;
+
+    font-size: 32px;
+
+    font-family:
+        "Hiragino Mincho ProN",
+        "Yu Mincho",
+        serif;
+}
+
+
+/* 説明文章 */
+.explanation {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+.explanation p {
+    margin: 0 0 18px;
+}
+
+
+/* 注意事項 */
+.attention {
+    margin-top: 25px;
+    padding: 20px 25px;
+
+    background-color: #fff4e8;
+
+    border: 3px solid #e3a15c;
+    border-radius: 15px;
+}
+
+.attention strong {
+    display: block;
+
+    font-size: 24px;
+    margin-bottom: 8px;
+
+    color: #b45f00;
+}
+
+.attention p {
+    margin: 5px 0;
+
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+
+/* スクショを入れる場所 */
+.screen-area {
+    margin-top: 25px;
+    text-align: center;
+}
+
+
+/* スクショ */
+.screen-area img {
+    max-width: 100%;
+    width: 700px;
+
+    height: auto;
+
+    border: 2px solid #aaa;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 最後の案内 */
+.finish {
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-radius: 25px;
+
+    padding: 40px 30px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.finish p {
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+
+/* アプリをはじめる */
+.home-button {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 18px 60px;
+
+    background-color: #628f3d;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+    opacity: 0.85;
+}
+
+
+/* スマホ・画面が小さい場合 */
+@media screen and (max-width: 700px) {
+
+    .tutorial {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+
+    .tutorial-item {
+        padding: 25px 20px;
+        display: block;
+    }
+
+    .number {
+        margin: 0 auto 20px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 27px;
+    }
+
+    .explanation {
+        font-size: 18px;
+    }
+
+    .attention strong {
+        font-size: 21px;
+    }
+
+    .attention p {
+        font-size: 17px;
+    }
+
+    .finish p {
+        font-size: 19px;
+    }
+
+    .home-button {
+        font-size: 20px;
+        padding: 15px 40px;
+    }
+}
