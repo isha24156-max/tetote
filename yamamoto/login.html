@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ログイン</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>ログイン</h1>
+
+  <p>メールアドレスとパスワードを入力してください</p>
+
+  <input
+    type="email"
+    id="email"
+    placeholder="メールアドレス"
+  >
+
+  <input
+    type="password"
+    id="password"
+    placeholder="パスワード"
+  >
+
+  <button class="menu-btn safety-btn" id="loginBtn">
+    ログイン
+  </button>
+
+
+  <p>アカウントを持っていない方</p>
+
+  <button
+    class="menu-btn back-btn"
+    onclick="location.href='register.html'">
+    新規登録
+  </button>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA6stEZ00HAtMNEuV..." ,
+  authDomain: "tetote-f459b.firebaseapp.com",
+  projectId: "tetote-f459b",
+  storageBucket: "tetote-f459b.firebasestorage.app",
+  messagingSenderId: "4402684573",
+  appId: "1:4402684573:web:09529c707357ce437dea74",
+  measurementId: "G-CSGLSRBLDR"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+
+  if (!email || !password) {
+    alert("メールアドレスとパスワードを入力してください。");
+    return;
+  }
+
+
+  try {
+
+    // Firebase Authenticationでログイン
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+
+    alert("ログインしました！");
+
+    // ホーム画面へ
+    location.href = "home.html";
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    if (
+      error.code === "auth/invalid-credential" ||
+      error.code === "auth/wrong-password" ||
+      error.code === "auth/user-not-found"
+    ) {
+
+      alert("メールアドレスまたはパスワードが違います。");
+
+    } else {
+
+      alert("ログインに失敗しました。");
+
+    }
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
