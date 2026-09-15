@@ -62,6 +62,7 @@ h1 {
     border: 1px solid #000;
     background-color: #9fd8ff;
     font-size: 24px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     line-height: 1;
     padding: 0;
     display: flex;
@@ -112,6 +113,7 @@ h1 {
     border-radius: 20px;
     background-color: #eee;
     font-size: 24px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     box-shadow:
         0 0 20px rgba(0,0,0,0.1),
         0 10px 25px rgba(0,0,0,0.15);
