@@ -143,11 +143,13 @@ input:focus {
    ログインボタン
    ========================= */
 
-.safety-btn {
+.safety-btn,
+.back-btn {
     background-color: #5f8f3b;
 }
 
-.safety-btn:hover {
+.safety-btn:hover,
+.back-btn:hover {
     background-color: #527e32;
 }
 
