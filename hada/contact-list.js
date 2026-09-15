@@ -24,128 +24,120 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-// 削除する連絡先を一時的に保存
+// 削除する連絡先を一時保存
 let deleteTargetId = null;
-let deleteTargetName = null;
 
 
-// =========================
+// =============================
 // 連絡先一覧を表示
-// =========================
+// =============================
 
 async function showList() {
 
-    const list = document.getElementById("maillist");
+    const list = document.getElementById("mailList");
+
+    if (!list) {
+        console.error("mailListが見つかりません");
+        return;
+    }
 
     list.innerHTML = "";
 
-    const snapshot = await getDocs(
-        collection(db, "contacts")
-    );
+    try {
 
-    snapshot.forEach((docSnapshot) => {
+        const snapshot = await getDocs(
+            collection(db, "contacts")
+        );
 
-        const contact = docSnapshot.data();
+        snapshot.forEach((docSnapshot) => {
 
-        const li = document.createElement("li");
+            const contact = docSnapshot.data();
 
-
-        // 名前を表示する部分
-        const nameArea = document.createElement("div");
-
-        nameArea.classList.add("name-area");
+            const li = document.createElement("li");
 
 
-        const name = document.createElement("strong");
+            // 名前
+            const nameArea = document.createElement("div");
+            nameArea.classList.add("name-area");
 
-        name.textContent = contact.name;
-
-
-        // ゴミ箱ボタン
-        const deleteButton = document.createElement("button");
-
-        deleteButton.textContent = "×";
-
-        deleteButton.classList.add("delete-button");
+            const name = document.createElement("strong");
+            name.textContent = contact.name;
 
 
-        // =========================
-        // 削除ボタンを押したとき
-        // =========================
+            // 削除ボタン
+            const deleteButton = document.createElement("button");
 
-        deleteButton.addEventListener("click", () => {
-
-            // 削除する連絡先を保存
-            deleteTargetId = docSnapshot.id;
-
-            deleteTargetName = contact.name;
+            deleteButton.textContent = "×";
+            deleteButton.classList.add("delete-button");
 
 
-            // 確認画面に名前を表示
-            document.getElementById("deleteMessage").textContent =
-                `${contact.name}さんの連絡先を削除してもよろしいですか？`;
+            // =============================
+            // 削除ボタンを押したとき
+            // =============================
+
+            deleteButton.addEventListener("click", () => {
+
+                deleteTargetId = docSnapshot.id;
+
+                document.getElementById("deleteMessage").textContent =
+                    `${contact.name}さんの連絡先を削除してもよろしいですか？`;
+
+                document.getElementById("deleteModal").style.display = "flex";
+
+            });
 
 
-            // 確認画面を表示
-            document.getElementById("deleteModal").style.display = "flex";
+            nameArea.appendChild(name);
+            nameArea.appendChild(deleteButton);
+
+
+            // メールアドレス
+            const email = document.createElement("div");
+
+            email.textContent = `📧 ${contact.email}`;
+
+
+            li.appendChild(nameArea);
+            li.appendChild(email);
+
+            list.appendChild(li);
 
         });
 
+    } catch (error) {
 
-        nameArea.appendChild(name);
+        console.error("連絡先の取得エラー:", error);
 
-        nameArea.appendChild(deleteButton);
-
-
-        // メールアドレス
-        const email = document.createElement("div");
-
-        email.innerHTML = `📧 ${contact.email}`;
-
-
-        li.appendChild(nameArea);
-
-        li.appendChild(email);
-
-        list.appendChild(li);
-
-    });
+    }
 
 }
 
 
-// =========================
-// キャンセルボタン
-// =========================
+// =============================
+// キャンセル
+// =============================
 
 document.getElementById("cancelDelete").addEventListener("click", () => {
 
-    // 確認画面を閉じる
     document.getElementById("deleteModal").style.display = "none";
 
-    // 保存していた情報を消す
     deleteTargetId = null;
-
-    deleteTargetName = null;
 
 });
 
 
-// =========================
-// 削除するボタン
-// =========================
+// =============================
+// 削除する
+// =============================
 
 document.getElementById("confirmDelete").addEventListener("click", async () => {
 
-    // 削除対象がない場合
     if (!deleteTargetId) {
         return;
     }
 
-
     try {
 
-        // Firebaseから削除
         await deleteDoc(
             doc(db, "contacts", deleteTargetId)
         );
@@ -154,18 +146,11 @@ document.getElementById("confirmDelete").addEventListener("click", async () => {
         // 確認画面を閉じる
         document.getElementById("deleteModal").style.display = "none";
 
-
-        // 保存していた情報を消す
         deleteTargetId = null;
-
-        deleteTargetName = null;
 
 
         // 一覧を更新
         showList();
-
-
-        alert("削除しました");
 
 
     } catch (error) {
@@ -179,8 +164,8 @@ document.getElementById("confirmDelete").addEventListener("click", async () => {
 });
 
 
-// =========================
-// 一覧を最初に表示
-// =========================
+// =============================
+// 最初に一覧を表示
+// =============================
 
 showList();
