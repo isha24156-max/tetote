@@ -51,3 +51,13 @@
 .menu-btn:last-child {
     background-color: #777;
 }
+
+/* 危険ですボタン */
+.danger-btn {
+    background-color: #d9534f;
+}
+
+/* 危険ですボタンを押したとき */
+.danger-btn:active {
+    background-color: #b52b27;
+}
