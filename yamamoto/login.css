@@ -159,13 +159,13 @@ input:focus {
    ========================= */
 
 .back-btn {
-    background-color: #86a96a;
+    background-color: #5f8f3b;
 }
 
+.safety-btn:hover,
 .back-btn:hover {
-    background-color: #76975d;
+    background-color: #527e32;
 }
-
 
 /* =========================
    スマホ・小さい画面
