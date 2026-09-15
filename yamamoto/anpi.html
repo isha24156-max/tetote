@@ -36,62 +36,8 @@
 
 </div>
 
-<script type="module">
-
-import { initializeApp } 
-    from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-
-import { 
-    getFirestore,
-    collection,
-    addDoc
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
-    authDomain: "tetote-f459b.firebaseapp.com",
-    projectId: "tetote-f459b",
-    storageBucket: "tetote-f459b.firebasestorage.app",
-    messagingSenderId: "4402684573",
-    appId: "1:4402684573:web:09529c707357ce437dea74",
-    measurementId: "G-CSGLSRBLDR"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-
-document.getElementById("safeBtn").addEventListener("click", async () => {
-
-    const result = confirm(
-        "登録している連絡先全員に「無事です」と送信しますか？"
-    );
-
-    if (!result) {
-        return;
-    }
-
-    try {
-
-        // 安否確認の送信依頼をFirestoreに登録
-        await addDoc(collection(db, "safetyConfirmations"), {
-            message: "無事です",
-            createdAt: Date.now()
-        });
-
-        alert("安否確認を送信しました。");
-
-    } catch (error) {
-
-        console.error(error);
-        alert("送信に失敗しました。もう一度お試しください。");
-
-    }
-
-});
-
-</script>
+<script type="module" src="anpi.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 </body>
 </html>
