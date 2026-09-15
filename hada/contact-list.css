@@ -123,16 +123,21 @@ h1{
     font-size: 28px;
 }
 
-/* 削除確認画面の背景 */
+/* =========================
+   削除確認画面
+   ========================= */
+
 .delete-modal {
     display: none;
+
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
 
-    background: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.45);
 
     justify-content: center;
     align-items: center;
@@ -140,12 +145,15 @@ h1{
     z-index: 1000;
 }
 
-/* 確認ボックス */
-.delete-box {
-    width: 80%;
-    max-width: 420px;
 
-    background: white;
+/* 確認ボックス */
+
+.delete-box {
+    width: 85%;
+    max-width: 450px;
+
+    background-color: white;
+
     border-radius: 20px;
 
     padding: 30px;
@@ -153,50 +161,71 @@ h1{
     text-align: center;
 
     box-sizing: border-box;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
 }
+
 
 /* タイトル */
+
 .delete-box h2 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
-    font-size: 24px;
+    font-size: 26px;
 }
 
-/* 説明 */
-.delete-box p {
-    font-size: 17px;
-    margin-bottom: 25px;
+
+/* 名前の表示 */
+
+#deleteMessage {
+    font-size: 20px;
+
+    margin-bottom: 30px;
 }
 
-/* ボタンを横並び */
+
+/* ボタン */
+
 .delete-buttons {
     display: flex;
-    gap: 15px;
+
     justify-content: center;
+
+    gap: 15px;
 }
 
-/* 確認画面のボタン */
+
+/* 共通 */
+
 .delete-buttons button {
     border: none;
+
     border-radius: 12px;
 
-    padding: 12px 20px;
+    padding: 14px 22px;
 
-    font-size: 16px;
+    font-size: 18px;
+
     font-weight: bold;
 
     cursor: pointer;
 }
 
+
 /* キャンセル */
+
 #cancelDelete {
-    background: #dddddd;
+    background-color: #dddddd;
+
     color: #333333;
 }
 
+
 /* 削除する */
+
 #confirmDelete {
-    background: #d9534f;
+    background-color: #d9534f;
+
     color: white;
 }
