@@ -122,3 +122,81 @@ h1{
 .name-area strong {
     font-size: 28px;
 }
+
+/* 削除確認画面の背景 */
+.delete-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* 確認ボックス */
+.delete-box {
+    width: 80%;
+    max-width: 420px;
+
+    background: white;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+/* タイトル */
+.delete-box h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    font-size: 24px;
+}
+
+/* 説明 */
+.delete-box p {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* ボタンを横並び */
+.delete-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* 確認画面のボタン */
+.delete-buttons button {
+    border: none;
+    border-radius: 12px;
+
+    padding: 12px 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* キャンセル */
+#cancelDelete {
+    background: #dddddd;
+    color: #333333;
+}
+
+/* 削除する */
+#confirmDelete {
+    background: #d9534f;
+    color: white;
+}
