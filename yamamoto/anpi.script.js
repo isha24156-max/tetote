@@ -17,7 +17,7 @@ import {
 
 
 const firebaseConfig = {
-    apiKey:  "AIzaSyA6stEZ00HAtMNEuV...",
+    apiKey:  "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
     authDomain: "tetote-f459b.firebaseapp.com",
     projectId: "tetote-f459b",
     storageBucket: "tetote-f459b.firebasestorage.app",
