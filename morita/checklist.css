@@ -9,6 +9,11 @@ body {
     background-repeat: no-repeat;
 }
 
+button,
+input {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 h1 {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     text-align: center;
