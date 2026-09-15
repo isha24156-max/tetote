@@ -1,0 +1,196 @@
+/* =========================
+   全体
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    /* 右側の画面に合わせた薄い背景 */
+    background-color: #faf8f0;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    color: #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   メインの白い部分
+   ========================= */
+
+.container {
+    width: 85%;
+    max-width: 700px;
+
+    min-height: 650px;
+
+    background-color: rgba(255, 255, 255, 0.94);
+
+    border-radius: 30px;
+
+    padding: 55px 60px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+
+/* =========================
+   タイトル
+   ========================= */
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 45px;
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   説明文
+   ========================= */
+
+p {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   入力欄
+   ========================= */
+
+input {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+
+    height: 60px;
+
+    margin: 15px auto;
+
+    padding: 10px 18px;
+
+    border: 2px solid #cccccc;
+
+    border-radius: 12px;
+
+    background-color: white;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    font-size: 20px;
+}
+
+
+/* 入力欄を選択したとき */
+
+input:focus {
+    outline: none;
+
+    border-color: #5f8f3b;
+}
+
+
+/* =========================
+   ボタン共通
+   ========================= */
+
+.menu-btn {
+    display: block;
+
+    width: 230px;
+
+    height: 65px;
+
+    margin: 25px auto;
+
+    border: none;
+
+    border-radius: 16px;
+
+    color: white;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ログインボタン
+   ========================= */
+
+.safety-btn {
+    background-color: #5f8f3b;
+}
+
+.safety-btn:hover {
+    background-color: #527e32;
+}
+
+
+/* =========================
+   新規登録ボタン
+   ========================= */
+
+.back-btn {
+    background-color: #86a96a;
+}
+
+.back-btn:hover {
+    background-color: #76975d;
+}
+
+
+/* =========================
+   スマホ・小さい画面
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+
+        min-height: auto;
+
+        padding: 40px 25px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 18px;
+    }
+
+    .menu-btn {
+        width: 220px;
+    }
+}
