@@ -79,7 +79,7 @@ h1{
 .delete-button {
     width: 45px !important;
     height: 45px !important;
-    background: #FF0000
+    background: #FF0000;
     border: 1px solid black;
     border-radius: 10px;
     font-size: 20px;
