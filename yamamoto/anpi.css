@@ -1,6 +1,10 @@
 /* =========================
-   画面全体
+   全体
    ========================= */
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     width: 100%;
@@ -16,34 +20,16 @@ body {
 
     font-family: "M PLUS Rounded 1c", sans-serif;
 
-    position: relative;
-}
-
-
-/* =========================
-   背景
-   ========================= */
-
-body::before {
-    content: "";
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
+    /* 背景 */
     background-image: url("../morita/start.png");
 
-    /* 画面全体に背景を表示 */
-    background-size: 100% 100%;
+    /* 画像の比率を保ったまま画面を埋める */
+    background-size: cover;
 
     background-position: center;
     background-repeat: no-repeat;
 
-    z-index: -1;
+    background-attachment: fixed;
 }
 
 
