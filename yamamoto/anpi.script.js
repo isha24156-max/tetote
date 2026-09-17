@@ -14,7 +14,11 @@ import {
     collection,
     getDocs,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+} 
+
+alert("JavaScriptは動いています");
+
+from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
 // ==============================
