@@ -15,14 +15,16 @@ body {
     margin: 0;
     min-height: 100vh;
 
-   background-image: url("../morita/start.png");
-    background-size: 100% auto;
-    background-position: center bottom;
+    background-image: url("../morita/start.png");
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-color: #fffdf5;
+    background-attachment: fixed;
 
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
+
 /* =========================
    安否確認画面
    ========================= */
