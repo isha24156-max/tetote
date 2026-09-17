@@ -1,1 +1,211 @@
+/* =========================
+   全体
+   ========================= */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #faf8f0;
+    background-image: url("../morita/start.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    color: #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   新規登録の白いカード
+   ========================= */
+
+.container {
+    width: 85%;
+    max-width: 700px;
+
+    min-height: 600px;
+
+    background-color: rgba(255, 255, 255, 0.94);
+
+    border-radius: 30px;
+
+    padding: 50px 60px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+
+/* =========================
+   タイトル
+   ========================= */
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 35px;
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   説明文
+   ========================= */
+
+p {
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   入力欄
+   ========================= */
+
+input {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+
+    height: 60px;
+
+    margin: 15px auto;
+
+    padding: 10px 18px;
+
+    border: 2px solid #cccccc;
+
+    border-radius: 12px;
+
+    background-color: white;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    font-size: 20px;
+}
+
+
+/* 入力欄を選択したとき */
+
+input:focus {
+    outline: none;
+
+    border-color: #5f8f3b;
+}
+
+
+/* =========================
+   ボタン共通
+   ========================= */
+
+button {
+    border: none;
+
+    border-radius: 16px;
+
+    background-color: #5f8f3b;
+
+    color: white;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   登録するボタン
+   ========================= */
+
+button[type="submit"] {
+    width: 230px;
+
+    height: 65px;
+
+    margin: 25px 8px 15px;
+}
+
+
+/* =========================
+   ログイン画面へボタン
+   ========================= */
+
+button:not([type="submit"]) {
+    width: 230px;
+
+    height: 65px;
+
+    margin: 15px 8px;
+}
+
+
+/* =========================
+   マウスを乗せたとき
+   ========================= */
+
+button:hover {
+    background-color: #527e32;
+}
+
+
+/* =========================
+   ボタンを押したとき
+   ========================= */
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   スマホ・小さい画面
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+
+        min-height: auto;
+
+        padding: 40px 25px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 18px;
+    }
+
+    button {
+        width: 220px;
+    }
+}
