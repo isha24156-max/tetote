@@ -1,70 +1,184 @@
-body {
-     background-image: url("../morita/start.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* =========================
+   全体
+   ========================= */
+
+* {
+    box-sizing: border-box;
 }
 
-/* 安否確認画面 */
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    /* スタート画面と同じ背景 */
+    background-image: url("../morita/start.png");
+
+    /* 背景画像を切らずに画面いっぱいに表示 */
+    background-size: 100% 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+
+/* =========================
+   安否確認画面
+   ========================= */
+
 .container {
     width: 90%;
     max-width: 600px;
+
     margin: 0 auto;
+
     padding: 50px 20px;
+
     text-align: center;
 }
 
+
+/* =========================
+   タイトル
+   ========================= */
+
 .container h1 {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
     font-size: 36px;
+
+    font-weight: 700;
+
     color: #333;
+
+    margin-top: 0;
     margin-bottom: 30px;
 }
 
+
+/* =========================
+   説明文
+   ========================= */
+
 .container p {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
     font-size: 22px;
+
+    font-weight: 700;
+
     color: #555;
+
     margin-bottom: 35px;
 }
 
+
+/* =========================
+   ボタン共通
+   ========================= */
+
 .menu-btn {
     display: block;
+
     width: 100%;
     max-width: 500px;
+
     min-height: 90px;
+
     margin: 20px auto;
+
     padding: 20px;
 
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
     font-size: 28px;
+
     font-weight: 700;
 
     color: white;
-    background-color: #16845b;
+
+    background-color: #5f8f3b;
 
     border: none;
+
     border-radius: 20px;
+
     cursor: pointer;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* 押したとき */
-.menu-btn:active {
+
+/* =========================
+   無事です
+   ========================= */
+
+.safety-btn {
+    background-color: #16845b;
+}
+
+
+/* 無事です：押したとき */
+
+.safety-btn:active {
     transform: scale(0.97);
+
     background-color: #106b49;
 }
 
-/* 戻るボタン */
-.menu-btn:last-child {
-    background-color: #777;
-}
 
-/* 危険ですボタン */
+/* =========================
+   危険です
+   ========================= */
+
 .danger-btn {
     background-color: #d9534f;
 }
 
-/* 危険ですボタンを押したとき */
+
+/* 危険です：押したとき */
+
 .danger-btn:active {
+    transform: scale(0.97);
+
     background-color: #b52b27;
+}
+
+
+/* =========================
+   戻るボタン
+   ========================= */
+
+.back-btn {
+    background-color: #777;
+}
+
+
+/* 戻る：押したとき */
+
+.back-btn:active {
+    transform: scale(0.97);
+
+    background-color: #555;
+}
+
+
+/* =========================
+   マウスを乗せたとき
+   ========================= */
+
+.safety-btn:hover {
+    background-color: #14764f;
+}
+
+.danger-btn:hover {
+    background-color: #c74743;
+}
+
+.back-btn:hover {
+    background-color: #666;
 }
