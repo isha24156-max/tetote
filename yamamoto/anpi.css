@@ -13,21 +13,16 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
-
     min-height: 100vh;
 
-    font-family: "M PLUS Rounded 1c", sans-serif;
-
-    background-image: url("../morita/start.png");
-
-    background-size: contain;
-    background-position: center top;
+   background-image: url("../morita/start.png");
+    background-size: 100% auto;
+    background-position: center bottom;
     background-repeat: no-repeat;
-
     background-color: #fffdf5;
-}
 
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 /* =========================
    安否確認画面
    ========================= */
