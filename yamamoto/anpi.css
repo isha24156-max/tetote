@@ -1,27 +1,49 @@
 /* =========================
-   全体
+   画面全体
    ========================= */
 
-* {
-    box-sizing: border-box;
+html {
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
     margin: 0;
     padding: 0;
 
+    width: 100%;
     min-height: 100vh;
 
-    /* スタート画面と同じ背景 */
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    position: relative;
+}
+
+
+/* =========================
+   背景
+   ========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
     background-image: url("../morita/start.png");
 
-    /* 背景画像を切らずに画面いっぱいに表示 */
+    /* 画面全体に背景を表示 */
     background-size: 100% 100%;
 
     background-position: center;
     background-repeat: no-repeat;
 
-    font-family: "M PLUS Rounded 1c", sans-serif;
+    z-index: -1;
 }
 
 
@@ -49,7 +71,6 @@ body {
     font-family: "M PLUS Rounded 1c", sans-serif;
 
     font-size: 36px;
-
     font-weight: 700;
 
     color: #333;
@@ -67,7 +88,6 @@ body {
     font-family: "M PLUS Rounded 1c", sans-serif;
 
     font-size: 22px;
-
     font-weight: 700;
 
     color: #555;
@@ -95,15 +115,11 @@ body {
     font-family: "M PLUS Rounded 1c", sans-serif;
 
     font-size: 28px;
-
     font-weight: 700;
 
     color: white;
 
-    background-color: #5f8f3b;
-
     border: none;
-
     border-radius: 20px;
 
     cursor: pointer;
@@ -121,12 +137,8 @@ body {
     background-color: #16845b;
 }
 
-
-/* 無事です：押したとき */
-
 .safety-btn:active {
     transform: scale(0.97);
-
     background-color: #106b49;
 }
 
@@ -139,30 +151,22 @@ body {
     background-color: #d9534f;
 }
 
-
-/* 危険です：押したとき */
-
 .danger-btn:active {
     transform: scale(0.97);
-
     background-color: #b52b27;
 }
 
 
 /* =========================
-   戻るボタン
+   戻る
    ========================= */
 
 .back-btn {
     background-color: #777;
 }
 
-
-/* 戻る：押したとき */
-
 .back-btn:active {
     transform: scale(0.97);
-
     background-color: #555;
 }
 
