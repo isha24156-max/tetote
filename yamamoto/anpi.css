@@ -21,13 +21,10 @@ body {
 
     background-image: url("../morita/start.png");
 
-    /* 画像を引き伸ばさず、全体を表示 */
     background-size: contain;
-
     background-position: center top;
     background-repeat: no-repeat;
 
-    /* 画像の外側の色 */
     background-color: #fffdf5;
 }
 
