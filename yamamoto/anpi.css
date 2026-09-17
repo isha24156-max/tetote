@@ -15,23 +15,21 @@ body {
     margin: 0;
     padding: 0;
 
-    width: 100%;
     min-height: 100vh;
 
     font-family: "M PLUS Rounded 1c", sans-serif;
 
-    /* 背景 */
     background-image: url("../morita/start.png");
 
-    /* 画像の比率を保ったまま画面を埋める */
-    background-size: cover;
+    /* 画像を引き伸ばさず、全体を表示 */
+    background-size: contain;
 
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
 
-    background-attachment: fixed;
+    /* 画像の外側の色 */
+    background-color: #fffdf5;
 }
-
 
 /* =========================
    安否確認画面
