@@ -30,23 +30,18 @@ body {
 }
 
 button{
+    width: 100%;
+    height: 80px;
 
-    width:100%;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
 
-    height:80px;
-
-    font-size:50px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#618a3d;
-
-    color:white;
-
-    margin-top:30px;
-
+    border: none;
+    border-radius: 30px;
+    background: #618a3d;
+    color: white;
+    margin-top: 30px;
 }
 
 h1{
