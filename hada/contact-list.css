@@ -195,18 +195,15 @@ h1{
 
 .delete-buttons button {
     border: none;
-
     border-radius: 12px;
-
     padding: 14px 22px;
 
+    font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 18px;
-
-    font-weight: bold;
+    font-weight: 700;
 
     cursor: pointer;
 }
-
 
 /* キャンセル */
 
