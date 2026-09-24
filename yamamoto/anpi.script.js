@@ -168,24 +168,22 @@ async function sendSafetyMail(message) {
 }
 
 
-// ==============================
-// 無事です
-// ==============================
+// 無事ですを送信
 
 async function sendSafeMail() {
     await sendSafetyMail("無事です");
 }
 
-
-// ==============================
-// 危険です
-// ==============================
+// 危険ですを送信
 
 async function sendDangerMail() {
     await sendSafetyMail("危険です");
 }
 
-
 // HTMLから呼び出せるようにする
 window.sendSafeMail = sendSafeMail;
 window.sendDangerMail = sendDangerMail;
+
+// ボタンに処理を設定
+document.getElementById("safeBtn").addEventListener("click", sendSafeMail);
+document.getElementById("dangerBtn").addEventListener("click", sendDangerMail);
