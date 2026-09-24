@@ -47,76 +47,184 @@
 
 <script type="module">
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-    import {
-        getFirestore,
-        collection,
-        addDoc
-    } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
-        authDomain: "tetote-f459b.firebaseapp.com",
-        projectId: "tetote-f459b",
-        storageBucket: "tetote-f459b.firebasestorage.app",
-        messagingSenderId: "4402684573",
-        appId: "1:4402684573:web:09529c707357ce437dea74",
-        measurementId: "G-CSGLSRBLDR"
-    };
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 
-    const app = initializeApp(firebaseConfig);
+// =====================================
+// Firebase設定
+// =====================================
 
-    const db = getFirestore(app);
-
-    const analytics = getAnalytics(app);
-
-
-    document.getElementById("registerBtn").addEventListener("click", async (e) => {
-
-        e.preventDefault();
-
-        const name1 = document.getElementById("name1").value.trim();
-        const mail1 = document.getElementById("mail1").value.trim();
-
-        const name2 = document.getElementById("name2").value.trim();
-        const mail2 = document.getElementById("mail2").value.trim();
+const firebaseConfig = {
+    apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+    authDomain: "tetote-f459b.firebaseapp.com",
+    projectId: "tetote-f459b",
+    storageBucket: "tetote-f459b.firebasestorage.app",
+    messagingSenderId: "4402684573",
+    appId: "1:4402684573:web:09529c707357ce437dea74",
+    measurementId: "G-CSGLSRBLDR"
+};
 
 
+// =====================================
+// Firebaseを初期化
+// =====================================
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const auth = getAuth(app);
+
+
+// =====================================
+// ログインしているユーザーを確認
+// =====================================
+
+let currentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+
+        // ログインしている人
+        currentUser = user;
+
+        console.log("ログイン中のUID:", user.uid);
+
+    } else {
+
+        // ログインしていない
+        currentUser = null;
+
+        alert("ログインしてください。");
+
+        window.location.href = "../yamamoto/login.html";
+
+    }
+
+});
+
+
+// =====================================
+// 登録ボタン
+// =====================================
+
+document.getElementById("registerBtn").addEventListener("click", async () => {
+
+    // ログイン確認
+    if (!currentUser) {
+
+        alert("ログイン情報を確認しています。少し待ってからもう一度押してください。");
+
+        return;
+    }
+
+
+    // =================================
+    // 入力された情報を取得
+    // =================================
+
+    const name1 =
+        document.getElementById("name1").value.trim();
+
+    const mail1 =
+        document.getElementById("mail1").value.trim();
+
+
+    const name2 =
+        document.getElementById("name2").value.trim();
+
+    const mail2 =
+        document.getElementById("mail2").value.trim();
+
+
+    // =================================
+    // 家族①の入力チェック
+    // =================================
+
+    if (!name1 || !mail1) {
+
+        alert("家族①のお名前とメールアドレスを入力してください。");
+
+        return;
+    }
+
+
+    try {
+
+        // =================================
         // 家族①を登録
-        if (name1 && mail1) {
+        // =================================
 
-            await addDoc(collection(db, "contacts"), {
-                name: name1,
-                email: mail1,
-                createdAt: Date.now()
-            });
+        await addDoc(collection(db, "contacts"), {
 
-        }
+            name: name1,
+
+            email: mail1,
+
+            // ★登録した本人のUID
+            userId: currentUser.uid,
+
+            createdAt: Date.now()
+
+        });
 
 
-        // 家族②を登録
+        // =================================
+        // 家族②が入力されている場合
+        // =================================
+
         if (name2 && mail2) {
 
             await addDoc(collection(db, "contacts"), {
+
                 name: name2,
+
                 email: mail2,
+
+                // ★登録した本人のUID
+                userId: currentUser.uid,
+
                 createdAt: Date.now()
+
             });
 
         }
 
 
-        // 個人情報の同意画面へ
+        // =================================
+        // 登録完了
+        // =================================
+
+        alert("連絡先を登録しました！");
+
+
+        // チュートリアルへ
         window.location.href = "../hada/tutorial.html";
 
-    });
+
+    } catch (error) {
+
+        console.error("連絡先登録エラー:", error);
+
+        alert("連絡先の登録に失敗しました。");
+
+    }
+
+});
 
 </script>
-
 </body>
 </html>
