@@ -141,13 +141,18 @@ body {
 
 .back-btn {
     background-color: #777;
-}
 
-.back-btn:active {
-    transform: scale(0.97);
-    background-color: #555;
-}
+    width: 220px;
+    min-height: 60px;
 
+    margin: 80px auto 0;
+
+    padding: 12px;
+
+    font-size: 22px;
+
+    border-radius: 999px;
+}
 
 /* =========================
    マウスを乗せたとき
