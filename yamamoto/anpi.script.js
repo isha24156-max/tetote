@@ -88,6 +88,7 @@ async function sendSafetyMail(message) {
 
         const name = userData?.name || "利用者";
 
+        alert("名前：" + name + "\nUID：" + user.uid);
 
         // ==============================
         // contactsから登録者を取得
