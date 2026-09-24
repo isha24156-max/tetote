@@ -140,17 +140,16 @@ body {
    ========================= */
 
 .back-btn {
-    background-color: #777;
+   background-color: #777;
 
-    width: 220px;
-    min-height: 60px;
+   width: 180px;
+   min-height: 55px;
+   font-size: 22px;
 
-    margin: 350px auto 0;
-    padding: 12px;
+   margin: 350px auto 0;
+   padding: 12px;
 
-    font-size: 22px;
-
-    border-radius: 20px;
+   border-radius: 20px;
 }
 
 /* =========================
