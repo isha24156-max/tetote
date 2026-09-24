@@ -9,10 +9,7 @@ body {
     background-position: center;
     background-attachment: fixed;
 
-    font-family:
-        "Hiragino Maru Gothic ProN",
-        "Yu Gothic",
-        sans-serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
 
     color: #222;
 }
@@ -33,10 +30,8 @@ h1 {
     font-size: 42px;
     margin: 0 0 15px;
 
-    font-family:
-        "Hiragino Mincho ProN",
-        "Yu Mincho",
-        serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
 }
 
 
@@ -97,12 +92,9 @@ h1 {
 h2 {
     margin: 0 0 20px;
 
+    font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 32px;
-
-    font-family:
-        "Hiragino Mincho ProN",
-        "Yu Mincho",
-        serif;
+    font-weight: 700;
 }
 
 
@@ -199,8 +191,9 @@ h2 {
 
     border-radius: 12px;
 
+    font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
