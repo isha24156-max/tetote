@@ -14,6 +14,7 @@ import {
     addDoc,
     collection,
     getDocs,
+    query,
     where,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
