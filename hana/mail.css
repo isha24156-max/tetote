@@ -147,3 +147,37 @@ body{
 
         font-size: 30px;
     }
+
+/* ================================
+   スキップボタン
+================================ */
+
+.skip-button {
+    display: block;
+
+    width: 180px;
+
+    margin: 12px auto 0;
+
+    padding: 10px 20px;
+
+    background-color: #999999;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.skip-button:hover {
+    background-color: #777777;
+}
