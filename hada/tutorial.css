@@ -1,44 +1,552 @@
-/* 操作方法 */
-.how-to {
+/* =========================
+   全体
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background-image: url("images/background.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    color: #222;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        "Hiragino Maru Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+}
+
+
+
+/* =========================
+   チュートリアル全体
+========================= */
+
+.tutorial {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 45px 0 70px;
+
+}
+
+
+
+/* =========================
+   タイトル
+========================= */
+
+h1 {
+
+    text-align: center;
+
+    margin: 0 0 15px;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* 最初の説明 */
+
+.intro {
+
+    text-align: center;
+
+    margin: 0 0 45px;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   各機能のカード
+========================= */
+
+.tutorial-item {
+
+    display: flex;
+
+    width: 100%;
+
+    margin-bottom: 40px;
+
+    padding: 35px 40px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.12);
+
+}
+
+
+
+/* =========================
+   ①②③④
+========================= */
+
+.number {
+
+    flex-shrink: 0;
+
+    width: 65px;
+
+    height: 65px;
+
+    margin-right: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #628f3d;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* =========================
+   中身
+========================= */
+
+.content {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+
+/* =========================
+   機能名
+========================= */
+
+h2 {
+
+    margin: 0 0 20px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* =========================
+   説明文
+========================= */
+
+.explanation {
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    line-height: 1.9;
+
+}
+
+
+.explanation p {
+
+    margin: 0 0 15px;
+
+}
+
+
+
+/* =========================
+   スクリーンショット
+========================= */
+
+.screen-area {
+
     margin-top: 25px;
-    padding: 20px 25px;
+
+    text-align: center;
+
+}
+
+
+.screen-area img {
+
+    display: block;
+
+    width: 700px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    border: 2px solid #aaa;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+/* =========================
+   操作方法
+========================= */
+
+.how-to {
+
+    margin-top: 25px;
+
+    padding: 22px 25px;
 
     background-color: #f5f8ef;
 
     border-radius: 15px;
+
     border-left: 6px solid #628f3d;
+
 }
+
+
+
+/* 「使い方」 */
 
 .how-to h3 {
+
     margin: 0 0 15px;
 
-    font-size: 24px;
+    font-size: 25px;
+
     font-weight: 700;
+
 }
+
+
+
+/* 説明 */
 
 .how-to p {
-    margin: 8px 0;
 
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.how-to p span {
-    display: inline-flex;
-
-    width: 28px;
-    height: 28px;
-
-    margin-right: 6px;
+    display: flex;
 
     align-items: center;
+
+    margin: 10px 0;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* ①②③④の丸 */
+
+.how-to p span {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    width: 30px;
+
+    height: 30px;
+
+    margin-right: 10px;
+
+    align-items: center;
+
     justify-content: center;
 
     background-color: #628f3d;
+
     color: white;
 
     border-radius: 50%;
 
     font-size: 15px;
+
     font-weight: 700;
+
+}
+
+
+
+/* =========================
+   安否確認の注意
+========================= */
+
+.attention {
+
+    margin-top: 25px;
+
+    padding: 20px 25px;
+
+    background-color: #fff4e8;
+
+    border: 3px solid #e3a15c;
+
+    border-radius: 15px;
+
+}
+
+
+
+/* 注意タイトル */
+
+.attention strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #b45f00;
+
+    font-size: 24px;
+
+}
+
+
+
+/* 注意文 */
+
+.attention p {
+
+    margin: 6px 0;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   最後の案内
+========================= */
+
+.finish {
+
+    width: 100%;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.12);
+
+}
+
+
+.finish p {
+
+    margin: 0 0 15px;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   アプリをはじめる
+========================= */
+
+.home-button {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 18px 60px;
+
+    background-color: #628f3d;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.home-button:hover {
+
+    opacity: 0.85;
+
+}
+
+
+
+/* =========================
+   スマートフォン
+========================= */
+
+@media screen and (max-width: 700px) {
+
+
+    .tutorial {
+
+        width: 94%;
+
+        padding-top: 30px;
+
+    }
+
+
+    h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .intro {
+
+        font-size: 19px;
+
+    }
+
+
+    .tutorial-item {
+
+        display: block;
+
+        padding: 25px 20px;
+
+    }
+
+
+    .number {
+
+        margin: 0 auto 20px;
+
+    }
+
+
+    h2 {
+
+        text-align: center;
+
+        font-size: 28px;
+
+    }
+
+
+    .explanation {
+
+        font-size: 19px;
+
+    }
+
+
+    .how-to h3 {
+
+        font-size: 22px;
+
+    }
+
+
+    .how-to p {
+
+        font-size: 18px;
+
+    }
+
+
+    .attention strong {
+
+        font-size: 21px;
+
+    }
+
+
+    .attention p {
+
+        font-size: 18px;
+
+    }
+
+
+    .finish p {
+
+        font-size: 19px;
+
+    }
+
+
+    .home-button {
+
+        font-size: 21px;
+
+        padding: 15px 40px;
+
+    }
+
 }
