@@ -36,8 +36,14 @@
 
         <input id="mail2" type="email" placeholder="✉️メールアドレスを入力してください">
 
+        <!-- 登録ボタン -->
         <button id="registerBtn" class="button">
             登録する
+        </button>
+
+        <!-- スキップボタン -->
+        <button id="skipBtn" class="skip-button">
+            スキップ
         </button>
 
     </div>
@@ -98,14 +104,12 @@ onAuthStateChanged(auth, (user) => {
 
     if (user) {
 
-        // ログインしている人
         currentUser = user;
 
         console.log("ログイン中のUID:", user.uid);
 
     } else {
 
-        // ログインしていない
         currentUser = null;
 
         alert("ログインしてください。");
@@ -142,7 +146,6 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
     const mail1 =
         document.getElementById("mail1").value.trim();
 
-
     const name2 =
         document.getElementById("name2").value.trim();
 
@@ -171,12 +174,8 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
         await addDoc(collection(db, "contacts"), {
 
             name: name1,
-
             email: mail1,
-
-            // ★登録した本人のUID
             userId: currentUser.uid,
-
             createdAt: Date.now()
 
         });
@@ -191,12 +190,8 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
             await addDoc(collection(db, "contacts"), {
 
                 name: name2,
-
                 email: mail2,
-
-                // ★登録した本人のUID
                 userId: currentUser.uid,
-
                 createdAt: Date.now()
 
             });
@@ -210,8 +205,6 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
 
         alert("連絡先を登録しました！");
 
-
-        // チュートリアルへ
         window.location.href = "../hada/tutorial.html";
 
 
@@ -225,6 +218,19 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
 
 });
 
+
+// =====================================
+// スキップボタン
+// =====================================
+
+document.getElementById("skipBtn").addEventListener("click", () => {
+
+    // 家族登録をせずにチュートリアルへ進む
+    window.location.href = "../hada/tutorial.html";
+
+});
+
 </script>
+
 </body>
 </html>
