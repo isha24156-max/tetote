@@ -13,8 +13,9 @@ import {
     addDoc,
     collection,
     getDocs,
+    where,
     serverTimestamp
-} 
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
 
@@ -95,7 +96,10 @@ async function sendSafetyMail(message) {
         // ==============================
 
         const contactsSnapshot = await getDocs(
-            collection(db, "contacts")
+            query(
+                collection(db, "contacts"),
+                where("userId", "==", user.uid)
+            )
         );
 
         if (contactsSnapshot.empty) {
