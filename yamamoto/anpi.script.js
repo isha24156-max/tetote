@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功２");
+console.log("anpi.js 読み込み成功３");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
