@@ -613,9 +613,9 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
         // 登録完了
         // =================================
 
-        alert("連絡先を登録しました！");
-
-        window.location.href = "../hada/tutorial.html";
+        document
+            .getElementById("registerModal")
+            .style.display = "flex";
 
 
     } catch (error) {
