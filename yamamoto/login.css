@@ -278,3 +278,60 @@ input:focus {
 
     transform: translate(-50%, -50%);
 }
+
+/* 画面全体を覆う背景 */
+.message-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* 非表示のとき */
+.message-modal[hidden] {
+    display: none;
+}
+
+/* メッセージの白い枠 */
+.message-box {
+    width: 100%;
+    max-width: 380px;
+    padding: 30px 20px;
+
+    background: #fff;
+    border-radius: 20px;
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* メッセージ本文 */
+.message-box p {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 25px;
+}
+
+/* OKボタン */
+.message-box button {
+    width: 120px;
+    padding: 12px;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+
+    background: #16845b;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
