@@ -160,7 +160,9 @@ document
 
 
 
-      alert("ログインしました！");
+　　showMessage("ログイン完了", () => {
+    　location.href = "login.html";
+　　});
 
 
 
