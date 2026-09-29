@@ -310,3 +310,11 @@ h1 {
     }
 
 }
+
+
+/* 本のボタンから出てくるメニュー */
+.book-menu button {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
