@@ -1,61 +1,135 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>連絡先一覧</title>
+
 <link rel="stylesheet" href="contact-list.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+    rel="stylesheet"
+>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-<h1>連絡先一覧</h1>
+
+    <h1>連絡先一覧</h1>
 
 
-<div class="contact-list">
-    <ul id="mailList">
-    </ul>
-</div>
+    <!-- =========================
+         連絡先一覧
+         ========================= -->
 
-   <!-- 削除確認画面 -->
-<div id="deleteModal" class="delete-modal">
+    <div class="contact-list">
 
-    <div class="delete-box">
+        <ul id="mailList">
+        </ul>
 
-        <h2>連絡先を削除しますか？</h2>
+    </div>
 
-        <p id="deleteMessage"></p>
 
-        <div class="delete-buttons">
 
-            <button id="cancelDelete">
-                キャンセル
-            </button>
+    <!-- =========================
+         削除確認画面
+         ========================= -->
 
-            <button id="confirmDelete">
-                削除する
+    <div id="deleteModal" class="delete-modal">
+
+        <div class="delete-box">
+
+            <h2>
+                連絡先を削除しますか？
+            </h2>
+
+
+            <p id="deleteMessage"></p>
+
+
+            <div class="delete-buttons">
+
+                <button id="cancelDelete">
+                    キャンセル
+                </button>
+
+
+                <button id="confirmDelete">
+                    削除する
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         削除完了画面
+         ========================= -->
+
+    <div
+        id="deleteCompleteModal"
+        class="delete-complete-modal"
+    >
+
+        <div class="delete-complete-box">
+
+            <h2>
+                削除完了
+            </h2>
+
+
+            <p>
+                連絡先を削除しました。
+            </p>
+
+
+            <button id="deleteCompleteOk">
+                OK
             </button>
 
         </div>
 
     </div>
 
+
+
+    <!-- =========================
+         ホームへ戻る
+         ========================= -->
+
+    <button
+        onclick="location.href='home.html'"
+    >
+        ホームへ戻る
+    </button>
+
+
 </div>
-    
 
 
-<button onclick="location.href='home.html'">
-ホームへ戻る
-</button>
 
-</div>
+<script
+    src="contact-list.js"
+    type="module"
+></script>
 
-    <script src="contact-list.js" type="module"></script>
 
 </body>
+
 </html>
