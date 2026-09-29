@@ -160,43 +160,19 @@ document
 
 
 
-　　showMessage("ログイン完了", () => {
-    　location.href = "login.html";
-　　});
+  showMessage("ログインしました！", () => {
+      // OKを押したら家族登録画面へ
+      location.href = "../hana/mail.html";
+  });
 
-
-
-      // 家族登録画面へ
-
-      location.href =
-        "../hana/mail.html";
-
-
-
-    } catch (error) {
-
-
+  } catch (error) {
       console.error(error);
 
-
-
       if (
-
-        error.code ===
-          "auth/invalid-credential"
-
-        ||
-
-        error.code ===
-          "auth/wrong-password"
-
-        ||
-
-        error.code ===
-          "auth/user-not-found"
-
+        error.code === "auth/invalid-credential" ||
+         error.code === "auth/wrong-password" ||
+        error.code === "auth/user-not-found"
       ) {
-
 
         alert(
           "メールアドレスまたはパスワードが違います。"
