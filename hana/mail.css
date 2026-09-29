@@ -1,4 +1,357 @@
-body{
+/* =====================================
+   ページ全体
+===================================== */
+
+body {
+
+    margin: 0;
+
+    text-align: center;
+
+    min-height: 100vh;
+
+    background-image: url("img/start.png");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
+    font-weight: bold;
+
+}
+
+
+
+/* =====================================
+   家族登録画面
+===================================== */
+
+.family-container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding-top: 30px;
+
+    box-sizing: border-box;
+
+}
+
+
+
+/* =====================================
+   上の説明
+===================================== */
+
+.message {
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
+    color: #66644f;
+
+    margin: 0 auto 20px;
+
+    font-size: 35px;
+
+    line-height: 1.5;
+
+}
+
+
+
+/* =====================================
+   入力ボックス全体
+===================================== */
+
+.box {
+
+    width: 280px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    padding: 50px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    font-size: 30px;
+
+    margin: 20px auto;
+
+}
+
+
+
+/* =====================================
+   家族の名前
+===================================== */
+
+.family-name {
+
+    font-size: 30px;
+
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.family-name:nth-of-type(2) {
+
+    margin-top: 35px;
+
+}
+
+
+
+/* =====================================
+   入力欄
+===================================== */
+
+input {
+
+    width: 100%;
+
+    padding: 11px;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+    border: 2px solid #ddd6c6;
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
+}
+
+
+
+/* =====================================
+   登録ボタン
+===================================== */
+
+.button {
+
+    width: 100%;
+
+    font-size: 25px;
+
+    padding: 25px 90px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background-color: #618a3d;
+
+    color: white;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
+}
+
+
+
+/* =====================================
+   スキップボタン
+===================================== */
+
+.skip-button {
+
+    display: block;
+
+    width: 150px;
+
+    height: 45px;
+
+    margin: 15px auto 0;
+
+    background-color: #999999;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+}
+
+
+
+.skip-button:hover {
+
+    background-color: #7f7f7f;
+
+}
+
+
+
+/* =====================================
+   登録完了ポップアップ
+===================================== */
+
+.register-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color:
+        rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+
+
+/* =====================================
+   ポップアップの白い箱
+===================================== */
+
+.register-box {
+
+    width: 85%;
+
+    max-width: 450px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+/* =====================================
+   登録完了タイトル
+===================================== */
+
+.register-box h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 30px;
+
+}
+
+
+
+/* =====================================
+   メッセージ
+===================================== */
+
+.register-box p {
+
+    font-size: 24px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* =====================================
+   OKボタン
+===================================== */
+
+.register-ok {
+
+    width: 140px;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background-color: #618a3d;
+
+    color: white;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+.register-ok:hover {
+
+    opacity: 0.85;
+
+}body{
 
         text-align: center;
         
