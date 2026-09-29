@@ -174,6 +174,8 @@ document
         error.code === "auth/user-not-found"
       ) {
 
+
+        
         alert(
           "メールアドレスまたはパスワードが違います。"
         );
