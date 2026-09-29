@@ -1,43 +1,78 @@
-body{
-    margin:0;
-    width:100vw;
-    height:100vh;
+/* =========================
+   全体
+   ========================= */
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+body {
 
-    background-image: url("image/home.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin: 0;
 
-     font-family:'M PLUS Rounded 1c', sans-serif;
-}
+    width: 100vw;
 
-.container{
-    display:flex;
-    flex-direction: column;
+    height: 100vh;
+
+    display: flex;
+
     justify-content: center;
+
     align-items: center;
 
-    height:100vh;
+    background-image: url("image/home.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
 }
+
+
+/* =========================
+   ホーム画面
+   ========================= */
+
+.container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 100vh;
+
+}
+
 
 h1 {
-     font-family:'M PLUS Rounded 1c', sans-serif;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
     width: 80%;
+
     text-align: center;
+
     font-size: 40px;
+
     margin-bottom: 50px;
+
 }
 
-.menu-btn{
-    width:280px;
+
+.menu-btn {
+
+    width: 280px;
+
     height: 90px;
 
     font-family: 'M PLUS Rounded 1c', sans-serif;
+
     font-size: 30px;
+
     font-weight: 700;
 
     margin: 20px;
@@ -53,82 +88,104 @@ h1 {
     cursor: pointer;
 
     transition: 0.3s;
+
 }
 
-.menu-btn:hover{
+
+.menu-btn:hover {
+
     background: #82a065;
+
 }
 
-/* =========================
+
+
+/* ==================================================
    右上の本メニュー
-   ========================= */
+   ================================================== */
 
 .book-menu {
+
     position: fixed;
+
     top: 15px;
+
     right: 15px;
-    z-index: 1000;
+
+    z-index: 9999;
+
 }
 
 
-/* 本のボタン */
+/* =========================
+   本のボタン
+   ========================= */
 
 .book-btn {
+
     width: 55px;
+
     height: 55px;
 
+    padding: 0;
+
+    margin: 0;
+
     border: none;
+
     border-radius: 50%;
 
     background-color: white;
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 
     font-size: 27px;
 
     cursor: pointer;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
 }
 
 
-/* 押したとき少し小さくする */
+/* 押したとき */
 
 .book-btn:active {
-    transform: scale(0.95);
+
+    transform: scale(0.94);
+
 }
+
 
 
 /* =========================
-   開くメニュー
+   メニュー本体
    ========================= */
 
 .book-menu-list {
-    display: none;
 
     position: absolute;
 
     top: 65px;
+
     right: 0;
 
-    width: 180px;
-
-    background-color: rgba(255, 255, 255, 0.97);
-
-    border-radius: 18px;
+    width: 190px;
 
     padding: 10px;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
+    background-color: rgba(255, 255, 255, 0.98);
 
+    border-radius: 18px;
 
-/* 本を押したら表示 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
 
-.book-menu-list.show {
-    display: block;
+    display: none;
+
 }
 
 
@@ -137,13 +194,16 @@ h1 {
    ========================= */
 
 .book-menu-list button {
+
     display: block;
 
     width: 100%;
 
-    padding: 14px 10px;
+    height: 50px;
 
     margin: 5px 0;
+
+    padding: 0 12px;
 
     border: none;
 
@@ -151,21 +211,102 @@ h1 {
 
     background-color: white;
 
-    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: #333;
 
-    font-size: 16px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 
-    font-weight: bold;
+    font-size: 17px;
+
+    font-weight: 700;
 
     text-align: left;
 
     cursor: pointer;
+
 }
 
 
-/* マウスを乗せたとき */
+/* メニューのボタンにマウスを乗せたとき */
 
 .book-menu-list button:hover {
-    background-color: #f1f1f1;
+
+    background-color: #eeeeee;
+
 }
 
+
+/* ==================================================
+   パソコン用
+   本のボタンにマウスを乗せたら自動で開く
+   ================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .book-menu:hover .book-menu-list {
+
+        display: block;
+
+    }
+
+}
+
+
+/* ==================================================
+   JavaScriptで開いた状態
+   スマホのタップ用
+   ================================================== */
+
+.book-menu-list.show {
+
+    display: block;
+
+}
+
+
+
+/* ==================================================
+   スマホ
+   ================================================== */
+
+@media (max-width: 600px) {
+
+    .book-menu {
+
+        top: 12px;
+
+        right: 12px;
+
+    }
+
+
+    .book-btn {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 24px;
+
+    }
+
+
+    .book-menu-list {
+
+        top: 60px;
+
+        right: 0;
+
+        width: 175px;
+
+    }
+
+
+    .book-menu-list button {
+
+        height: 48px;
+
+        font-size: 16px;
+
+    }
+
+}
