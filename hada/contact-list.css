@@ -1,4 +1,503 @@
+/* =====================================
+   ページ全体
+===================================== */
+
 body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background-image: url("image/home.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        sans-serif;
+
+}
+
+
+
+/* =====================================
+   メインの白い箱
+===================================== */
+
+.container {
+
+    width: 800px;
+
+    height: 1000px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    padding: 60px;
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+/* =====================================
+   ホームへ戻るボタン
+===================================== */
+
+button {
+
+    width: 100%;
+
+    height: 80px;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        sans-serif;
+
+    font-size: 50px;
+
+    font-weight: 700;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #618a3d;
+
+    color: white;
+
+    margin-top: 30px;
+
+}
+
+
+
+/* =====================================
+   タイトル
+===================================== */
+
+h1 {
+
+    font-size: 72px;
+
+    margin: 20px 0 50px;
+
+}
+
+
+
+/* =====================================
+   連絡先一覧
+===================================== */
+
+.contact-list {
+
+    width: 95%;
+
+    height: 700px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    margin: 0 auto;
+
+    padding: 15px 25px;
+
+    box-sizing: border-box;
+
+}
+
+
+
+/* =====================================
+   リスト
+===================================== */
+
+.contact-list ul {
+
+    margin: 0;
+
+    padding-left: 25px;
+
+}
+
+
+
+/* =====================================
+   連絡先1件
+===================================== */
+
+.contact-list li {
+
+    font-size: 50px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* =====================================
+   削除ボタン
+===================================== */
+
+.delete-button {
+
+    width: 45px !important;
+
+    height: 45px !important;
+
+    background: #FF0000;
+
+    border: 1px solid black;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    padding: 0;
+
+}
+
+
+
+.delete-button:hover {
+
+    opacity: 0.8;
+
+}
+
+
+
+/* =====================================
+   名前と削除ボタンを横並び
+===================================== */
+
+.name-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+
+/* =====================================
+   名前
+===================================== */
+
+.name-area strong {
+
+    font-size: 28px;
+
+}
+
+
+
+/* =====================================
+   削除確認画面
+===================================== */
+
+.delete-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color:
+        rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+
+
+/* =====================================
+   削除確認の白い箱
+===================================== */
+
+.delete-box {
+
+    width: 85%;
+
+    max-width: 450px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+/* =====================================
+   削除確認タイトル
+===================================== */
+
+.delete-box h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 26px;
+
+}
+
+
+
+/* =====================================
+   削除する人の名前
+===================================== */
+
+#deleteMessage {
+
+    font-size: 40px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* =====================================
+   削除確認ボタン
+===================================== */
+
+.delete-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+
+/* =====================================
+   削除確認ボタン共通
+===================================== */
+
+.delete-buttons button {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px 22px;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =====================================
+   キャンセル
+===================================== */
+
+#cancelDelete {
+
+    background-color: #dddddd;
+
+    color: #333333;
+
+}
+
+
+
+/* =====================================
+   削除する
+===================================== */
+
+#confirmDelete {
+
+    background-color: #d9534f;
+
+    color: white;
+
+}
+
+
+
+/* =====================================
+   削除完了画面
+===================================== */
+
+.delete-complete-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color:
+        rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1100;
+
+}
+
+
+
+/* =====================================
+   削除完了の白い箱
+===================================== */
+
+.delete-complete-box {
+
+    width: 85%;
+
+    max-width: 450px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+/* =====================================
+   削除完了タイトル
+===================================== */
+
+.delete-complete-box h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 30px;
+
+}
+
+
+
+/* =====================================
+   削除完了メッセージ
+===================================== */
+
+.delete-complete-box p {
+
+    font-size: 24px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* =====================================
+   削除完了 OKボタン
+===================================== */
+
+#deleteCompleteOk {
+
+    width: 140px !important;
+
+    height: 55px !important;
+
+    margin-top: 0 !important;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background-color: #618a3d;
+
+    color: white;
+
+    font-family:
+        "M PLUS Rounded 1c",
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+#deleteCompleteOk:hover {
+
+    opacity: 0.85;
+
+}body {
     margin: 0;
     min-height: 100vh;
 
