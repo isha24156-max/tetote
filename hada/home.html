@@ -1,43 +1,161 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>home</title>
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap"
+        rel="stylesheet"
+    >
+
 </head>
 
+
 <body>
+
+
+    <!-- =========================
+         右上の本メニューボタン
+         ========================= -->
+
+    <div class="book-menu">
+
+        <button
+            id="bookBtn"
+            class="book-btn"
+            type="button"
+        >
+            📖
+        </button>
+
+
+        <!-- 本を押したときに出てくるメニュー -->
+
+        <div
+            id="bookMenuList"
+            class="book-menu-list"
+        >
+
+            <button
+                type="button"
+                onclick="location.href='mypage.html'"
+            >
+                👤 マイページ
+            </button>
+
+
+            <button
+                type="button"
+                onclick="location.href='tutorial.html'"
+            >
+                📖 アプリ説明
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ホーム画面
+         ========================= -->
+
     <div class="container">
-        <h1>ご利用になりたいボタンを押してください</h1>
-      
-        <a href = "../morita/checklist.html">
-         
+
+        <h1>
+            ご利用になりたいボタンを押してください
+        </h1>
+
+
+        <a href="../morita/checklist.html">
+
             <button class="menu-btn">
                 持ち物チェック
             </button>
-        
+
         </a>
 
-        <button class="menu-btn" onclick="location.href='../yamamoto/anpi.html'">
+
+        <button
+            class="menu-btn"
+            onclick="location.href='../yamamoto/anpi.html'"
+        >
             安否確認
         </button>
 
-        <button class="menu-btn" onclick="location.href='contact-list.html'">
+
+        <button
+            class="menu-btn"
+            onclick="location.href='contact-list.html'"
+        >
             連絡先一覧
         </button>
 
-         <button class="menu-btn" onclick="location.href='../morita/profile.html'">
+
+        <button
+            class="menu-btn"
+            onclick="location.href='../morita/profile.html'"
+        >
             連絡先登録
         </button>
 
-       
+
     </div>
+
+
+
+    <!-- =========================
+         本メニューの動き
+         ========================= -->
+
+    <script>
+
+        const bookBtn =
+            document.getElementById("bookBtn");
+
+        const bookMenuList =
+            document.getElementById("bookMenuList");
+
+
+        // 本のボタンを押したとき
+
+        bookBtn.addEventListener("click", () => {
+
+            bookMenuList.classList.toggle("show");
+
+        });
+
+
+        // メニュー以外を押したら閉じる
+
+        document.addEventListener("click", (event) => {
+
+            if (!event.target.closest(".book-menu")) {
+
+                bookMenuList.classList.remove("show");
+
+            }
+
+        });
+
+    </script>
+
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
