@@ -59,3 +59,113 @@ h1 {
     background: #82a065;
 }
 
+/* =========================
+   右上の本メニュー
+   ========================= */
+
+.book-menu {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+
+/* 本のボタン */
+
+.book-btn {
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: white;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 押したとき少し小さくする */
+
+.book-btn:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   開くメニュー
+   ========================= */
+
+.book-menu-list {
+    display: none;
+
+    position: absolute;
+
+    top: 65px;
+    right: 0;
+
+    width: 180px;
+
+    background-color: rgba(255, 255, 255, 0.97);
+
+    border-radius: 18px;
+
+    padding: 10px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 本を押したら表示 */
+
+.book-menu-list.show {
+    display: block;
+}
+
+
+/* =========================
+   メニューのボタン
+   ========================= */
+
+.book-menu-list button {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 10px;
+
+    margin: 5px 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background-color: white;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/* マウスを乗せたとき */
+
+.book-menu-list button:hover {
+    background-color: #f1f1f1;
+}
+
