@@ -121,6 +121,10 @@ async function sendSafetyMail(message) {
                 continue;
             }
 
+            console.log("送信しようとしているメールアドレス:", email);
+            console.log("Service ID:", EMAIL_SERVICE_ID);
+            console.log("Template ID:", EMAIL_TEMPLATE_ID);
+
             await emailjs.send(
                 EMAIL_SERVICE_ID,
                 EMAIL_TEMPLATE_ID,
