@@ -27,21 +27,22 @@
 
 
     <!-- =========================
-         右上の本メニューボタン
+         右上の本メニュー
          ========================= -->
 
-    <div class="book-menu">
+    <div class="book-menu" id="bookMenu">
 
         <button
+            type="button"
             id="bookBtn"
             class="book-btn"
-            type="button"
+            aria-label="メニューを開く"
         >
             📖
         </button>
 
 
-        <!-- 本を押したときに出てくるメニュー -->
+        <!-- メニュー -->
 
         <div
             id="bookMenuList"
@@ -58,7 +59,7 @@
 
             <button
                 type="button"
-                onclick="location.href='../hada/tutorial.html'"
+                onclick="location.href='tutorial.html'"
             >
                 📖 アプリ説明
             </button>
@@ -112,7 +113,6 @@
             連絡先登録
         </button>
 
-
     </div>
 
 
@@ -126,28 +126,46 @@
         const bookBtn =
             document.getElementById("bookBtn");
 
+        const bookMenu =
+            document.getElementById("bookMenu");
+
         const bookMenuList =
             document.getElementById("bookMenuList");
 
 
-        // 本のボタンを押したとき
+        /*
+         * スマホ用
+         * 本のボタンをタップすると開く
+         */
 
-        bookBtn.addEventListener("click", () => {
+        bookBtn.addEventListener("click", (event) => {
+
+            event.stopPropagation();
 
             bookMenuList.classList.toggle("show");
 
         });
 
 
-        // メニュー以外を押したら閉じる
+        /*
+         * メニューの中を押したときは
+         * 閉じる処理を邪魔しない
+         */
 
-        document.addEventListener("click", (event) => {
+        bookMenuList.addEventListener("click", (event) => {
 
-            if (!event.target.closest(".book-menu")) {
+            event.stopPropagation();
 
-                bookMenuList.classList.remove("show");
+        });
 
-            }
+
+        /*
+         * 本のボタン以外を押したら閉じる
+         */
+
+        document.addEventListener("click", () => {
+
+            bookMenuList.classList.remove("show");
 
         });
 
