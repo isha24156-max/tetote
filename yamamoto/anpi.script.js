@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功6");
+console.log("anpi.js 読み込み成功7");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -133,6 +133,13 @@ async function sendSafetyMail(message) {
             console.log("Service ID:", EMAIL_SERVICE_ID);
             console.log("Template ID:", EMAIL_TEMPLATE_ID);
 
+            console.log("EmailJSに渡すデータ:", {
+                serviceId: EMAIL_SERVICE_ID,
+                templateId: EMAIL_TEMPLATE_ID,
+                to_email: email,
+                message: message
+            });
+            
             await emailjs.send(
                 EMAIL_SERVICE_ID,
                 EMAIL_TEMPLATE_ID,
