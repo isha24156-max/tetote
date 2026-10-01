@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功３");
+console.log("anpi.js 読み込み成功4");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -71,6 +71,8 @@ async function sendSafetyMail(message) {
         alert("ログインしてください。");
         return;
     }
+
+    console.log("今ログインしているUID:", user.uid);
 
     try {
 
