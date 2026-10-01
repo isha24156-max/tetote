@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功7");
+console.log("anpi.js 読み込み成功8");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -43,7 +43,7 @@ const db = getFirestore(app);
 // ==============================
 
 emailjs.init({
-    publicKey: "FwI75YiPiq5P3uBPe"
+    publicKey: "Fwl75YiiPq5P3uBPe"
 });
 
 console.log("EmailJS初期化完了");
