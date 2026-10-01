@@ -23,13 +23,22 @@
 
     <!-- すでに説明を見終わっている場合はホーム画面へ -->
 
-    <script>
+   <script>
 
-        if (localStorage.getItem("setupCompleted") === "true") {
-            window.location.href = "home.html";
-        }
+    // ホーム画面の「アプリ説明」から来た場合
+    const params = new URLSearchParams(window.location.search);
+    const fromMenu = params.get("from") === "menu";
 
-    </script>
+    // 初回説明をすでに見終わっていて、
+    // ホーム画面からの見直しではない場合だけホームへ戻す
+    if (
+        localStorage.getItem("setupCompleted") === "true"
+        && !fromMenu
+    ) {
+        window.location.href = "home.html";
+    }
+
+</script>
 
 </head>
 
