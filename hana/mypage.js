@@ -530,12 +530,15 @@ confirmSave.addEventListener(
 
 
                 // Firestore側のメールも変更
-                await updateDoc(
+                await setDoc(
                     userRef,
-                    {
-                        email: newEmail
-                    }
-                );
+                 {
+                        name: newName
+                    },
+                 {
+        merge: true
+    }
+);
 
             }
 
