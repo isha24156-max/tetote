@@ -122,33 +122,23 @@ h1 {
    ========================= */
 
 .book-btn {
-
     width: 55px;
-
     height: 55px;
 
     padding: 0;
-
     margin: 0;
 
     border: none;
 
-    border-radius: 50%;
-
-    background-color: white;
-
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+    background-color: transparent;
 
     font-size: 40px;
 
     cursor: pointer;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
 }
 
 
