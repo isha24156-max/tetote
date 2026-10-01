@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功4");
+console.log("anpi.js 読み込み成功5");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -100,6 +100,10 @@ async function sendSafetyMail(message) {
                 where("userId", "==", user.uid)
             )
         );
+
+        console.log("検索に使っているUID:", user.uid);
+        console.log("取得した連絡先の件数:", contactsSnapshot.size);
+        console.log("取得した連絡先:", contactsSnapshot.docs.map(doc => doc.data()));
 
         if (contactsSnapshot.empty) {
             alert("登録されている連絡先がありません。");
