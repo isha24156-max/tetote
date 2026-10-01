@@ -18,6 +18,7 @@ import {
     getFirestore,
     doc,
     getDoc,
+    setDoc,
     updateDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
