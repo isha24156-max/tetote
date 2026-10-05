@@ -534,3 +534,153 @@ input {
 .skip-button:hover {
     background-color: #7f7f7f;
 }
+
+/* =====================================
+   スマホ画面ではみ出さないように調整
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+/* 家族登録全体 */
+
+.family-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 25px 10px 30px;
+}
+
+
+/* 上の説明 */
+
+.message {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 20px;
+
+    font-size: 28px;
+    line-height: 1.45;
+
+    word-break: normal;
+}
+
+
+/* 白い入力ボックス */
+
+.box {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 30px 25px;
+
+    margin: 15px auto;
+}
+
+
+/* 家族の名前 */
+
+.family-name {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.family-name:nth-of-type(2) {
+    margin-top: 25px;
+}
+
+
+/* 入力欄 */
+
+input {
+    width: 100%;
+    padding: 11px;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+/* 登録ボタン */
+
+.button {
+    display: block;
+
+    width: 100%;
+
+    padding: 15px 10px;
+
+    font-size: 23px;
+
+    border-radius: 15px;
+}
+
+
+/* スキップボタン */
+
+.skip-button {
+    width: 140px;
+    height: 42px;
+
+    margin: 12px auto 0;
+
+    font-size: 15px;
+}
+
+
+/* =====================================
+   スマホ
+===================================== */
+
+@media (max-width: 600px) {
+
+    .family-container {
+        padding-top: 20px;
+    }
+
+    .message {
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    .box {
+        max-width: 360px;
+        padding: 25px 22px;
+        border-radius: 25px;
+    }
+
+    .family-name {
+        font-size: 24px;
+        margin-bottom: 17px;
+    }
+
+    .family-name:nth-of-type(2) {
+        margin-top: 20px;
+    }
+
+    input {
+        margin-bottom: 17px;
+    }
+
+    .button {
+        font-size: 22px;
+        padding: 14px 10px;
+    }
+
+    .skip-button {
+        width: 135px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+}
