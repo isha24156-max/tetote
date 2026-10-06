@@ -12,6 +12,7 @@ import {
     EmailAuthProvider,
     reauthenticateWithCredential,
     updateEmail
+    verifyBeforeUpdateEmail
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import {
@@ -523,7 +524,7 @@ confirmSave.addEventListener(
 
 
                 // Firebase Authenticationのメールを変更
-                await updateEmail(
+                await verifyBeforeUpdateEmail(
                     currentUser,
                     newEmail
                 );
