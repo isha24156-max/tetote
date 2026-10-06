@@ -1,5 +1,6 @@
 body {
-    font-family: "Yomogi", cursive;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
     margin: 0;
     padding: 30px 20px;
     min-height: 100vh;
@@ -125,7 +126,8 @@ h1 {
 
     padding: 18px 20px;
 
-    font-family: "Yomogi", cursive;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
     font-size: 24px;
 
     color: white;
