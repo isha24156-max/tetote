@@ -1,1 +1,185 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("img/start.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.taikai-container {
+    width: 90%;
+    max-width: 450px;
+
+    padding: 40px 30px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    font-size: 38px;
+}
+
+.taikai-container p {
+    font-size: 20px;
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.taikai-btn,
+.cancel-btn {
+    display: block;
+
+    width: 100%;
+    max-width: 300px;
+
+    margin: 15px auto;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 15px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.taikai-btn {
+    background: #b85c5c;
+    color: white;
+}
+
+.cancel-btn {
+    background: #777;
+    color: white;
+}
+
+
+/* モーダル */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-box {
+    width: 90%;
+    max-width: 380px;
+
+    padding: 30px 25px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    text-align: center;
+}
+
+.modal-box p {
+    font-size: 20px;
+    line-height: 1.6;
+
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.modal-box input {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+
+    padding: 12px 5px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#cancelBtn,
+#passwordCancelBtn {
+    background: #ddd;
+    color: #333;
+}
+
+#confirmBtn,
+#deleteAccountBtn {
+    background: #b85c5c;
+    color: white;
+}
+
+
+@media (max-width: 600px) {
+
+    .taikai-container {
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .taikai-container p {
+        font-size: 18px;
+    }
+
+}
