@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功１");
+console.log("mypage.js 読み込み成功２");
 // =====================================
 // Firebase
 // =====================================
@@ -12,7 +12,6 @@ import {
     onAuthStateChanged,
     EmailAuthProvider,
     reauthenticateWithCredential,
-    updateEmail
     verifyBeforeUpdateEmail
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
