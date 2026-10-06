@@ -243,8 +243,21 @@ button:active {
 }
 
 .message-box button {
-    padding: 10px 30px;
+    width: 120px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+
+    background: #16845b;
+    color: white;
+
     border: none;
-    border-radius: 20px;
+    border-radius: 12px;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+
     cursor: pointer;
+}
 }
