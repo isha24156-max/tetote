@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>退会</title>
+
+    <link rel="stylesheet" href="taikai.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <div class="taikai-container">
+
+        <h1>退会</h1>
+
+        <p>
+            退会すると、登録した<br>
+            連絡先とアカウントが削除されます。
+        </p>
+
+        <button id="taikaiBtn" class="taikai-btn">
+            退会する
+        </button>
+
+        <button
+            class="cancel-btn"
+            onclick="location.href='../hada/home.html'"
+        >
+            キャンセル
+        </button>
+
+    </div>
+
+
+    <!-- 退会確認モーダル -->
+
+    <div id="confirmModal" class="modal">
+
+        <div class="modal-box">
+
+            <p>本当に退会しますか？</p>
+
+            <div class="modal-buttons">
+
+                <button id="cancelBtn">
+                    いいえ
+                </button>
+
+                <button id="confirmBtn">
+                    はい
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- パスワード入力モーダル -->
+
+    <div id="passwordModal" class="modal">
+
+        <div class="modal-box">
+
+            <p>
+                退会するには<br>
+                パスワードを入力してください。
+            </p>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="パスワード"
+            >
+
+            <div class="modal-buttons">
+
+                <button id="passwordCancelBtn">
+                    キャンセル
+                </button>
+
+                <button id="deleteAccountBtn">
+                    退会する
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="module" src="taikai.js"></script>
+
+</body>
+
+</html>
