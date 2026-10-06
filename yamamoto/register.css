@@ -110,7 +110,7 @@ input:focus {
 
     border-color: #5f8f3b;
 }
-
+   
 
 /* =========================
    ボタン共通
@@ -208,4 +208,43 @@ button:active {
     button {
         width: 220px;
     }
+}
+
+
+/* =========================
+   メッセージ画面
+   ========================= */
+.message-modal[hidden] {
+    display: none;
+}
+
+.message-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.message-box {
+    background: #fff;
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.message-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.message-box button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
