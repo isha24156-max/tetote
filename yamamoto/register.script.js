@@ -45,14 +45,12 @@ const db = getFirestore(app);
 // パスワード表示・非表示
 // =====================================
 
-const passwordInput =
-  document.getElementById("password");
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
 
-const togglePassword =
-  document.getElementById("togglePassword");
+togglePassword.addEventListener("click", function () {
 
-
-togglePassword.addEventListener("click", () => {
+  console.log("目のボタンが押されました");
 
   if (passwordInput.type === "password") {
 
