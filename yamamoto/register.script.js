@@ -41,6 +41,45 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// =====================================
+// パスワード表示・非表示
+// =====================================
+
+const passwordInput =
+  document.getElementById("password");
+
+const togglePassword =
+  document.getElementById("togglePassword");
+
+
+togglePassword.addEventListener("click", () => {
+
+  if (passwordInput.type === "password") {
+
+    passwordInput.type = "text";
+
+    togglePassword.classList.add("show");
+
+    togglePassword.setAttribute(
+      "aria-label",
+      "パスワードを非表示"
+    );
+
+  } else {
+
+    passwordInput.type = "password";
+
+    togglePassword.classList.remove("show");
+
+    togglePassword.setAttribute(
+      "aria-label",
+      "パスワードを表示"
+    );
+
+  }
+
+});
+
 
 // =====================================
 // メッセージ表示
