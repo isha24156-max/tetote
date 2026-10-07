@@ -48,9 +48,9 @@ const db = getFirestore(app);
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
 
-togglePassword.addEventListener("click", function () {
+togglePassword.addEventListener("click", () {
 
-  console.log("目のボタンが押されました");
+  // console.log("目のボタンが押されました");
 
   if (passwordInput.type === "password") {
 
