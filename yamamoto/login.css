@@ -308,7 +308,7 @@ input:focus {
 /* メッセージ本文 */
 .message-box p {
     font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     color: #333;
     margin: 0 0 25px;
