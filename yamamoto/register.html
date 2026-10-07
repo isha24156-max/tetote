@@ -49,15 +49,31 @@
 
 </div>
 
-  <!-- 画面中央に表示するメッセージ -->
+
+<!-- =========================
+     画面中央に表示するメッセージ
+     ========================= -->
+
 <div id="messageModal" class="message-modal" hidden>
+
   <div class="message-box">
+
     <p id="messageText"></p>
-    <button type="button" id="messageOk">OK</button>
+
+    <button type="button" id="messageOk">
+      OK
+    </button>
+
   </div>
+
 </div>
 
+
 <script type="module">
+
+// =====================================
+// Firebase
+// =====================================
 
 import { initializeApp }
   from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
@@ -74,78 +90,208 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
+// =====================================
+// Firebase設定
+// =====================================
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
-  authDomain: "tetote-f459b.firebaseapp.com",
-  projectId: "tetote-f459b",
-  storageBucket: "tetote-f459b.firebasestorage.app",
-  messagingSenderId: "4402684573",
-  appId: "1:4402684573:web:09529c707357ce437dea74",
-  measurementId: "G-CSGLSRBLDR"
+
+  apiKey:
+    "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+
+  authDomain:
+    "tetote-f459b.firebaseapp.com",
+
+  projectId:
+    "tetote-f459b",
+
+  storageBucket:
+    "tetote-f459b.firebasestorage.app",
+
+  messagingSenderId:
+    "4402684573",
+
+  appId:
+    "1:4402684573:web:09529c707357ce437dea74",
+
+  measurementId:
+    "G-CSGLSRBLDR"
+
 };
 
+
+// =====================================
+// Firebaseを初期化
+// =====================================
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+
 const db = getFirestore(app);
 
 
-document.getElementById("registerBtn").addEventListener("click", async () => {
+// =====================================
+// メッセージ表示
+// =====================================
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+function showMessage(message, callback) {
 
+  const modal =
+    document.getElementById("messageModal");
 
-  if (!name || !email || !password) {
-    alert("すべて入力してください。");
-    return;
-  }
+  const messageText =
+    document.getElementById("messageText");
 
-  if (password.length < 6) {
-    alert("パスワードは6文字以上にしてください。");
-    return;
-  }
+  const messageOk =
+    document.getElementById("messageOk");
 
 
-  try {
+  messageText.textContent = message;
 
-    // Firebase Authenticationに登録
-    const userCredential =
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-    // この人専用のUID
-    const uid = userCredential.user.uid;
+  modal.hidden = false;
 
 
-    // Firestoreに名前とメールアドレスを保存
-    await setDoc(doc(db, "users", uid), {
-      name: name,
-      email: email,
-      createdAt: Date.now()
-    });
+  messageOk.onclick = () => {
 
+    modal.hidden = true;
 
-    alert("登録しました！");
+    if (callback) {
+      callback();
+    }
 
-    // 連絡先登録画面へ
-    location.href = "../hana/mail.html";
-
-
-} catch (error) {
-
-  console.error(error);
-
-  alert("登録に失敗しました。\n\nエラー：" + error.code);
+  };
 
 }
 
-});
+
+// =====================================
+// 新規登録
+// =====================================
+
+document
+  .getElementById("registerBtn")
+  .addEventListener("click", async () => {
+
+
+    const name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const password =
+      document
+        .getElementById("password")
+        .value;
+
+
+    // =================================
+    // 未入力チェック
+    // =================================
+
+    if (!name || !email || !password) {
+
+      showMessage(
+        "すべて入力してください。"
+      );
+
+      return;
+
+    }
+
+
+    // =================================
+    // パスワード文字数チェック
+    // =================================
+
+    if (password.length < 6) {
+
+      showMessage(
+        "パスワードは6文字以上にしてください。"
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      // =================================
+      // Firebase Authenticationに登録
+      // =================================
+
+      const userCredential =
+        await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      // この人専用のUID
+      const uid =
+        userCredential.user.uid;
+
+
+      // =================================
+      // Firestoreに名前とメールアドレスを保存
+      // =================================
+
+      await setDoc(
+        doc(db, "users", uid),
+        {
+          name: name,
+          email: email,
+          createdAt: Date.now()
+        }
+      );
+
+
+      // =================================
+      // 登録成功
+      // =================================
+
+      showMessage(
+        "登録しました！",
+        () => {
+
+          // OKを押したら連絡先登録画面へ
+          location.href = "../hana/mail.html";
+
+        }
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "登録エラー:",
+        error
+      );
+
+
+      // =================================
+      // 登録失敗
+      // =================================
+
+      showMessage(
+        "登録に失敗しました。\n\nエラー：" +
+        error.code
+      );
+
+    }
+
+  });
 
 </script>
 
