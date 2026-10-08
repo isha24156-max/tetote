@@ -33,7 +33,7 @@
     placeholder="メールアドレス"
   >
 
- <div class="password-area">
+  <div class="password-area">
 
   <input
     type="password"
@@ -64,7 +64,7 @@
 </div>
 
 
-<!-- =========================
+  <!-- =========================
      画面中央に表示するメッセージ
      ========================= -->
 
@@ -309,5 +309,40 @@ document
 
 </script>
 
+  <script>
+  function togglePasswordVisibility() {
+
+  const passwordInput =
+    document.getElementById("password");
+
+  const togglePassword =
+    document.getElementById("togglePassword");
+
+  if (passwordInput.type === "password") {
+
+    passwordInput.type = "text";
+
+    togglePassword.classList.add("show");
+
+    togglePassword.setAttribute(
+      "aria-label",
+      "パスワードを非表示"
+    );
+
+  } else {
+
+    passwordInput.type = "password";
+
+    togglePassword.classList.remove("show");
+
+    togglePassword.setAttribute(
+      "aria-label",
+      "パスワードを表示"
+    );
+
+  }
+}
+</script>
+  
 </body>
 </html>
