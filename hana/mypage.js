@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功4");
+console.log("mypage.js 読み込み成功5");
 // =====================================
 // Firebase
 // =====================================
@@ -531,7 +531,7 @@ confirmSave.addEventListener(
                     currentUser,
                     newEmail,
                     {
-                        url: "https://isha24156-max.github.io/tetote/hana/mypage.html",
+                        url: "https://isha24156-max.github.io/tetote/hada/home.html",
                         handleCodeInApp: false
                     }
                 );
