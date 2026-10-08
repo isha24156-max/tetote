@@ -65,7 +65,7 @@ const homeBtn =
 
 let currentUser = null;
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async(user) => {
 
     if (user) {
 
