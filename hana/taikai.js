@@ -39,7 +39,7 @@ const firebaseConfig = {
 
 
 // ========================================
-// Firebaseを開始
+// Firebase開始
 // ========================================
 
 const app = initializeApp(firebaseConfig);
@@ -50,14 +50,14 @@ const auth = getAuth(app);
 
 
 // ========================================
-// 現在ログインしているユーザー
+// ログイン中のユーザー
 // ========================================
 
 let currentUser = null;
 
 
 // ========================================
-// HTMLの要素を取得
+// HTMLの要素
 // ========================================
 
 const taikaiBtn =
@@ -86,6 +86,16 @@ const password =
 
 
 // ========================================
+// HTMLの要素があるか確認
+// ========================================
+
+console.log("taikaiBtn:", taikaiBtn);
+console.log("confirmModal:", confirmModal);
+console.log("confirmBtn:", confirmBtn);
+console.log("passwordModal:", passwordModal);
+
+
+// ========================================
 // ログイン状態を確認
 // ========================================
 
@@ -96,13 +106,8 @@ onAuthStateChanged(auth, (user) => {
         currentUser = user;
 
         console.log(
-            "ログイン中のユーザー:",
+            "ログイン中:",
             user.email
-        );
-
-        console.log(
-            "ユーザーUID:",
-            user.uid
         );
 
     } else {
@@ -118,14 +123,12 @@ onAuthStateChanged(auth, (user) => {
 
 
 // ========================================
-// 「退会する」ボタン
+// 「退会する」を押す
 // ========================================
 
 taikaiBtn.addEventListener("click", () => {
 
-    console.log(
-        "退会するボタンが押されました"
-    );
+    console.log("退会するボタンが押されました");
 
     confirmModal.style.display = "flex";
 
@@ -133,14 +136,12 @@ taikaiBtn.addEventListener("click", () => {
 
 
 // ========================================
-// 「いいえ」ボタン
+// 「いいえ」を押す
 // ========================================
 
 cancelBtn.addEventListener("click", () => {
 
-    console.log(
-        "退会をキャンセルしました"
-    );
+    console.log("退会をキャンセルしました");
 
     confirmModal.style.display = "none";
 
@@ -148,14 +149,12 @@ cancelBtn.addEventListener("click", () => {
 
 
 // ========================================
-// 「はい」ボタン
+// 「はい」を押す
 // ========================================
 
 confirmBtn.addEventListener("click", () => {
 
-    console.log(
-        "退会確認で「はい」が押されました"
-    );
+    console.log("「はい」が押されました");
 
     confirmModal.style.display = "none";
 
@@ -167,7 +166,7 @@ confirmBtn.addEventListener("click", () => {
 
 
 // ========================================
-// パスワード入力画面の「キャンセル」
+// パスワード画面のキャンセル
 // ========================================
 
 passwordCancelBtn.addEventListener("click", () => {
@@ -187,14 +186,10 @@ deleteAccountBtn.addEventListener(
     "click",
     async () => {
 
-        console.log(
-            "最終的な退会ボタンが押されました"
-        );
+        console.log("最終退会ボタンが押されました");
 
 
-        // --------------------------------
         // ログイン確認
-        // --------------------------------
 
         if (!currentUser) {
 
@@ -207,9 +202,7 @@ deleteAccountBtn.addEventListener(
         }
 
 
-        // --------------------------------
         // パスワード取得
-        // --------------------------------
 
         const enteredPassword =
             password.value.trim();
@@ -225,10 +218,6 @@ deleteAccountBtn.addEventListener(
 
         }
 
-
-        // --------------------------------
-        // 二重クリック防止
-        // --------------------------------
 
         deleteAccountBtn.disabled = true;
 
@@ -269,11 +258,6 @@ deleteAccountBtn.addEventListener(
             // ② 自分の連絡先を取得
             // ==================================
 
-            console.log(
-                "登録されている連絡先を確認しています..."
-            );
-
-
             const contactsQuery = query(
                 collection(db, "contacts"),
                 where(
@@ -289,21 +273,16 @@ deleteAccountBtn.addEventListener(
 
 
             console.log(
-                "登録されている連絡先:",
+                "連絡先の数:",
                 snapshot.size
             );
 
 
             // ==================================
-            // ③ 自分の連絡先を削除
+            // ③ 連絡先を削除
             // ==================================
 
             if (!snapshot.empty) {
-
-                console.log(
-                    "連絡先を削除しています..."
-                );
-
 
                 const batch =
                     writeBatch(db);
@@ -328,37 +307,26 @@ deleteAccountBtn.addEventListener(
 
 
                 console.log(
-                    "連絡先の削除が完了しました"
-                );
-
-            } else {
-
-                console.log(
-                    "削除する連絡先はありません"
+                    "連絡先削除完了"
                 );
 
             }
 
 
             // ==================================
-            // ④ Firebaseアカウントを削除
+            // ④ Firebaseアカウント削除
             // ==================================
-
-            console.log(
-                "Firebaseアカウントを削除しています..."
-            );
-
 
             await deleteUser(currentUser);
 
 
             console.log(
-                "Firebaseアカウントの削除が完了しました"
+                "アカウント削除完了"
             );
 
 
             // ==================================
-            // ⑤ 完了
+            // ⑤ ログイン画面へ
             // ==================================
 
             alert(
@@ -378,14 +346,9 @@ deleteAccountBtn.addEventListener(
             );
 
 
-            // --------------------------------
-            // パスワードが間違っている
-            // --------------------------------
-
             if (
                 error.code ===
                     "auth/invalid-credential" ||
-
                 error.code ===
                     "auth/wrong-password"
             ) {
@@ -393,11 +356,6 @@ deleteAccountBtn.addEventListener(
                 alert(
                     "パスワードが間違っています。"
                 );
-
-
-            // --------------------------------
-            // 再ログインが必要
-            // --------------------------------
 
             } else if (
                 error.code ===
@@ -408,11 +366,6 @@ deleteAccountBtn.addEventListener(
                     "安全のため、もう一度ログインしてから退会してください。"
                 );
 
-
-            // --------------------------------
-            // その他のエラー
-            // --------------------------------
-
             } else {
 
                 alert(
@@ -422,8 +375,6 @@ deleteAccountBtn.addEventListener(
 
             }
 
-
-            // ボタンを元に戻す
 
             deleteAccountBtn.disabled =
                 false;
