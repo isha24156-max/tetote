@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功２");
+console.log("mypage.js 読み込み成功3");
 // =====================================
 // Firebase
 // =====================================
@@ -454,7 +454,6 @@ confirmCancel.addEventListener(
     }
 );
 
-
 // =====================================
 // 登録情報を変更
 // =====================================
@@ -470,7 +469,6 @@ confirmSave.addEventListener(
             );
 
             return;
-
         }
 
 
@@ -484,7 +482,7 @@ confirmSave.addEventListener(
         try {
 
             // ---------------------------------
-            // 名前を変更
+            // Firestore
             // ---------------------------------
 
             const userRef =
@@ -495,6 +493,10 @@ confirmSave.addEventListener(
                 );
 
 
+            // ---------------------------------
+            // 名前を変更
+            // ---------------------------------
+
             await updateDoc(
                 userRef,
                 {
@@ -504,11 +506,12 @@ confirmSave.addEventListener(
 
 
             // ---------------------------------
-            // メールアドレスを変更
+            // メールアドレスを変更する場合
             // ---------------------------------
 
             if (newEmail !== originalEmail) {
 
+                // 現在のパスワードで本人確認
                 const credential =
                     EmailAuthProvider.credential(
                         originalEmail,
@@ -516,52 +519,55 @@ confirmSave.addEventListener(
                     );
 
 
-                // 本人確認
                 await reauthenticateWithCredential(
                     currentUser,
                     credential
                 );
 
 
-                // Firebase Authenticationのメールを変更
+                // 新しいメールアドレスへ
+                // 確認メールを送信
                 await verifyBeforeUpdateEmail(
                     currentUser,
                     newEmail
                 );
 
 
-                // Firestore側のメールも変更
-                await setDoc(
-                    userRef,
-                 {
-                        name: newName
-                    },
-                 {
-        merge: true
-    }
-);
+                // 名前だけ画面に反映
+                originalName = newName;
+
+                userName.textContent =
+                    originalName;
+
+
+                // メールアドレスはまだ変更しない
+                closeModal(confirmModal);
+
+                showError(
+                    "確認メールを送信しました。\n\n" +
+                    "新しいメールアドレスに届いたメールを確認し、" +
+                    "メール内のリンクを押してください。"
+                );
+
+
+            } else {
+
+                // ---------------------------------
+                // メールを変更しない場合
+                // 名前だけ変更
+                // ---------------------------------
+
+                originalName = newName;
+
+                userName.textContent =
+                    originalName;
+
+
+                closeModal(confirmModal);
+
+                openModal(completeModal);
 
             }
-
-
-            // ---------------------------------
-            // 表示を更新
-            // ---------------------------------
-
-            originalName = newName;
-
-            originalEmail = newEmail;
-
-            userName.textContent =
-                originalName;
-
-            userEmail.textContent =
-                originalEmail;
-
-
-            closeModal(confirmModal);
-
-            openModal(completeModal);
 
 
         } catch (error) {
@@ -581,6 +587,7 @@ confirmSave.addEventListener(
                 message =
                     "現在のパスワードが違います。";
 
+
             } else if (
                 error.code ===
                 "auth/invalid-credential"
@@ -588,6 +595,7 @@ confirmSave.addEventListener(
 
                 message =
                     "現在のパスワードが違います。";
+
 
             } else if (
                 error.code ===
@@ -597,6 +605,7 @@ confirmSave.addEventListener(
                 message =
                     "そのメールアドレスはすでに使用されています。";
 
+
             } else if (
                 error.code ===
                 "auth/invalid-email"
@@ -605,13 +614,15 @@ confirmSave.addEventListener(
                 message =
                     "正しいメールアドレスを入力してください。";
 
+
             } else if (
                 error.code ===
                 "auth/requires-recent-login"
             ) {
 
                 message =
-                    "本人確認の有効期限が切れています。いったんログアウトして、もう一度ログインしてから変更してください。";
+                    "本人確認の有効期限が切れています。" +
+                    "いったんログアウトして、もう一度ログインしてから変更してください。";
 
             }
 
@@ -619,6 +630,7 @@ confirmSave.addEventListener(
             closeModal(confirmModal);
 
             showError(message);
+
 
         } finally {
 
