@@ -56,6 +56,10 @@ const auth = getAuth(app);
 let currentUser = null;
 
 
+// 退会処理中かどうか
+let isDeleting = false;
+
+
 // ========================================
 // HTMLの要素
 // ========================================
@@ -85,6 +89,14 @@ const password =
     document.getElementById("password");
 
 
+// 退会完了画面
+const completeModal =
+    document.getElementById("completeModal");
+
+const loginPageBtn =
+    document.getElementById("loginPageBtn");
+
+
 // ========================================
 // HTMLの要素があるか確認
 // ========================================
@@ -93,6 +105,7 @@ console.log("taikaiBtn:", taikaiBtn);
 console.log("confirmModal:", confirmModal);
 console.log("confirmBtn:", confirmBtn);
 console.log("passwordModal:", passwordModal);
+console.log("completeModal:", completeModal);
 
 
 // ========================================
@@ -112,6 +125,22 @@ onAuthStateChanged(auth, (user) => {
 
     } else {
 
+        // 退会処理中なら
+        // 「ログインしてください」は表示しない
+
+        if (isDeleting) {
+
+            console.log(
+                "退会処理によってログアウトされました"
+            );
+
+            return;
+
+        }
+
+
+        // 普通にログインしていない状態の場合
+
         alert("ログインしてください。");
 
         window.location.href =
@@ -128,7 +157,9 @@ onAuthStateChanged(auth, (user) => {
 
 taikaiBtn.addEventListener("click", () => {
 
-    console.log("退会するボタンが押されました");
+    console.log(
+        "退会するボタンが押されました"
+    );
 
     confirmModal.style.display = "flex";
 
@@ -141,7 +172,9 @@ taikaiBtn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", () => {
 
-    console.log("退会をキャンセルしました");
+    console.log(
+        "退会をキャンセルしました"
+    );
 
     confirmModal.style.display = "none";
 
@@ -154,7 +187,9 @@ cancelBtn.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", () => {
 
-    console.log("「はい」が押されました");
+    console.log(
+        "「はい」が押されました"
+    );
 
     confirmModal.style.display = "none";
 
@@ -179,6 +214,18 @@ passwordCancelBtn.addEventListener("click", () => {
 
 
 // ========================================
+// ログイン画面へ
+// ========================================
+
+loginPageBtn.addEventListener("click", () => {
+
+    window.location.href =
+        "../yamamoto/login.html";
+
+});
+
+
+// ========================================
 // 最終的に退会する
 // ========================================
 
@@ -186,10 +233,14 @@ deleteAccountBtn.addEventListener(
     "click",
     async () => {
 
-        console.log("最終退会ボタンが押されました");
+        console.log(
+            "最終退会ボタンが押されました"
+        );
 
 
+        // ==================================
         // ログイン確認
+        // ==================================
 
         if (!currentUser) {
 
@@ -202,7 +253,9 @@ deleteAccountBtn.addEventListener(
         }
 
 
+        // ==================================
         // パスワード取得
+        // ==================================
 
         const enteredPassword =
             password.value.trim();
@@ -314,7 +367,16 @@ deleteAccountBtn.addEventListener(
 
 
             // ==================================
-            // ④ Firebaseアカウント削除
+            // ④ 退会処理中にする
+            // ==================================
+
+            // ここをdeleteUserより前にするのが重要
+
+            isDeleting = true;
+
+
+            // ==================================
+            // ⑤ Firebaseアカウント削除
             // ==================================
 
             await deleteUser(currentUser);
@@ -326,16 +388,15 @@ deleteAccountBtn.addEventListener(
 
 
             // ==================================
-            // ⑤ ログイン画面へ
+            // ⑥ 退会完了画面を表示
             // ==================================
 
-            alert(
-                "退会が完了しました。"
-            );
+            passwordModal.style.display =
+                "none";
 
 
-            window.location.href =
-                "../yamamoto/login.html";
+            completeModal.style.display =
+                "flex";
 
 
         } catch (error) {
@@ -346,9 +407,16 @@ deleteAccountBtn.addEventListener(
             );
 
 
+            // エラーが起きた場合は
+            // 退会処理中を解除
+
+            isDeleting = false;
+
+
             if (
                 error.code ===
                     "auth/invalid-credential" ||
+
                 error.code ===
                     "auth/wrong-password"
             ) {
@@ -356,6 +424,7 @@ deleteAccountBtn.addEventListener(
                 alert(
                     "パスワードが間違っています。"
                 );
+
 
             } else if (
                 error.code ===
@@ -365,6 +434,7 @@ deleteAccountBtn.addEventListener(
                 alert(
                     "安全のため、もう一度ログインしてから退会してください。"
                 );
+
 
             } else {
 
