@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功3");
+console.log("mypage.js 読み込み成功4");
 // =====================================
 // Firebase
 // =====================================
@@ -529,7 +529,11 @@ confirmSave.addEventListener(
                 // 確認メールを送信
                 await verifyBeforeUpdateEmail(
                     currentUser,
-                    newEmail
+                    newEmail,
+                    {
+                        url: "https://isha24156-max.github.io/tetote/hana/mypage.html",
+                        handleCodeInApp: false
+                    }
                 );
 
 
