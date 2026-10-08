@@ -183,3 +183,80 @@ h1 {
     }
 
 }
+
+/* ==============================
+   退会完了画面
+   ============================== */
+
+.complete-box {
+    padding: 35px 25px;
+}
+
+
+/* 完了マーク */
+
+.complete-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #618a3d;
+    color: white;
+
+    font-size: 38px;
+    font-weight: 700;
+}
+
+
+/* タイトル */
+
+.complete-box h2 {
+    margin: 0 0 20px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* 説明 */
+
+.complete-box p {
+    margin-bottom: 25px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* ログイン画面へ */
+
+#loginPageBtn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #618a3d;
+    color: white;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#loginPageBtn:hover {
+    background: #82a065;
+}
