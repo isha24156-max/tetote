@@ -1,9 +1,13 @@
-const CACHE_NAME = "tetote-cache-v3";
+// ========================================
+// キャッシュのバージョン
+// ========================================
+
+const CACHE_NAME = "tetote-cache-v4";
 
 
-// ==============================
-// Service Workerをインストール
-// ==============================
+// ========================================
+// インストール
+// ========================================
 
 self.addEventListener("install", (event) => {
 
@@ -15,9 +19,9 @@ self.addEventListener("install", (event) => {
 });
 
 
-// ==============================
-// Service Workerを有効化
-// ==============================
+// ========================================
+// 有効化
+// ========================================
 
 self.addEventListener("activate", (event) => {
 
@@ -31,40 +35,50 @@ self.addEventListener("activate", (event) => {
 
                 cacheNames
 
-                    // 今使っているキャッシュ以外を削除
+                    // 今のキャッシュ以外を削除
                     .filter((name) => name !== CACHE_NAME)
 
-                    .map((name) => caches.delete(name))
+                    .map((name) => {
+
+                        console.log(
+                            "古いキャッシュを削除:",
+                            name
+                        );
+
+                        return caches.delete(name);
+
+                    })
 
             );
+
+        }).then(() => {
+
+            // 現在開いているページも
+            // 新しいService Workerの管理下にする
+            return self.clients.claim();
 
         })
 
     );
 
-    // すぐにページを管理する
-    self.clients.claim();
-
 });
 
 
-// ==============================
-// ページを読み込む
-// ==============================
+// ========================================
+// ファイルの読み込み
+// ========================================
 
 self.addEventListener("fetch", (event) => {
 
-    // GET以外は処理しない
+    // GET以外は何もしない
     if (event.request.method !== "GET") {
         return;
     }
 
 
-    // ==============================
-    // HTMLページの場合
-    // ==============================
-    // インターネットから最新のページを取得する
-    // オフラインの場合はキャッシュを使う
+    // ========================================
+    // HTMLページ
+    // ========================================
 
     if (event.request.mode === "navigate") {
 
@@ -74,33 +88,26 @@ self.addEventListener("fetch", (event) => {
 
                 .then((response) => {
 
-                    // 最新のページをキャッシュにも保存
-                    const responseClone =
-                        response.clone();
+                    // 新しいHTMLをキャッシュ
+                    const responseClone = response.clone();
 
-                    caches.open(CACHE_NAME)
-                        .then((cache) => {
+                    caches.open(CACHE_NAME).then((cache) => {
 
-                            cache.put(
-                                event.request,
-                                responseClone
-                            );
+                        cache.put(
+                            event.request,
+                            responseClone
+                        );
 
-                        });
+                    });
 
-                    // 最新のページを表示
                     return response;
 
                 })
 
                 .catch(() => {
 
-                    // インターネットにつながらない場合
-                    // キャッシュしたページを表示
-
-                    return caches.match(
-                        event.request
-                    );
+                    // ネットが使えない場合はキャッシュを使う
+                    return caches.match(event.request);
 
                 })
 
@@ -110,9 +117,9 @@ self.addEventListener("fetch", (event) => {
     }
 
 
-    // ==============================
-    // CSS・JavaScript・画像など
-    // ==============================
+    // ========================================
+    // CSS・JS・画像など
+    // ========================================
 
     event.respondWith(
 
@@ -120,7 +127,7 @@ self.addEventListener("fetch", (event) => {
 
             .then((cachedResponse) => {
 
-                // キャッシュがあれば使う
+                // キャッシュがあれば使用
                 if (cachedResponse) {
 
                     return cachedResponse;
@@ -128,14 +135,12 @@ self.addEventListener("fetch", (event) => {
                 }
 
 
-                // キャッシュがなければ
-                // インターネットから取得
-
+                // キャッシュになければネットから取得
                 return fetch(event.request)
 
                     .then((response) => {
 
-                        // 正常なレスポンスなら保存
+                        // 正常なレスポンスだけ保存
                         if (response.ok) {
 
                             const responseClone =
