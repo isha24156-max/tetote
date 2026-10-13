@@ -1,3 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>アプリの使い方</title>
+
+    <link rel="stylesheet" href="tutorial.css">
+
+    <!-- 丸みのあるフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- 初回説明を見終わっている場合の移動処理 -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const fromMenu = params.get("from") === "menu";
+
+        if (
+            localStorage.getItem("setupCompleted") === "true"
+            && !fromMenu
+        ) {
+            window.location.href = "home.html";
+        }
+    </script>
+</head>
+
+<body>
+
+    <main class="tutorial">
+
+        <!-- タイトル -->
+        <h1>このアプリの使い方</h1>
+
+        <p class="intro">
+            災害時に安心して利用できるよう、<br>
+            7つの機能をご紹介します。
+        </p>
+
+
+        <!-- =========================
+             ① 持ち物チェック
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">①</div>
+
+            <div class="content">
+
+                <h2>持ち物チェック</h2>
+
+                <div class="explanation">
+                    <p>
+                        災害時に必要な持ち物を確認できます。
+                    </p>
+
+                    <p>
+                        準備できたもののチェックボタンを押して、<br>
+                        準備状況を確認できます。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/mochimono1.png"
+                        alt="持ち物チェック画面"
+                    >
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        準備できた持ち物の「□」を押します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        「追加」から新しい持ち物を登録できます。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        「編集」から不要な項目を削除できます。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        「戻る」を押すと、ホーム画面に戻ります。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ② 安否確認
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">②</div>
+
+            <div class="content">
+
+                <h2>安否確認</h2>
+
+                <div class="explanation">
+                    <p>
+                        災害が起きたとき、自分の状況を
+                        登録している連絡先に知らせることができます。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/anpi.png"
+                        alt="安否確認画面"
+                    >
+                </div>
+
+                <div class="attention">
+
+                    <strong>⚠ ご注意ください</strong>
+
+                    <p>
+                        自分の状況をよく確認してから、<br>
+                        「無事です」または「危険です」を押してください。
+                    </p>
+
+                    <p>
+                        ボタンを押すと、登録している<br>
+                        メールアドレスへ自動で送信されます。
+                    </p>
+
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        自分の現在の状況を確認します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        「無事です」または「危険です」を押します。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        登録しているメールアドレスへ自動で送信されます。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        「戻る」を押すと、ホーム画面に戻ります。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ③ 連絡先一覧
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">③</div>
+
+            <div class="content">
+
+                <h2>連絡先一覧</h2>
+
+                <div class="explanation">
+                    <p>
+                        登録している家族などの連絡先を確認できます。
+                    </p>
+
+                    <p>
+                        最初に登録した連絡先や、<br>
+                        「連絡先登録」から追加した連絡先が表示されます。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/contact-list.png"
+                        alt="連絡先一覧画面"
+                    >
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        登録されている名前やメールアドレスを確認できます。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        登録件数が多い場合は、下にスクロールして確認できます。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        不要になった連絡先は「×」を押して削除できます。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        「ホームへ戻る」を押すと、ホーム画面に戻ります。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ④ 連絡先登録
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">④</div>
+
+            <div class="content">
+
+                <h2>連絡先登録</h2>
+
+                <div class="explanation">
+                    <p>
+                        家族などの連絡先を新しく登録できます。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/contact-register.png"
+                        alt="連絡先登録画面"
+                    >
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        「名前」に登録する人の名前を入力します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        「メールアドレス」にメールアドレスを入力します。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        「登録」を押すと、連絡先が登録されます。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        「ホームに戻る」を押すと、ホーム画面に戻ります。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ⑤ マイページ
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">⑤</div>
+
+            <div class="content">
+
+                <h2>マイページ</h2>
+
+                <div class="explanation">
+                    <p>
+                        最初に登録した自分の名前やメールアドレスを確認できます。
+                    </p>
+
+                    <p>
+                        登録情報を変更することもできます。
+                        メールアドレスを変更する場合は、
+                        最初に登録したパスワードの入力が必要です。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/mypage.png"
+                        alt="マイページ画面"
+                    >
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        ホーム画面の右上にある三本線のメニューを押します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        メニューから「マイページ」を選びます。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        登録されている名前とメールアドレスを確認します。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        変更する場合は「登録情報を変更する」を押します。
+                    </p>
+
+                    <p>
+                        <span>⑤</span>
+                        メールアドレスを変更するときは、最初に登録したパスワードを入力します。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ⑥ アプリ説明
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">⑥</div>
+
+            <div class="content">
+
+                <h2>アプリ説明</h2>
+
+                <div class="explanation">
+                    <p>
+                        アプリの使い方を、いつでももう一度確認できます。
+                    </p>
+
+                    <p>
+                        操作方法を忘れてしまったときや、
+                        各機能の使い方を確認したいときに利用してください。
+                    </p>
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        ホーム画面の右上にある三本線のメニューを押します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        メニューから「アプリ説明」を選びます。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        チュートリアル画面で、各機能の使い方を確認します。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        説明を確認したら、「アプリをはじめる」を押してホーム画面に戻ります。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ⑦ 退会
+        ========================== -->
+
+        <section class="tutorial-item">
+
+            <div class="number">⑦</div>
+
+            <div class="content">
+
+                <h2>退会</h2>
+
+                <div class="explanation">
+                    <p>
+                        アプリを退会することができます。
+                    </p>
+
+                    <p>
+                        退会すると、登録した連絡先とアカウントが削除されます。
+                        必要な情報がないか、退会する前によく確認してください。
+                    </p>
+
+                    <p>
+                        退会手続きを進めるには、最初に登録したパスワードの入力が必要です。
+                    </p>
+                </div>
+
+                <div class="screen-area">
+                    <img
+                        src="image/withdrawal.png"
+                        alt="退会確認画面"
+                    >
+                </div>
+
+                <div class="how-to">
+
+                    <h3>使い方</h3>
+
+                    <p>
+                        <span>①</span>
+                        ホーム画面の右上にある三本線のメニューを押します。
+                    </p>
+
+                    <p>
+                        <span>②</span>
+                        メニューから「退会」を選びます。
+                    </p>
+
+                    <p>
+                        <span>③</span>
+                        確認画面に表示される内容をよく読みます。
+                    </p>
+
+                    <p>
+                        <span>④</span>
+                        退会する場合は「退会する」を押し、パスワードを入力します。
+                    </p>
+
+                    <p>
+                        <span>⑤</span>
+                        退会しない場合は「キャンセル」を押します。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             最後の案内
+        ========================== -->
+
+        <div class="finish">
+
+            <p>
+                これでアプリの使い方の説明は以上です。
+            </p>
+
+            <p>
+                災害が起きる前に、<br>
+                持ち物と連絡先を確認しておきましょう。
+            </p>
+
+            <a
+                href="home.html"
+                class="home-button"
+                onclick="localStorage.setItem('setupCompleted', 'true');"
+            >
+                アプリをはじめる
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="ja">
 
