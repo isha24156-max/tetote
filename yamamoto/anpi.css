@@ -167,3 +167,43 @@ body {
 .back-btn:hover {
     background-color: #666;
 }
+
+
+/* メッセージを画面中央に表示 */
+.message-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.message-modal.hidden {
+    display: none;
+}
+
+.message-box {
+    width: 80%;
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.message-box p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.message-box button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    background: #b9dff5;
+    font-size: 16px;
+    cursor: pointer;
+}
