@@ -84,7 +84,7 @@ async function sendSafetyMail(message) {
     const user = auth.currentUser;
 
     if (!user) {
-        alert("ログインしてください。");
+       showMessage("ログインしてください。");
         return;
     }
 
@@ -104,7 +104,6 @@ async function sendSafetyMail(message) {
 
         const name = userData?.name || "利用者";
 
-        alert("名前：" + name + "\nUID：" + user.uid);
 
         // ==============================
         // contactsから登録者を取得
@@ -122,7 +121,7 @@ async function sendSafetyMail(message) {
         console.log("取得した連絡先:", contactsSnapshot.docs.map(doc => doc.data()));
 
         if (contactsSnapshot.empty) {
-            alert("登録されている連絡先がありません。");
+           showMessage("登録されている連絡先がありません。");
             return;
         }
 
@@ -184,17 +183,15 @@ async function sendSafetyMail(message) {
             }
         );
 
-
-        alert(
-            `${name}さんの「${message}」を${sendCount}人に送信しました。`
-        );
+　　　　showMessage('${name}さんの「${message}」を${sendCount}人に送信しました。');
+       
 
 
     } catch (error) {
 
         console.error(error);
 
-        alert(
+       showMessage(
             "メール送信に失敗しました。\n\n" +
             error.message
         );
