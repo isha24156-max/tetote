@@ -50,20 +50,35 @@ emailjs.init({
 const messageModal = document.getElementById("message-modal");
 const messageText = document.getElementById("message-text");
 const messageOk = document.getElementById("message-ok");
+const messageCancel = document.getElementById("message-cancel");
 
 function showMessage(message) {
     messageText.textContent = message;
+    messageCancel.style.display = "none";
     messageModal.classList.remove("hidden");
+}
+
+function showConfirm(message) {
+    return new Promise((resolve) => {
+        messageText.textContent = message;
+        messageCancel.style.display = "inline-block";
+        messageModal.classList.remove("hidden");
+
+        messageOk.onclick = () => {
+            messageModal.classList.add("hidden");
+            resolve(true);
+        };
+
+        messageCancel.onclick = () => {
+            messageModal.classList.add("hidden");
+            resolve(false);
+        };
+    });
 }
 
 messageOk.addEventListener("click", () => {
     messageModal.classList.add("hidden");
 });
-
-console.log("EmailJS初期化完了");
-
-const EMAIL_SERVICE_ID = "tetote-mail";
-const EMAIL_TEMPLATE_ID = "template_ci5ot6i";
 
 
 // ==============================
