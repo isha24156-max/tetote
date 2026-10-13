@@ -789,13 +789,13 @@ h1{
     }
 
     .name-area strong {
-        font-size: 20px;
+        font-size: 25px;
         line-height: 1.5;
     }
 
     /* メールアドレス */
     .contact-list li a {
-        font-size: 20px;
+        font-size: 25px;
         overflow-wrap: anywhere;
         word-break: break-word;
     }
@@ -809,7 +809,7 @@ h1{
         padding: 0;
         border: none;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 25px;
         line-height: 1;
         flex-shrink: 0;
     }
@@ -822,7 +822,7 @@ h1{
         margin-top: 16px;
         padding: 10px;
         border-radius: 13px;
-        font-size: 19px;
+        font-size: 25px;
         line-height: 1.4;
         flex-shrink: 0;
     }
@@ -839,14 +839,14 @@ h1{
     /* モーダルのタイトル */
     .delete-box h2,
     .delete-complete-box h2 {
-        font-size: 20px;
+        font-size: 25px;
         line-height: 1.6;
         margin-bottom: 16px;
     }
 
     /* 削除確認メッセージ */
     #deleteMessage {
-        font-size: 20px;
+        font-size: 25px;
         line-height: 1.8;
         overflow-wrap: anywhere;
         margin-bottom: 22px;
@@ -854,7 +854,7 @@ h1{
 
     /* 削除完了メッセージ */
     .delete-complete-box p {
-        font-size: 17px;
+        font-size: 25px;
         line-height: 1.8;
         margin-bottom: 22px;
     }
@@ -872,7 +872,7 @@ h1{
         margin: 0;
         padding: 10px 6px;
         border-radius: 10px;
-        font-size: 20px;
+        font-size: 25px;
         line-height: 1.4;
     }
 
@@ -882,7 +882,7 @@ h1{
         min-height: 46px;
         height: auto !important;
         padding: 10px;
-        font-size: 20px;
+        font-size: 25px;
     }
 }
 
