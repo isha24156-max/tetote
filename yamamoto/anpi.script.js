@@ -46,6 +46,20 @@ emailjs.init({
     publicKey: "Fwl75YiiPq5P3uBPe"
 });
 
+// メッセージ表示用
+const messageModal = document.getElementById("message-modal");
+const messageText = document.getElementById("message-text");
+const messageOk = document.getElementById("message-ok");
+
+function showMessage(message) {
+    messageText.textContent = message;
+    messageModal.classList.remove("hidden");
+}
+
+messageOk.addEventListener("click", () => {
+    messageModal.classList.add("hidden");
+});
+
 console.log("EmailJS初期化完了");
 
 const EMAIL_SERVICE_ID = "tetote-mail";
