@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功5");
+console.log("mypage.js 読み込み成功6");
 // =====================================
 // Firebase
 // =====================================
@@ -527,6 +527,9 @@ confirmSave.addEventListener(
 
                 // 新しいメールアドレスへ
                 // 確認メールを送信
+               console.log("① メール送信処理を開始");
+                console.log("変更先メールアドレス:", newEmail);
+                
                 await verifyBeforeUpdateEmail(
                     currentUser,
                     newEmail,
@@ -535,6 +538,8 @@ confirmSave.addEventListener(
                         handleCodeInApp: false
                     }
                 );
+                
+                console.log("② メール送信処理が完了");
 
 
                 // 名前だけ画面に反映
