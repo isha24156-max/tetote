@@ -1,3 +1,4 @@
+console.log("service-worker.js 読み込み成功1");
 // ========================================
 // キャッシュのバージョン
 // ========================================
@@ -82,35 +83,23 @@ self.addEventListener("fetch", (event) => {
 
     if (event.request.mode === "navigate") {
 
+        // CSS・JS・画像など
         event.respondWith(
-
             fetch(event.request)
-
                 .then((response) => {
-
-                    // 新しいHTMLをキャッシュ
-                    const responseClone = response.clone();
-
-                    caches.open(CACHE_NAME).then((cache) => {
-
-                        cache.put(
-                            event.request,
-                            responseClone
-                        );
-
-                    });
-
+                    if (response.ok) {
+                        const responseClone = response.clone();
+        
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseClone);
+                        });
+                    }
+        
                     return response;
-
                 })
-
                 .catch(() => {
-
-                    // ネットが使えない場合はキャッシュを使う
                     return caches.match(event.request);
-
                 })
-
         );
 
         return;
