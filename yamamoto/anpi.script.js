@@ -72,9 +72,9 @@ const EMAIL_TEMPLATE_ID = "template_ci5ot6i";
 
 async function sendSafetyMail(message) {
 
-    const confirmSend = confirm(
-        `登録している連絡先に「${message}」と送信しますか？`
-    );
+   
+    showMessage(
+    `${name}さんの「${message}」を${sendCount}人に送信しました。`);
 
     if (!confirmSend) {
         return;
@@ -83,9 +83,10 @@ async function sendSafetyMail(message) {
     // ログインしているユーザーを取得
     const user = auth.currentUser;
 
+    
     if (!user) {
-       showMessage("ログインしてください。");
-        return;
+    showMessage("ログインしてください。");
+    return;
     }
 
     console.log("今ログインしているUID:", user.uid);
@@ -183,8 +184,8 @@ async function sendSafetyMail(message) {
             }
         );
 
-　　　　showMessage('${name}さんの「${message}」を${sendCount}人に送信しました。');
-       
+       showMessage(
+        `${name}さんの「${message}」を${sendCount}人に送信しました。`);
 
 
     } catch (error) {
