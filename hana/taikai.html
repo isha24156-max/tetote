@@ -7,7 +7,7 @@
 
     <title>退会</title>
 
-   <link rel="stylesheet" href="taikai.css?v=3">
+    <link rel="stylesheet" href="taikai.css?v=4">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,7 @@
 
 <body>
 
+    <!-- 退会画面 -->
     <div class="taikai-container">
 
         <h1>退会</h1>
@@ -29,11 +30,12 @@
             連絡先とアカウントが削除されます。
         </p>
 
-        <button id="taikaiBtn" class="taikai-btn">
+        <button type="button" id="taikaiBtn" class="taikai-btn">
             退会する
         </button>
 
         <button
+            type="button"
             class="cancel-btn"
             onclick="location.href='../hada/home.html'"
         >
@@ -44,7 +46,6 @@
 
 
     <!-- 退会確認モーダル -->
-
     <div id="confirmModal" class="modal">
 
         <div class="modal-box">
@@ -53,11 +54,11 @@
 
             <div class="modal-buttons">
 
-                <button id="cancelBtn">
+                <button type="button" id="cancelBtn">
                     いいえ
                 </button>
 
-                <button id="confirmBtn">
+                <button type="button" id="confirmBtn">
                     はい
                 </button>
 
@@ -68,79 +69,93 @@
     </div>
 
 
-   
-<!-- パスワード入力モーダル -->
-<div id="passwordModal" class="modal">
-    <div class="modal-box">
+    <!-- パスワード入力モーダル -->
+    <div id="passwordModal" class="modal">
 
-        <p>
-            退会するには<br>
-            パスワードを入力してください。
-        </p>
+        <div class="modal-box">
 
-       <input
-            type="password"
-            id="password"
-            placeholder="パスワード"
-        >
+            <p>
+                退会するには<br>
+                パスワードを入力してください。
+            </p>
 
-        <button
-            type="button"
-            id="togglePassword"
-            class="toggle-password"
-            aria-label="パスワードを表示"
-        >
-            <img
-                id="passwordEye"
-                src="../hana/img/eye2.png"
-                alt=""
-            >
-        </button>
-</div>
+            <!-- パスワード入力欄と目のアイコン -->
+            <div class="password-wrapper">
 
-        <!-- エラーメッセージを表示する場所 -->
-        <p id="passwordError" class="password-error" role="alert" aria-live="polite"></p>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="パスワード"
+                    autocomplete="current-password"
+                >
 
-        <div class="modal-buttons">
-            <button id="passwordCancelBtn">
-                キャンセル
-            </button>
+                <button
+                    type="button"
+                    id="togglePassword"
+                    class="toggle-password"
+                    aria-label="パスワードを表示"
+                >
+                    <img
+                        id="passwordEye"
+                        src="../hana/img/eye2.png"
+                        alt=""
+                    >
+                </button>
 
-            <button id="deleteAccountBtn">
-                退会する
-            </button>
+            </div>
+
+            <!-- エラーメッセージ -->
+            <p
+                id="passwordError"
+                class="password-error"
+                role="alert"
+                aria-live="polite"
+            ></p>
+
+            <!-- 操作ボタン -->
+            <div class="modal-buttons">
+
+                <button type="button" id="passwordCancelBtn">
+                    キャンセル
+                </button>
+
+                <button type="button" id="deleteAccountBtn">
+                    退会する
+                </button>
+
+            </div>
+
         </div>
 
     </div>
-</div>
 
-    <!-- 退会完了画面 -->
 
-<div id="completeModal" class="modal">
+    <!-- 退会完了モーダル -->
+    <div id="completeModal" class="modal">
 
-    <div class="modal-box complete-box">
+        <div class="modal-box complete-box">
 
-        <div class="complete-icon">
-            ✓
+            <div class="complete-icon">
+                ✓
+            </div>
+
+            <h2>退会が完了しました</h2>
+
+            <p>
+                アカウントと登録した<br>
+                連絡先を削除しました。
+            </p>
+
+            <button type="button" id="loginPageBtn">
+                ログイン画面へ
+            </button>
+
         </div>
-
-        <h2>退会が完了しました</h2>
-
-        <p>
-            アカウントと登録した<br>
-            連絡先を削除しました。
-        </p>
-
-        <button id="loginPageBtn">
-            ログイン画面へ
-        </button>
 
     </div>
 
-</div>
 
-
-   <script type="module" src="taikai.js?v=5"></script>
+    <script type="module" src="taikai.js?v=5"></script>
 
 </body>
 
