@@ -1,8 +1,13 @@
 
 console.log("taikai.js 読み込み成功");
 
+// ========================================
+// Firebaseの読み込み
+// ========================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
 import {
     getFirestore,
@@ -39,13 +44,11 @@ const firebaseConfig = {
 
 
 // ========================================
-// Firebase開始
+// Firebaseの初期化
 // ========================================
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-
 const auth = getAuth(app);
 
 
@@ -55,13 +58,12 @@ const auth = getAuth(app);
 
 let currentUser = null;
 
-
 // 退会処理中かどうか
 let isDeleting = false;
 
 
 // ========================================
-// HTMLの要素
+// HTMLの要素を取得
 // ========================================
 
 const taikaiBtn =
@@ -87,21 +89,10 @@ const deleteAccountBtn =
 
 const password =
     document.getElementById("password");
+
+// パスワードエラー表示用
 const passwordError =
     document.getElementById("passwordError");
-
-// エラーメッセージを表示
-function showPasswordError(message) {
-    passwordError.textContent = message;
-    passwordError.style.display = "block";
-}
-
-// エラーメッセージを消す
-function clearPasswordError() {
-    passwordError.textContent = "";
-    passwordError.style.display = "none";
-}
-
 
 // 退会完了画面
 const completeModal =
@@ -112,6 +103,41 @@ const loginPageBtn =
 
 
 // ========================================
+// エラーメッセージを表示
+// ========================================
+
+function showPasswordError(message) {
+
+    if (!passwordError) {
+        console.error(
+            "passwordErrorがHTMLにありません。"
+        );
+        return;
+    }
+
+    passwordError.textContent = message;
+    passwordError.style.display = "block";
+
+}
+
+
+// ========================================
+// エラーメッセージを消す
+// ========================================
+
+function clearPasswordError() {
+
+    if (!passwordError) {
+        return;
+    }
+
+    passwordError.textContent = "";
+    passwordError.style.display = "none";
+
+}
+
+
+// ========================================
 // HTMLの要素があるか確認
 // ========================================
 
@@ -119,6 +145,7 @@ console.log("taikaiBtn:", taikaiBtn);
 console.log("confirmModal:", confirmModal);
 console.log("confirmBtn:", confirmBtn);
 console.log("passwordModal:", passwordModal);
+console.log("passwordError:", passwordError);
 console.log("completeModal:", completeModal);
 
 
@@ -140,7 +167,7 @@ onAuthStateChanged(auth, (user) => {
     } else {
 
         // 退会処理中なら
-        // 「ログインしてください」は表示しない
+        // ログイン画面への移動を行わない
 
         if (isDeleting) {
 
@@ -149,11 +176,9 @@ onAuthStateChanged(auth, (user) => {
             );
 
             return;
-
         }
 
-
-        // 普通にログインしていない状態の場合
+        // ログインしていない場合
 
         alert("ログインしてください。");
 
@@ -181,7 +206,7 @@ taikaiBtn.addEventListener("click", () => {
 
 
 // ========================================
-// 「いいえ」を押す
+// 確認画面の「いいえ」を押す
 // ========================================
 
 cancelBtn.addEventListener("click", () => {
@@ -196,7 +221,7 @@ cancelBtn.addEventListener("click", () => {
 
 
 // ========================================
-// 「はい」を押す
+// 確認画面の「はい」を押す
 // ========================================
 
 confirmBtn.addEventListener("click", () => {
@@ -207,15 +232,20 @@ confirmBtn.addEventListener("click", () => {
 
     confirmModal.style.display = "none";
 
+    // パスワード入力欄を空にする
     password.value = "";
 
+    // 前回のエラーを消す
+    clearPasswordError();
+
+    // パスワード入力画面を表示
     passwordModal.style.display = "flex";
 
 });
 
 
 // ========================================
-// パスワード画面のキャンセル
+// パスワード入力画面のキャンセル
 // ========================================
 
 passwordCancelBtn.addEventListener("click", () => {
@@ -224,17 +254,30 @@ passwordCancelBtn.addEventListener("click", () => {
 
     password.value = "";
 
+    clearPasswordError();
+
 });
 
 
 // ========================================
-// ログイン画面へ
+// ログイン画面へ移動
 // ========================================
 
 loginPageBtn.addEventListener("click", () => {
 
     window.location.href =
         "../yamamoto/login.html";
+
+});
+
+
+// ========================================
+// パスワード入力中にエラーを消す
+// ========================================
+
+password.addEventListener("input", () => {
+
+    clearPasswordError();
 
 });
 
@@ -251,21 +294,19 @@ deleteAccountBtn.addEventListener(
             "最終退会ボタンが押されました"
         );
 
-
         // ==================================
         // ログイン確認
         // ==================================
 
         if (!currentUser) {
 
-            alert(
+            showPasswordError(
                 "ログイン情報を確認できません。"
             );
 
             return;
 
         }
-
 
         // ==================================
         // パスワード取得
@@ -274,10 +315,9 @@ deleteAccountBtn.addEventListener(
         const enteredPassword =
             password.value.trim();
 
-
         if (enteredPassword === "") {
 
-            alert(
+            showPasswordError(
                 "パスワードを入力してください。"
             );
 
@@ -285,12 +325,16 @@ deleteAccountBtn.addEventListener(
 
         }
 
+        // ==================================
+        // 退会処理中の表示
+        // ==================================
 
         deleteAccountBtn.disabled = true;
 
         deleteAccountBtn.textContent =
             "退会処理中...";
 
+        clearPasswordError();
 
         try {
 
@@ -302,19 +346,16 @@ deleteAccountBtn.addEventListener(
                 "パスワードを確認しています..."
             );
 
-
             const credential =
                 EmailAuthProvider.credential(
                     currentUser.email,
                     enteredPassword
                 );
 
-
             await reauthenticateWithCredential(
                 currentUser,
                 credential
             );
-
 
             console.log(
                 "パスワード確認成功"
@@ -334,10 +375,8 @@ deleteAccountBtn.addEventListener(
                 )
             );
 
-
             const snapshot =
                 await getDocs(contactsQuery);
-
 
             console.log(
                 "連絡先の数:",
@@ -346,7 +385,7 @@ deleteAccountBtn.addEventListener(
 
 
             // ==================================
-            // ③ 連絡先を削除
+            // ③ 自分の連絡先を削除
             // ==================================
 
             if (!snapshot.empty) {
@@ -354,24 +393,19 @@ deleteAccountBtn.addEventListener(
                 const batch =
                     writeBatch(db);
 
+                snapshot.forEach((contactDoc) => {
 
-                snapshot.forEach(
-                    (contactDoc) => {
+                    batch.delete(
+                        doc(
+                            db,
+                            "contacts",
+                            contactDoc.id
+                        )
+                    );
 
-                        batch.delete(
-                            doc(
-                                db,
-                                "contacts",
-                                contactDoc.id
-                            )
-                        );
-
-                    }
-                );
-
+                });
 
                 await batch.commit();
-
 
                 console.log(
                     "連絡先削除完了"
@@ -384,17 +418,14 @@ deleteAccountBtn.addEventListener(
             // ④ 退会処理中にする
             // ==================================
 
-            // ここをdeleteUserより前にするのが重要
-
             isDeleting = true;
 
 
             // ==================================
-            // ⑤ Firebaseアカウント削除
+            // ⑤ Firebaseアカウントを削除
             // ==================================
 
             await deleteUser(currentUser);
-
 
             console.log(
                 "アカウント削除完了"
@@ -405,12 +436,9 @@ deleteAccountBtn.addEventListener(
             // ⑥ 退会完了画面を表示
             // ==================================
 
-            passwordModal.style.display =
-                "none";
+            passwordModal.style.display = "none";
 
-
-            completeModal.style.display =
-                "flex";
+            completeModal.style.display = "flex";
 
 
         } catch (error) {
@@ -420,48 +448,49 @@ deleteAccountBtn.addEventListener(
                 error
             );
 
-
-            // エラーが起きた場合は
-            // 退会処理中を解除
+            // ==================================
+            // エラー発生時の処理
+            // ==================================
 
             isDeleting = false;
 
-
             if (
-                error.code ===
-                    "auth/invalid-credential" ||
-
-                error.code ===
-                    "auth/wrong-password"
+                error.code === "auth/invalid-credential" ||
+                error.code === "auth/wrong-password" ||
+                error.code === "auth/invalid-login-credentials"
             ) {
 
-                alert(
-                    "パスワードが間違っています。"
+                // パスワードが間違っている場合
+                showPasswordError(
+                    "パスワードが間違っています。もう一度入力してください。"
                 );
 
+                password.value = "";
+                password.focus();
 
             } else if (
-                error.code ===
-                    "auth/requires-recent-login"
+                error.code === "auth/requires-recent-login"
             ) {
 
-                alert(
+                showPasswordError(
                     "安全のため、もう一度ログインしてから退会してください。"
                 );
 
-
             } else {
 
-                alert(
-                    "退会処理に失敗しました。\n" +
-                    "もう一度試してください。"
+                showPasswordError(
+                    "退会処理に失敗しました。もう一度試してください。"
                 );
 
             }
 
+        } finally {
 
-            deleteAccountBtn.disabled =
-                false;
+            // ==================================
+            // ボタンを元に戻す
+            // ==================================
+
+            deleteAccountBtn.disabled = false;
 
             deleteAccountBtn.textContent =
                 "退会する";
