@@ -574,4 +574,29 @@ h1 {
         width: 100%;
     }
 
+   
+/* パスワード入力欄と目のマーク */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.modal-box .password-wrapper input {
+    padding-right: 55px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 }
