@@ -1,136 +1,102 @@
 
-/* =========================
-   全体
-========================= */
-
+/* 全体 */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 0;
-    color: #30372c;
-    font-family:
-        "M PLUS Rounded 1c",
-        "Hiragino Maru Gothic ProN",
-        "Yu Gothic",
-        sans-serif;
+    padding: 24px 16px 40px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: #333;
     line-height: 1.8;
-
-    background-image:
-        linear-gradient(
-            rgba(245, 248, 239, 0.35),
-            rgba(245, 248, 239, 0.35)
-        ),
-        url("images/background.png");
-
+    background-color: #fffdf7;
+    background-image: url("images/background.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* =========================
-   ページ全体
-========================= */
-
+/* ページ全体 */
 .tutorial-container {
-    width: 90%;
-    max-width: 960px;
+    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 40px 0 60px;
 }
 
-/* =========================
-   タイトル
-========================= */
-
+/* タイトル */
 .tutorial-header {
-    margin-bottom: 30px;
-    padding: 30px 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.96);
-    border-radius: 24px;
-    box-shadow: 0 4px 15px rgba(48, 55, 44, 0.09);
+    margin-bottom: 32px;
 }
 
 .header-label {
-    margin: 0 0 5px;
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    background: #e8f0dc;
     color: #628f3d;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .tutorial-header h1 {
-    margin: 0 0 10px;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.5;
+    margin: 0;
+    font-size: 32px;
+    color: #333;
 }
 
 .intro {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 500;
+    margin: 12px 0 0;
+    font-size: 17px;
 }
 
-/* =========================
-   機能カード
-========================= */
-
+/* 各項目のカード */
 .tutorial-card {
-    margin-bottom: 28px;
-    padding: 28px;
-    background: rgba(255, 255, 255, 0.97);
-    border: 1px solid rgba(98, 143, 61, 0.18);
-    border-radius: 22px;
-    box-shadow: 0 4px 15px rgba(48, 55, 44, 0.09);
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 4px 14px rgba(80, 90, 60, 0.10);
 }
 
-/* =========================
-   見出し
-========================= */
-
+/* 項目タイトル */
 .section-title {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 22px;
-}
-
-.number {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    color: #fff;
-    background: #628f3d;
-    border-radius: 50%;
-    font-size: 23px;
-    font-weight: 700;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .section-title h2 {
     margin: 0;
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 24px;
     line-height: 1.5;
+    color: #333;
 }
 
-/* =========================
-   写真
-========================= */
+.number {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #628f3d;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+}
 
+/* 画像 */
 .image-area {
     width: 100%;
-    padding: 14px;
+    margin: 0 auto 20px;
     text-align: center;
-    background: #f7f9f4;
-    border: 1px solid #e1e8d9;
-    border-radius: 16px;
 }
 
 .tutorial-image {
@@ -139,30 +105,28 @@ body {
     max-width: 680px;
     height: auto;
     margin: 0 auto;
-    border-radius: 9px;
+    border-radius: 12px;
+    object-fit: contain;
 }
 
-/* =========================
-   操作方法
-========================= */
-
+/* 使い方の説明 */
 .how-to {
-    margin-top: 18px;
-    padding: 22px 24px;
-    background: #f1f6eb;
+    width: 100%;
+    min-width: 0;
+    margin-top: 16px;
+    padding: 18px;
     border-left: 5px solid #628f3d;
-    border-radius: 13px;
+    border-radius: 12px;
+    background: #f1f6eb;
 }
 
 .how-to h3 {
-    margin: 0 0 14px;
-    color: #45692d;
-    font-size: 22px;
-    font-weight: 700;
+    margin: 0 0 12px;
+    color: #527b32;
+    font-size: 19px;
 }
 
-/* 番号付き手順 */
-
+/* 番号付きリスト */
 .step-list {
     margin: 0;
     padding: 0;
@@ -171,307 +135,266 @@ body {
 }
 
 .step-list li {
-    position: relative;
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    margin: 0;
+    gap: 10px;
+    min-width: 0;
     padding: 10px 0;
-    font-size: 18px;
-    font-weight: 500;
+    border-bottom: 1px solid #dce8d3;
+    font-size: 16px;
     line-height: 1.8;
-    border-bottom: 1px solid #dce7d3;
+    overflow-wrap: break-word;
+    word-break: normal;
     counter-increment: step;
 }
 
-.step-list li:first-child {
-    padding-top: 0;
-}
-
 .step-list li:last-child {
-    padding-bottom: 0;
     border-bottom: none;
+    padding-bottom: 0;
 }
 
 .step-list li::before {
     content: counter(step);
-    flex-shrink: 0;
     display: flex;
+    flex: 0 0 28px;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-top: 2px;
-    color: #fff;
-    background: #628f3d;
+    width: 28px;
+    height: 28px;
+    margin-top: 1px;
     border-radius: 50%;
-    font-size: 15px;
+    background: #628f3d;
+    color: #fff;
+    font-size: 14px;
     font-weight: 700;
+    line-height: 1;
 }
 
-/* =========================
-   注意事項
-========================= */
-
-.attention {
-    margin-top: 16px;
-    padding: 17px 20px;
-    background: #fff6e9;
-    border: 1px solid #efd4ae;
-    border-left: 5px solid #d89b43;
-    border-radius: 12px;
+/* 文章部分は必要なときだけ自然に折り返す */
+.step-list li span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
-.attention-title {
-    margin: 0 0 5px;
-    color: #8a581d;
-    font-size: 18px;
+.step-list strong {
     font-weight: 700;
+    word-break: keep-all;
 }
 
-.attention p:last-child {
-    margin-bottom: 0;
-}
-
-.attention p {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* =========================
-   アプリ説明
-========================= */
-
+/* 説明文 */
 .app-intro {
-    padding: 25px 22px;
-    text-align: center;
-    background: #f7f9f4;
-    border: 1px solid #e1e8d9;
-    border-radius: 16px;
-}
-
-.app-intro-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    margin: 0 auto 12px;
-    color: #fff;
-    background: #628f3d;
-    border-radius: 50%;
-    font-size: 30px;
-    font-weight: 700;
-}
-
-.app-intro h3 {
-    margin: 0 0 8px;
-    color: #45692d;
-    font-size: 23px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 18px;
+    border: 1px solid #e0ead7;
+    border-radius: 14px;
+    background: #f8faf5;
+    line-height: 1.9;
 }
 
 .app-intro p {
     margin: 0;
-    font-size: 18px;
+    text-align: center;
+    font-size: 16px;
     line-height: 1.9;
+    word-break: normal;
+    overflow-wrap: anywhere;
 }
 
-/* =========================
-   最後の案内
-========================= */
+/* 注意書き */
+.attention {
+    width: 100%;
+    min-width: 0;
+    margin-top: 16px;
+    padding: 14px 16px;
+    border: 1px solid #f4d6ad;
+    border-left: 5px solid #e69a35;
+    border-radius: 12px;
+    background: #fff7eb;
+}
 
+.attention p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* アプリをはじめる部分 */
 .tutorial-finish {
-    margin-top: 38px;
-    padding: 35px 24px 40px;
+    padding: 32px 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.97);
-    border: 2px solid #dce8d2;
-    border-radius: 24px;
-    box-shadow: 0 5px 18px rgba(48, 55, 44, 0.10);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 4px 14px rgba(80, 90, 60, 0.10);
 }
 
 .finish-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 14px;
-    color: #fff;
-    background: #628f3d;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 12px;
     border-radius: 50%;
+    background: #628f3d;
+    color: #fff;
     font-size: 30px;
     font-weight: 700;
 }
 
 .tutorial-finish h2 {
     margin: 0 0 10px;
-    font-size: 26px;
-    font-weight: 700;
+    font-size: 24px;
 }
 
 .tutorial-finish p {
     margin: 0 0 24px;
-    font-size: 17px;
-    line-height: 1.9;
+    font-size: 16px;
 }
 
-/* =========================
-   アプリ開始ボタン
-========================= */
-
+/* 開始ボタン */
 .start-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    min-width: 280px;
-    max-width: 100%;
-    padding: 16px 26px;
-    color: #fff;
+    width: 100%;
+    max-width: 360px;
+    min-height: 60px;
+    padding: 14px 24px;
+    border-radius: 16px;
     background: #628f3d;
-    border: 2px solid #628f3d;
-    border-radius: 14px;
-    text-decoration: none;
+    color: #fff;
     font-size: 20px;
     font-weight: 700;
-    box-shadow: 0 4px 0 #45692d;
-    transition: background-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .start-button:hover {
-    background: #527c32;
-    border-color: #527c32;
+    background: #50772f;
     transform: translateY(-2px);
 }
 
-.start-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #45692d;
-}
-
 .start-button:focus-visible {
-    outline: 3px solid #e0a33d;
+    outline: 3px solid #f0c45c;
     outline-offset: 4px;
 }
 
-/* =========================
-   スマートフォン
-========================= */
-
-@media screen and (max-width: 700px) {
-    .tutorial-container {
-        width: 93%;
-        padding: 20px 0 35px;
+/* スマートフォン */
+@media (max-width: 600px) {
+    body {
+        padding: 16px 10px 28px;
+        background-attachment: scroll;
     }
 
     .tutorial-header {
-        margin-bottom: 20px;
-        padding: 24px 16px;
-        border-radius: 19px;
+        margin-bottom: 24px;
     }
 
     .tutorial-header h1 {
-        font-size: 29px;
+        font-size: 27px;
     }
 
     .intro {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .tutorial-card {
+        padding: 16px 12px;
         margin-bottom: 20px;
-        padding: 20px 16px;
-        border-radius: 19px;
+        border-radius: 16px;
     }
 
     .section-title {
-        gap: 11px;
-        margin-bottom: 17px;
-    }
-
-    .number {
-        width: 42px;
-        height: 42px;
-        font-size: 20px;
+        gap: 9px;
+        margin-bottom: 12px;
     }
 
     .section-title h2 {
-        font-size: 23px;
-    }
-
-    .image-area {
-        padding: 8px;
-        border-radius: 12px;
-    }
-
-    .tutorial-image {
-        border-radius: 7px;
-    }
-
-    .how-to {
-        margin-top: 14px;
-        padding: 17px 15px;
-    }
-
-    .how-to h3 {
         font-size: 20px;
     }
 
+    .number {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .how-to {
+        padding: 12px;
+        margin-top: 12px;
+    }
+
+    .how-to h3 {
+        font-size: 17px;
+    }
+
     .step-list li {
-        gap: 10px;
-        padding: 10px 0;
-        font-size: 16px;
+        gap: 8px;
+        padding: 9px 0;
+        font-size: 14px;
+        line-height: 1.8;
     }
 
     .step-list li::before {
-        width: 28px;
-        height: 28px;
+        flex-basis: 25px;
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+    }
+
+    .app-intro {
+        padding: 13px;
+    }
+
+    .app-intro p {
         font-size: 14px;
     }
 
     .attention {
-        padding: 14px;
+        padding: 12px;
+        margin-top: 12px;
     }
 
     .attention p {
-        font-size: 15px;
-    }
-
-    .app-intro {
-        padding: 21px 15px;
-    }
-
-    .app-intro h3 {
-        font-size: 21px;
-    }
-
-    .app-intro p {
-        font-size: 16px;
+        font-size: 13px;
     }
 
     .tutorial-finish {
-        margin-top: 25px;
-        padding: 28px 17px 32px;
-        border-radius: 20px;
+        padding: 24px 14px;
     }
 
     .tutorial-finish h2 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .tutorial-finish p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .start-button {
-        width: 100%;
-        min-width: 0;
-        padding: 15px 16px;
-        font-size: 19px;
+        min-height: 56px;
+        font-size: 18px;
+    }
+}
+
+/* 小さいスマートフォン */
+@media (max-width: 360px) {
+    .tutorial-card {
+        padding: 13px 9px;
     }
 
-    body {
-        background-attachment: scroll;
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .step-list li {
+        font-size: 13px;
     }
 }
