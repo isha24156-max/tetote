@@ -87,6 +87,20 @@ const deleteAccountBtn =
 
 const password =
     document.getElementById("password");
+const passwordError =
+    document.getElementById("passwordError");
+
+// エラーメッセージを表示
+function showPasswordError(message) {
+    passwordError.textContent = message;
+    passwordError.style.display = "block";
+}
+
+// エラーメッセージを消す
+function clearPasswordError() {
+    passwordError.textContent = "";
+    passwordError.style.display = "none";
+}
 
 
 // 退会完了画面
