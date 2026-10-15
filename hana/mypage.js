@@ -680,8 +680,6 @@ errorOk.addEventListener(
 
     }
 );
-const currentPassword =
-    document.getElementById("currentPassword");
 
 const toggleCurrentPassword =
     document.getElementById("toggleCurrentPassword");
@@ -691,10 +689,11 @@ toggleCurrentPassword.addEventListener("click", () => {
 
     currentPassword.type = isHidden ? "text" : "password";
 
-    toggleCurrentPassword.textContent = isHidden ? : "👁";
+    toggleCurrentPassword.textContent = isHidden ? "🙈" : "👁";
 
     toggleCurrentPassword.setAttribute(
         "aria-label",
         isHidden ? "パスワードを隠す" : "パスワードを表示"
     );
+});
 });
