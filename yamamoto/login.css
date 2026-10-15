@@ -353,3 +353,16 @@ input:focus {
     top: 8px;
     left: -3px;
 }
+
+#togglePassword img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+#togglePassword {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
