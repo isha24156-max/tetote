@@ -195,18 +195,23 @@ body {
 }
 
 .message-box p {
-   font-size: 24px;
-   font-weight: bold;
-   line-height: 1.6;
-   margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
+
 .message-box button {
-   font-size: 22px;
-   font-weight: bold;
-   padding: 14px 28px;
-   min-width: 100px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    background: #b9dff5;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
 }
+
 
 #message-cancel {
     margin-right: 10px;
