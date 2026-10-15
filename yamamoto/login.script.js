@@ -207,3 +207,20 @@ document
         }
 
     });
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const eye = togglePassword.querySelector(".eye");
+
+togglePassword.addEventListener("click", () => {
+  const isHidden = passwordInput.type === "password";
+
+  passwordInput.type = isHidden ? "text" : "password";
+
+  eye.classList.toggle("closed", !isHidden);
+
+  togglePassword.setAttribute(
+    "aria-label",
+    isHidden ? "パスワードを隠す" : "パスワードを表示"
+  );
+});
