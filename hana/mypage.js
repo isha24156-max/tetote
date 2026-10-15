@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功7");
+console.log("mypage.js 読み込み成功8");
 // =====================================
 // Firebase
 // =====================================
@@ -265,7 +265,7 @@ onAuthStateChanged(
         if (!user) {
 
             // ログインしていない場合
-            location.href = "../hada/home.html";
+            location.href = "../hana/mypage.html";
 
             return;
         }
