@@ -78,11 +78,25 @@
             パスワードを入力してください。
         </p>
 
-        <input
+       <input
             type="password"
             id="password"
             placeholder="パスワード"
         >
+
+        <button
+            type="button"
+            id="togglePassword"
+            class="toggle-password"
+            aria-label="パスワードを表示"
+        >
+            <img
+                id="passwordEye"
+                src="images/eye-closed.png"
+                alt=""
+            >
+        </button>
+</div>
 
         <!-- エラーメッセージを表示する場所 -->
         <p id="passwordError" class="password-error" role="alert" aria-live="polite"></p>
