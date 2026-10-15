@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功8");
+console.log("mypage.js 読み込み成功9");
 // =====================================
 // Firebase
 // =====================================
@@ -261,21 +261,18 @@ async function loadUserData(user) {
 onAuthStateChanged(
     auth,
     async (user) => {
+        console.log("ログイン状態:", user);
 
         if (!user) {
-
-            // ログインしていない場合
-            location.href = "../hana/mypage.html";
-
+            console.log("ユーザーが取得できていません");
+            location.href = "../hada/home.html";
             return;
         }
 
-
+        console.log("UID:", user.uid);
         currentUser = user;
 
-
         await loadUserData(user);
-
     }
 );
 
