@@ -339,17 +339,63 @@ h1 {
 }
 
 /* モーダルの幅と配置 */
+/* パスワード入力モーダルのはみ出し防止 */
 #passwordModal .modal-box {
     width: 90%;
     max-width: 380px;
-    padding: 30px 25px;
-    box-sizing: border-box;
+    min-width: 0;
+    padding: 30px 20px;
+    overflow: hidden;
 }
 
+/* パスワード入力欄 */
 #passwordModal .password-wrapper {
-    margin: 12px 0;
+    position: relative;
+    width: 100%;
+    min-width: 0;
 }
 
 #passwordModal .password-wrapper input {
-    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 44px;
+    margin: 0;
+    padding: 0 45px 0 12px;
+}
+
+/* 目のボタン */
+#passwordModal .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border: none;
+    background: transparent;
+}
+
+/* 目の画像 */
+#passwordModal .toggle-password img {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+/* キャンセル・退会ボタン */
+#passwordModal .modal-buttons {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+#passwordModal .modal-buttons button {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    padding: 12px 5px;
+    font-size: 15px;
 }
