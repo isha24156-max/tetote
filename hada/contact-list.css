@@ -1,4 +1,5 @@
 
+
 /* =====================================
    ページ全体
 ===================================== */
@@ -41,6 +42,7 @@ body {
 
 h1 {
     font-size: 72px;
+    line-height: 1.4;
     margin: 20px 0 50px;
 }
 
@@ -53,15 +55,12 @@ button {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 20px;
     font-weight: 700;
-
-    border: none;
-    border-radius: 12px;
     cursor: pointer;
 }
 
 
 /* =====================================
-   連絡先一覧の表示エリア
+   連絡先一覧
 ===================================== */
 
 .contact-list {
@@ -89,13 +88,14 @@ button {
     font-size: 20px;
     line-height: 1.6;
     margin-bottom: 25px;
+
     overflow-wrap: anywhere;
     word-break: break-word;
 }
 
 
 /* =====================================
-   名前と削除ボタンを横並び
+   名前と削除ボタン
 ===================================== */
 
 .name-area {
@@ -106,11 +106,9 @@ button {
 }
 
 
-/* =====================================
-   名前
-===================================== */
+/* 名前 */
 
-.name-area strong {
+.contact-list .name-area strong {
     font-size: 28px;
     line-height: 1.5;
 }
@@ -118,10 +116,13 @@ button {
 
 /* =====================================
    メールアドレス
+   JavaScriptではdivとして作成
 ===================================== */
 
-.contact-list li a {
+.contact-list li > div:not(.name-area) {
     font-size: 20px;
+    line-height: 1.5;
+
     overflow-wrap: anywhere;
     word-break: break-word;
 }
@@ -131,17 +132,18 @@ button {
    削除ボタン
 ===================================== */
 
-.delete-button {
+.contact-list .delete-button {
     width: 45px !important;
     min-width: 45px;
     height: 45px !important;
     min-height: 45px;
 
-    margin: 0 !important;
+    margin: 0;
     padding: 0;
 
-    background: #FF0000;
+    background: #ff0000;
     color: white;
+
     border: 1px solid black;
     border-radius: 10px;
 
@@ -150,7 +152,7 @@ button {
     flex-shrink: 0;
 }
 
-.delete-button:hover {
+.contact-list .delete-button:hover {
     opacity: 0.8;
 }
 
@@ -200,10 +202,11 @@ button {
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 26px;
+    line-height: 1.5;
 }
 
 
-/* 削除する人の名前 */
+/* 削除確認メッセージ */
 
 #deleteMessage {
     font-size: 24px;
@@ -223,10 +226,13 @@ button {
 
 .delete-buttons button {
     padding: 14px 22px;
+
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 18px;
     font-weight: 700;
-    cursor: pointer;
+
+    border: none;
+    border-radius: 12px;
 }
 
 
@@ -291,6 +297,7 @@ button {
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 30px;
+    line-height: 1.5;
 }
 
 
@@ -306,9 +313,10 @@ button {
 /* 削除完了 OKボタン */
 
 #deleteCompleteOk {
-    width: 140px !important;
-    height: 55px !important;
-    margin-top: 0 !important;
+    width: 140px;
+    min-height: 55px;
+    margin-top: 0;
+    padding: 10px;
 
     background-color: #618a3d;
     color: white;
@@ -319,8 +327,6 @@ button {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-size: 20px;
     font-weight: 700;
-
-    cursor: pointer;
 }
 
 #deleteCompleteOk:hover {
@@ -336,20 +342,23 @@ button {
     width: 100%;
     min-height: 60px;
     height: auto;
+
     margin-top: 30px;
     padding: 12px;
 
     background: #618a3d;
     color: white;
 
+    border: none;
     border-radius: 20px;
+
     font-size: 24px;
     line-height: 1.4;
 }
 
 
 /* =====================================
-   スマホ表示の調整
+   スマホ表示
 ===================================== */
 
 @media screen and (max-width: 600px) {
@@ -367,7 +376,7 @@ button {
     }
 
 
-    /* 白いメインの箱 */
+    /* 白い箱 */
 
     .container {
         width: calc(100% - 24px);
@@ -387,7 +396,7 @@ button {
     }
 
 
-    /* タイトルは大きくしすぎない */
+    /* タイトル */
 
     h1 {
         font-size: 30px;
@@ -415,18 +424,19 @@ button {
     }
 
 
-    /* 連絡先の行 */
+    /* 連絡先1件 */
 
     .contact-list li {
         font-size: 16px;
         line-height: 1.6;
         margin-bottom: 18px;
+
         overflow-wrap: anywhere;
         word-break: break-word;
     }
 
 
-    /* 名前だけ大きくする */
+    /* 名前だけ大きく */
 
     .contact-list .name-area strong {
         font-size: 25px !important;
@@ -434,11 +444,12 @@ button {
     }
 
 
-    /* メールアドレスだけ大きくする */
+    /* メールアドレスだけ大きく */
 
-    .contact-list li a {
+    .contact-list li > div:not(.name-area) {
         font-size: 25px !important;
         line-height: 1.5;
+
         overflow-wrap: anywhere;
         word-break: break-word;
     }
@@ -454,7 +465,7 @@ button {
     }
 
 
-    /* 削除ボタンは大きくしない */
+    /* 削除ボタンは小さめに保つ */
 
     .contact-list .delete-button {
         width: 32px !important;
@@ -497,7 +508,7 @@ button {
     }
 
 
-    /* 削除確認・削除完了の白い箱 */
+    /* 削除確認・削除完了の箱 */
 
     .delete-box,
     .delete-complete-box {
@@ -563,9 +574,9 @@ button {
     /* 削除完了のOKボタン */
 
     #deleteCompleteOk {
-        width: 100px !important;
+        width: 100px;
         min-height: 44px;
-        height: auto !important;
+        height: auto;
 
         padding: 10px;
         font-size: 18px;
