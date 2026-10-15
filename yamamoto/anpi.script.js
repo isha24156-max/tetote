@@ -46,7 +46,8 @@ emailjs.init({
     publicKey: "Fwl75YiiPq5P3uBPe"
 });
 
-
+const EMAIL_SERVICE_ID = "tetote-mail";
+const EMAIL_TEMPLATE_ID = "template_ci5ot6i";
 
  // メッセージ表示用
 const messageModal = document.getElementById("message-modal");
