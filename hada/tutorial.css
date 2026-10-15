@@ -11,15 +11,18 @@ body {
     margin: 0;
     padding: 0;
     color: #30372c;
-    font-family: "M PLUS Rounded 1c",
-                 "Hiragino Maru Gothic ProN",
-                 "Yu Gothic",
-                 sans-serif;
+    font-family:
+        "M PLUS Rounded 1c",
+        "Hiragino Maru Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
     line-height: 1.8;
 
     background-image:
-        linear-gradient(rgba(245, 248, 239, 0.35),
-                        rgba(245, 248, 239, 0.35)),
+        linear-gradient(
+            rgba(245, 248, 239, 0.35),
+            rgba(245, 248, 239, 0.35)
+        ),
         url("images/background.png");
 
     background-size: cover;
@@ -28,14 +31,14 @@ body {
 }
 
 /* =========================
-   全体の幅
+   ページ全体
 ========================= */
 
 .tutorial-container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 45px 0 65px;
+    padding: 40px 0 60px;
 }
 
 /* =========================
@@ -43,12 +46,12 @@ body {
 ========================= */
 
 .tutorial-header {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     padding: 30px 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.94);
-    border-radius: 25px;
-    box-shadow: 0 5px 18px rgba(48, 55, 44, 0.10);
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(48, 55, 44, 0.09);
 }
 
 .header-label {
@@ -56,12 +59,12 @@ body {
     color: #628f3d;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .tutorial-header h1 {
     margin: 0 0 10px;
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 1.5;
 }
@@ -73,16 +76,16 @@ body {
 }
 
 /* =========================
-   各機能のカード
+   機能カード
 ========================= */
 
 .tutorial-card {
-    margin-bottom: 30px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(98, 143, 61, 0.15);
-    border-radius: 24px;
-    box-shadow: 0 5px 18px rgba(48, 55, 44, 0.10);
+    margin-bottom: 28px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(98, 143, 61, 0.18);
+    border-radius: 22px;
+    box-shadow: 0 4px 15px rgba(48, 55, 44, 0.09);
 }
 
 /* =========================
@@ -92,7 +95,7 @@ body {
 .section-title {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
     margin-bottom: 22px;
 }
 
@@ -118,21 +121,16 @@ body {
 }
 
 /* =========================
-   写真と説明
+   写真
 ========================= */
-
-.tutorial-content {
-    min-width: 0;
-}
 
 .image-area {
     width: 100%;
-    margin: 0 auto;
-    padding: 15px;
+    padding: 14px;
     text-align: center;
-    background: #f7f8f4;
-    border: 1px solid #e4e9dc;
-    border-radius: 18px;
+    background: #f7f9f4;
+    border: 1px solid #e1e8d9;
+    border-radius: 16px;
 }
 
 .tutorial-image {
@@ -141,8 +139,7 @@ body {
     max-width: 680px;
     height: auto;
     margin: 0 auto;
-    border-radius: 10px;
-    object-fit: contain;
+    border-radius: 9px;
 }
 
 /* =========================
@@ -151,41 +148,132 @@ body {
 
 .how-to {
     margin-top: 18px;
-    padding: 22px 25px;
+    padding: 22px 24px;
     background: #f1f6eb;
     border-left: 5px solid #628f3d;
-    border-radius: 14px;
+    border-radius: 13px;
 }
 
 .how-to h3 {
-    margin: 0 0 10px;
+    margin: 0 0 14px;
     color: #45692d;
     font-size: 22px;
     font-weight: 700;
 }
 
-.how-to p {
-    margin: 0 0 12px;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 1.9;
+/* 番号付き手順 */
+
+.step-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
 }
 
-.how-to p:last-child {
+.step-list li {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.8;
+    border-bottom: 1px solid #dce7d3;
+    counter-increment: step;
+}
+
+.step-list li:first-child {
+    padding-top: 0;
+}
+
+.step-list li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.step-list li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+    color: #fff;
+    background: #628f3d;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* =========================
+   注意事項
+========================= */
+
+.attention {
+    margin-top: 16px;
+    padding: 17px 20px;
+    background: #fff6e9;
+    border: 1px solid #efd4ae;
+    border-left: 5px solid #d89b43;
+    border-radius: 12px;
+}
+
+.attention-title {
+    margin: 0 0 5px;
+    color: #8a581d;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.attention p:last-child {
     margin-bottom: 0;
 }
 
-.attention-text {
-    padding: 10px 12px;
-    color: #80551f;
-    background: #fff4e5;
-    border-radius: 8px;
+.attention p {
+    font-size: 16px;
+    line-height: 1.8;
 }
 
-/* ⑥ アプリ説明：写真がないため余白を調整 */
+/* =========================
+   アプリ説明
+========================= */
 
-.explanation-box {
-    margin-top: 0;
+.app-intro {
+    padding: 25px 22px;
+    text-align: center;
+    background: #f7f9f4;
+    border: 1px solid #e1e8d9;
+    border-radius: 16px;
+}
+
+.app-intro-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 12px;
+    color: #fff;
+    background: #628f3d;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.app-intro h3 {
+    margin: 0 0 8px;
+    color: #45692d;
+    font-size: 23px;
+}
+
+.app-intro p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.9;
 }
 
 /* =========================
@@ -193,60 +281,59 @@ body {
 ========================= */
 
 .tutorial-finish {
-    margin-top: 40px;
-    padding: 38px 25px 42px;
+    margin-top: 38px;
+    padding: 35px 24px 40px;
     text-align: center;
     background: rgba(255, 255, 255, 0.97);
     border: 2px solid #dce8d2;
-    border-radius: 26px;
-    box-shadow: 0 6px 20px rgba(48, 55, 44, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 5px 18px rgba(48, 55, 44, 0.10);
 }
 
 .finish-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 58px;
-    height: 58px;
-    margin: 0 auto 15px;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
     color: #fff;
     background: #628f3d;
     border-radius: 50%;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .tutorial-finish h2 {
     margin: 0 0 10px;
-    font-size: 27px;
+    font-size: 26px;
     font-weight: 700;
 }
 
 .tutorial-finish p {
-    margin: 0 auto 25px;
+    margin: 0 0 24px;
     font-size: 17px;
-    font-weight: 500;
     line-height: 1.9;
 }
 
 /* =========================
-   アプリをはじめるボタン
+   アプリ開始ボタン
 ========================= */
 
 .start-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 14px;
     min-width: 280px;
     max-width: 100%;
-    padding: 16px 28px;
+    padding: 16px 26px;
     color: #fff;
     background: #628f3d;
     border: 2px solid #628f3d;
-    border-radius: 15px;
+    border-radius: 14px;
     text-decoration: none;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
     box-shadow: 0 4px 0 #45692d;
     transition: background-color 0.2s, transform 0.2s;
@@ -275,13 +362,13 @@ body {
 @media screen and (max-width: 700px) {
     .tutorial-container {
         width: 93%;
-        padding: 22px 0 35px;
+        padding: 20px 0 35px;
     }
 
     .tutorial-header {
-        margin-bottom: 22px;
-        padding: 25px 17px;
-        border-radius: 20px;
+        margin-bottom: 20px;
+        padding: 24px 16px;
+        border-radius: 19px;
     }
 
     .tutorial-header h1 {
@@ -294,12 +381,12 @@ body {
 
     .tutorial-card {
         margin-bottom: 20px;
-        padding: 21px 17px;
-        border-radius: 20px;
+        padding: 20px 16px;
+        border-radius: 19px;
     }
 
     .section-title {
-        gap: 12px;
+        gap: 11px;
         margin-bottom: 17px;
     }
 
@@ -315,35 +402,62 @@ body {
 
     .image-area {
         padding: 8px;
-        border-radius: 13px;
+        border-radius: 12px;
     }
 
     .tutorial-image {
-        border-radius: 8px;
+        border-radius: 7px;
     }
 
     .how-to {
         margin-top: 14px;
-        padding: 17px;
-        border-radius: 12px;
+        padding: 17px 15px;
     }
 
     .how-to h3 {
         font-size: 20px;
     }
 
-    .how-to p {
+    .step-list li {
+        gap: 10px;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .step-list li::before {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .attention {
+        padding: 14px;
+    }
+
+    .attention p {
+        font-size: 15px;
+    }
+
+    .app-intro {
+        padding: 21px 15px;
+    }
+
+    .app-intro h3 {
+        font-size: 21px;
+    }
+
+    .app-intro p {
         font-size: 16px;
     }
 
     .tutorial-finish {
-        margin-top: 28px;
-        padding: 30px 18px 35px;
-        border-radius: 22px;
+        margin-top: 25px;
+        padding: 28px 17px 32px;
+        border-radius: 20px;
     }
 
     .tutorial-finish h2 {
-        font-size: 23px;
+        font-size: 22px;
     }
 
     .tutorial-finish p {
@@ -353,7 +467,7 @@ body {
     .start-button {
         width: 100%;
         min-width: 0;
-        padding: 15px 18px;
+        padding: 15px 16px;
         font-size: 19px;
     }
 
