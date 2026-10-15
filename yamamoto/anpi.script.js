@@ -206,8 +206,9 @@ if (!confirmSend) {
             }
         );
 
-       showMessage(
-        「${message}」を${sendCount}人に送信しました。`);
+    　showMessage(
+    　`${name}さんの「${message}」を${sendCount}人に送信しました。`
+    　);  
 
 
     } catch (error) {
