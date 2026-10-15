@@ -213,6 +213,11 @@ document
  // パスワード表示・非表示
  // =====================================
 
+
+ // =====================================
+ // パスワード表示・非表示
+ // =====================================
+
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
 const passwordEye = document.getElementById("passwordEye");
@@ -234,4 +239,5 @@ togglePassword.addEventListener("click", () => {
         isHidden ? "パスワードを隠す" : "パスワードを表示"
     );
 });
+
 
