@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -270,4 +271,123 @@ h1 {
 
 #passwordModal .modal-box > p:first-child {
     margin-bottom: 20px;
+}
+
+/* ==============================
+   退会完了モーダル
+   ============================== */
+
+#completeModal .complete-box {
+    width: 100%;
+    max-width: 380px;
+    min-width: 0;
+
+    padding: 30px 25px;
+
+    background: #fff;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* 完了マーク */
+#completeModal .complete-icon {
+    color: #648e62;
+    font-size: 28px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+/* 完了タイトル */
+#completeModal .complete-box h2 {
+    margin: 0 0 18px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* 完了メッセージ */
+#completeModal .complete-box p {
+    margin: 0 0 20px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ログイン画面へボタン */
+#completeModal #loginPageBtn {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+
+    margin: 20px auto 0;
+    padding: 14px 20px;
+
+    background: #7da77b;
+    color: #fff;
+
+    border: none;
+    border-radius: 15px;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    transition: background-color 0.2s ease;
+}
+
+#completeModal #loginPageBtn:hover {
+    background: #648e62;
+}
+
+#completeModal #loginPageBtn:active {
+    transform: translateY(1px);
+}
+
+/* ==============================
+   スマートフォン対応
+   ============================== */
+
+@media (max-width: 600px) {
+    .taikai-container {
+        padding: 35px 25px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .taikai-container p {
+        font-size: 17px;
+    }
+
+    .modal-box {
+        padding: 25px 20px;
+    }
+
+    .modal-box p {
+        font-size: 17px;
+    }
+
+    .modal-buttons button {
+        font-size: 14px;
+        padding: 12px 4px;
+    }
+
+    #completeModal .complete-box h2 {
+        font-size: 19px;
+    }
+
+    #completeModal .complete-box p {
+        font-size: 15px;
+    }
+
+    #completeModal #loginPageBtn {
+        max-width: 220px;
+        padding: 13px 18px;
+        font-size: 16px;
+    }
 }
