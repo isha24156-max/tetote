@@ -46,39 +46,44 @@ emailjs.init({
     publicKey: "Fwl75YiiPq5P3uBPe"
 });
 
-// メッセージ表示用
+
+
+ // メッセージ表示用
 const messageModal = document.getElementById("message-modal");
 const messageText = document.getElementById("message-text");
 const messageOk = document.getElementById("message-ok");
 const messageCancel = document.getElementById("message-cancel");
 
+function closeMessageModal() {
+    messageModal.classList.add("hidden");
+}
+
+// 通常のメッセージ表示
 function showMessage(message) {
     messageText.textContent = message;
     messageCancel.style.display = "none";
+    messageOk.onclick = closeMessageModal;
     messageModal.classList.remove("hidden");
 }
 
+// 送信前の確認表示
 function showConfirm(message) {
-    return new Promise((resolve) => {
-        messageText.textContent = message;
-        messageCancel.style.display = "inline-block";
-        messageModal.classList.remove("hidden");
+    messageText.textContent = message;
+    messageCancel.style.display = "inline-block";
+    messageModal.classList.remove("hidden");
 
+    return new Promise((resolve) => {
         messageOk.onclick = () => {
-            messageModal.classList.add("hidden");
+            closeMessageModal();
             resolve(true);
         };
 
         messageCancel.onclick = () => {
-            messageModal.classList.add("hidden");
+            closeMessageModal();
             resolve(false);
         };
     });
 }
-
-messageOk.addEventListener("click", () => {
-    messageModal.classList.add("hidden");
-});
 
 
 // ==============================
@@ -88,12 +93,13 @@ messageOk.addEventListener("click", () => {
 async function sendSafetyMail(message) {
 
    
-    showMessage(
-    `${name}さんの「${message}」を${sendCount}人に送信しました。`);
+   const confirmSend = await showConfirm(
+    `登録している連絡先に「${message}」と送信しますか？`
+);
 
-    if (!confirmSend) {
-        return;
-    }
+if (!confirmSend) {
+    return;
+}
 
     // ログインしているユーザーを取得
     const user = auth.currentUser;
