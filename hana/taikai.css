@@ -263,3 +263,29 @@ h1 {
 #loginPageBtn:hover {
     background: #72994f;
 }
+
+
+/* パスワードエラー表示 */
+
+.password-error {
+    display: none;
+    color: #c62828;
+    background: #fff0f0;
+    border: 1px solid #e8aaaa;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 0 0 18px !important;
+
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+}
+
+/* スマホ表示 */
+@media (max-width: 600px) {
+    .password-error {
+        font-size: 14px !important;
+        padding: 10px 8px;
+    }
+}
