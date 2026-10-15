@@ -19,16 +19,17 @@ body {
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+/* ==============================
+   退会画面
+   ============================== */
+
 .taikai-container {
     width: 90%;
     max-width: 450px;
-
     padding: 40px 30px;
 
     background: rgba(255, 255, 255, 0.92);
-
     border-radius: 30px;
-
     text-align: center;
 
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
@@ -37,26 +38,22 @@ body {
 h1 {
     margin-top: 0;
     margin-bottom: 30px;
-
     font-size: 38px;
 }
 
 .taikai-container p {
     font-size: 20px;
     line-height: 1.8;
-
     margin-bottom: 35px;
 }
 
 .taikai-btn,
 .cancel-btn {
     display: block;
-
     width: 100%;
     max-width: 300px;
 
     margin: 15px auto;
-
     padding: 15px;
 
     border: none;
@@ -79,19 +76,19 @@ h1 {
     color: white;
 }
 
-
-/* モーダル */
+/* ==============================
+   モーダル共通
+   ============================== */
 
 .modal {
     display: none;
 
     position: fixed;
-
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
+    padding: 16px;
 
     background: rgba(0, 0, 0, 0.45);
 
@@ -102,15 +99,14 @@ h1 {
 }
 
 .modal-box {
-    width: 90%;
+    width: 100%;
     max-width: 380px;
+    min-width: 0;
 
     padding: 30px 25px;
 
     background: white;
-
     border-radius: 25px;
-
     text-align: center;
 }
 
@@ -120,28 +116,124 @@ h1 {
 
     margin-top: 0;
     margin-bottom: 25px;
+
+    overflow-wrap: anywhere;
 }
 
+/* ==============================
+   入力欄共通
+   ============================== */
+
 .modal-box input {
+    display: block;
     width: 100%;
+    max-width: 100%;
 
     padding: 13px;
-
     margin-bottom: 20px;
 
     border: 1px solid #ccc;
     border-radius: 10px;
 
+    font-family: inherit;
     font-size: 17px;
 }
 
+/* ==============================
+   パスワード入力欄と目のアイコン
+   ============================== */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    margin: 12px 0;
+}
+
+.password-wrapper input {
+    width: 100%;
+    height: 48px;
+
+    margin: 0;
+    padding: 0 48px 0 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.toggle-password img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ==============================
+   パスワードエラー
+   ============================== */
+
+.password-error {
+    display: none;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 10px;
+    margin: 8px 0 18px !important;
+
+    color: #c62828;
+    background: #fff0f0;
+    border: 1px solid #e8aaaa;
+    border-radius: 10px;
+
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+/* ==============================
+   モーダル内のボタン
+   ============================== */
+
 .modal-buttons {
     display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    min-width: 0;
     gap: 10px;
 }
 
 .modal-buttons button {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 100%;
 
     padding: 12px 5px;
 
@@ -149,9 +241,10 @@ h1 {
     border-radius: 12px;
 
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
 
+    white-space: nowrap;
     cursor: pointer;
 }
 
@@ -167,235 +260,14 @@ h1 {
     color: white;
 }
 
-
-@media (max-width: 600px) {
-
-    .taikai-container {
-        padding: 35px 20px;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    .taikai-container p {
-        font-size: 18px;
-    }
-
-}
-
-/* ==============================
-   退会完了画面
-   ============================== */
-
-.complete-box {
-    padding: 35px 25px;
-}
-
-
-/* 完了マーク */
-
-.complete-icon {
-    width: 65px;
-    height: 65px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 50%;
-
-    background: #618a3d;
-    color: white;
-
-    font-size: 38px;
-    font-weight: 700;
-}
-
-
-/* タイトル */
-
-.complete-box h2 {
-    margin: 0 0 20px;
-
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-
-/* 説明 */
-
-.complete-box p {
-    margin-bottom: 25px;
-
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-
-/* ログイン画面へ */
-
-#loginPageBtn {
-    width: 100%;
-    max-width: 300px;
-
-    padding: 15px;
-
-    border: none;
-    border-radius: 15px;
-
-    background: #618a3d;
-    color: white;
-
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-#loginPageBtn:hover {
-    background: #72994f;
-}
-
-
-/* パスワードエラー表示 */
-
-.password-error {
-    display: none;
-    color: #c62828;
-    background: #fff0f0;
-    border: 1px solid #e8aaaa;
-    border-radius: 10px;
-
-    padding: 10px;
-    margin: 0 0 18px !important;
-
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-    text-align: center;
-}
-
-/* スマホ表示 */
-@media (max-width: 600px) {
-    .password-error {
-        font-size: 14px !important;
-        padding: 10px 8px;
-    }
-}
-
-/* パスワード入力欄と目のアイコン */
-.password-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 12px 0;
-}
-
-.password-wrapper input {
-    display: block;
-    width: 100%;
-    height: 44px;
-    box-sizing: border-box;
-    padding: 0 48px 0 12px;
-    border: 2px solid #222;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-/* 目のアイコンボタン */
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    padding: 4px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.toggle-password img {
-    display: block;
-    width: 22px;
-    height: 22px;
-}
-
-/* エラーメッセージをモーダル内に収める */
-#passwordError {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 8px 0;
-    color: #d93025;
-    font-size: 12px;
-    overflow-wrap: anywhere;
-}
-
-/* モーダルの幅と配置 */
-/* パスワード入力モーダルのはみ出し防止 */
+/* パスワードモーダルだけの調整 */
 #passwordModal .modal-box {
-    width: 90%;
+    width: 100%;
     max-width: 380px;
     min-width: 0;
-    padding: 30px 20px;
-    overflow: hidden;
+    padding: 30px 24px;
 }
 
-/* パスワード入力欄 */
-#passwordModal .password-wrapper {
-    position: relative;
-    width: 100%;
-    min-width: 0;
-}
-
-#passwordModal .password-wrapper input {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 44px;
-    margin: 0;
-    padding: 0 45px 0 12px;
-}
-
-/* 目のボタン */
-#passwordModal .toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    padding: 4px;
-    border: none;
-    background: transparent;
-}
-
-/* 目の画像 */
-#passwordModal .toggle-password img {
-    display: block;
-    width: 22px;
-    height: 22px;
-}
-
-/* キャンセル・退会ボタン */
-#passwordModal .modal-buttons {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-}
-
-#passwordModal .modal-buttons button {
-    flex: 1;
-    min-width: 0;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    padding: 12px 5px;
-    font-size: 15px;
+#passwordModal .modal-box > p:first-child {
+    margin-bottom: 20px;
 }
