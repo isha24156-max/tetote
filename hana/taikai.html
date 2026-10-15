@@ -68,38 +68,37 @@
     </div>
 
 
-    <!-- パスワード入力モーダル -->
+   
+<!-- パスワード入力モーダル -->
+<div id="passwordModal" class="modal">
+    <div class="modal-box">
 
-    <div id="passwordModal" class="modal">
+        <p>
+            退会するには<br>
+            パスワードを入力してください。
+        </p>
 
-        <div class="modal-box">
+        <input
+            type="password"
+            id="password"
+            placeholder="パスワード"
+        >
 
-            <p>
-                退会するには<br>
-                パスワードを入力してください。
-            </p>
+        <!-- エラーメッセージを表示する場所 -->
+        <p id="passwordError" class="password-error" role="alert" aria-live="polite"></p>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="パスワード"
-            >
+        <div class="modal-buttons">
+            <button id="passwordCancelBtn">
+                キャンセル
+            </button>
 
-            <div class="modal-buttons">
-
-                <button id="passwordCancelBtn">
-                    キャンセル
-                </button>
-
-                <button id="deleteAccountBtn">
-                    退会する
-                </button>
-
-            </div>
-
+            <button id="deleteAccountBtn">
+                退会する
+            </button>
         </div>
 
     </div>
+</div>
 
     <!-- 退会完了画面 -->
 
