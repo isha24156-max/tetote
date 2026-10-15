@@ -144,22 +144,30 @@
                 hidden
             >
 
-                <label for="currentPassword">
+                          <label for="currentPassword">
                     現在のパスワード
                 </label>
 
-                <input
-                    type="password"
-                    id="currentPassword"
-                    placeholder="現在のパスワードを入力してください"
-                >
+                <div class="password-wrapper">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        placeholder="現在のパスワードを入力してください"
+                    >
 
-                 <button
-                    type="button"
-                    class="toggle-password"
-                    id="toggleCurrentPassword"
-                    aria-label="パスワードを表示" 
-                >👁</button>
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        id="toggleCurrentPassword"
+                        aria-label="パスワードを表示"
+                    >
+                        <img
+                            id="currentPasswordEye"
+                            ★    src="hana/images/eye.svg"
+                            alt=""
+                        >
+                    </button>
+                </div>
 
                 <p class="small-note">
                     メールアドレスを変更する場合は、
