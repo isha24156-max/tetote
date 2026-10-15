@@ -208,19 +208,30 @@ document
 
     });
 
+
+ // =====================================
+ // パスワード表示・非表示
+ // =====================================
+
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
-const eye = togglePassword.querySelector(".eye");
+const passwordEye = document.getElementById("passwordEye");
 
 togglePassword.addEventListener("click", () => {
-  const isHidden = passwordInput.type === "password";
+    const isHidden = passwordInput.type === "password";
 
-  passwordInput.type = isHidden ? "text" : "password";
+    // パスワードを表示・非表示に切り替える
+    passwordInput.type = isHidden ? "text" : "password";
 
-  eye.classList.toggle("closed", !isHidden);
+    // 目の画像を切り替える
+    passwordEye.src = isHidden
+        ? "../hana/img/eye.png"
+        : "../hana/img/eye2.png";
 
-  togglePassword.setAttribute(
-    "aria-label",
-    isHidden ? "パスワードを隠す" : "パスワードを表示"
-  );
+    // 読み上げ用の説明も切り替える
+    togglePassword.setAttribute(
+        "aria-label",
+        isHidden ? "パスワードを隠す" : "パスワードを表示"
+    );
 });
+
