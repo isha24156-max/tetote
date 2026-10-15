@@ -499,3 +499,22 @@ deleteAccountBtn.addEventListener(
 
     }
 );
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const passwordEye = document.getElementById("passwordEye");
+
+togglePassword.addEventListener("click", () => {
+    const isHidden = passwordInput.type === "password";
+
+    passwordInput.type = isHidden ? "text" : "password";
+
+    passwordEye.src = isHidden
+        ? "../hana/img/eye1.png"
+        : "../hana/img/eye2.png";
+
+    togglePassword.setAttribute(
+        "aria-label",
+        isHidden ? "パスワードを隠す" : "パスワードを表示"
+    );
+});
