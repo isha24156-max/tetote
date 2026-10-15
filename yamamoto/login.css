@@ -198,6 +198,7 @@ input:focus {
     }
 }
 
+
 /* =========================
    パスワードの目ボタン
    ========================= */
@@ -213,145 +214,27 @@ input:focus {
     width: 100%;
     max-width: none;
     margin: 0;
-
     padding-right: 60px;
 }
 
-
-/* 目のボタン */
-
 #togglePassword {
     position: absolute;
-
     right: 12px;
     top: 50%;
-
     transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     width: 40px;
     height: 40px;
-
     margin: 0;
     padding: 0;
 
     border: none;
     background: transparent;
-
     cursor: pointer;
-}
-
-
-/* 目の形 */
-
-.eye {
-    position: relative;
-    display: block;
-
-    width: 26px;
-    height: 18px;
-
-    border: 2px solid #555;
-    border-radius: 50%;
-}
-
-
-/* 黒目 */
-.eye::after {
-    content: "";
-
-    position: absolute;
-
-    width: 7px;
-    height: 7px;
-
-    background: #555;
-    border-radius: 50%;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-/* 画面全体を覆う背景 */
-.message-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-    z-index: 9999;
-}
-
-/* 非表示のとき */
-.message-modal[hidden] {
-    display: none;
-}
-
-/* メッセージの白い枠 */
-.message-box {
-    width: 100%;
-    max-width: 380px;
-    padding: 30px 20px;
-
-    background: #fff;
-    border-radius: 20px;
-    text-align: center;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* メッセージ本文 */
-.message-box p {
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: #333;
-    margin: 0 0 25px;
-}
-
-/* OKボタン */
-.message-box button {
-    width: 120px;
-    padding: 12px;
-
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-
-    background: #16845b;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-/* パスワードを隠しているときの閉じた目 */
-.eye.closed {
-    border: none;
-    width: 26px;
-    height: 18px;
-    border-top: 2px solid #555;
-    border-radius: 50%;
-    transform: rotate(-25deg);
-}
-
-.eye.closed::after {
-    display: none;
-}
-
-.eye.closed::before {
-    content: "";
-    position: absolute;
-    width: 32px;
-    height: 2px;
-    background-color: #555;
-    top: 8px;
-    left: -3px;
 }
 
 #togglePassword img {
@@ -359,10 +242,4 @@ input:focus {
     width: 28px;
     height: 28px;
     object-fit: contain;
-}
-
-#togglePassword {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
