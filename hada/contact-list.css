@@ -446,13 +446,15 @@ button {
 
     /* メールアドレスだけ大きく */
 
-    .contact-list li > div:not(.name-area) {
-        font-size: 25px !important;
-        line-height: 1.5;
+   
+/* メールアドレスだけ大きくする */
+.contact-list li > div:not(.name-area) {
+    font-size: 30px !important;
+    line-height: 1.5;
 
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
 
 
     /* 名前と削除ボタン */
