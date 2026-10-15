@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功10");
+console.log("mypage.js 読み込み成功11");
 // =====================================
 // Firebase
 // =====================================
@@ -191,66 +191,41 @@ function showError(message) {
 // =====================================
 
 async function loadUserData(user) {
-
     try {
+        console.log("① Firestore読み込み開始");
 
-        // Firestoreのusers/{UID}を取得
-        const userRef =
-            doc(db, "users", user.uid);
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
 
-        const userSnap =
-            await getDoc(userRef);
-
+        console.log("② Firestore読み込み完了");
+        console.log("③ データが存在するか:", userSnap.exists());
 
         let name = "";
 
-
         if (userSnap.exists()) {
-
-            const data =
-                userSnap.data();
-
-            name =
-                data.name || "";
-
+            const data = userSnap.data();
+            name = data.name || "";
+            console.log("④ 取得したデータ:", data);
         }
 
-
-        // 名前がFirestoreにない場合
-        // Firebase AuthenticationのdisplayNameを使用
         if (!name) {
-
-            name =
-                user.displayName || "利用者";
-
+            name = user.displayName || "利用者";
         }
 
-
-        // メールアドレス
-        const email =
-            user.email || "";
-
+        const email = user.email || "";
 
         originalName = name;
-
         originalEmail = email;
 
-
-        // 画面に表示
         userName.textContent = name;
-
         userEmail.textContent = email;
 
+        console.log("⑤ 画面への表示完了");
+
     } catch (error) {
-
-        console.error(error);
-
-        showError(
-            "登録情報を読み込めませんでした。"
-        );
-
+        console.error("Firestore読み込みエラー:", error);
+        showError("登録情報を読み込めませんでした。");
     }
-
 }
 
 
