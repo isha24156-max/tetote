@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功11");
+console.log("mypage.js 読み込み成功13");
 // =====================================
 // Firebase
 // =====================================
@@ -233,23 +233,18 @@ async function loadUserData(user) {
 // ログイン状態確認
 // =====================================
 
-onAuthStateChanged(
-    auth,
-    async (user) => {
-        console.log("ログイン状態:", user);
+onAuthStateChanged(auth, async (user) => {
+  console.log("ログイン状態:", user);
 
-        if (!user) {
-            console.log("ユーザーが取得できていません");
-            location.href = "../hada/home.html";
-            return;
-        }
+  if (!user) {
+    console.log("ログインしていないため、ホームには戻さず停止します");
+    return;
+  }
 
-        console.log("UID:", user.uid);
-        currentUser = user;
-
-        await loadUserData(user);
-    }
-);
+  console.log("UID:", user.uid);
+  currentUser = user;
+  await loadUserData(user);
+});
 
 
 // =====================================
