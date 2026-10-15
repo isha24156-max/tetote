@@ -340,7 +340,16 @@ h1 {
 
 /* モーダルの幅と配置 */
 #passwordModal .modal-box {
-    width: 285px;
-    max-width: calc(100vw - 64px);
+    width: 90%;
+    max-width: 380px;
+    padding: 30px 25px;
     box-sizing: border-box;
+}
+
+#passwordModal .password-wrapper {
+    margin: 12px 0;
+}
+
+#passwordModal .password-wrapper input {
+    margin-bottom: 0;
 }
