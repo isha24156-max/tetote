@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功9");
+console.log("mypage.js 読み込み成功10");
 // =====================================
 // Firebase
 // =====================================
@@ -692,5 +692,4 @@ toggleCurrentPassword.addEventListener("click", () => {
         "aria-label",
         isHidden ? "パスワードを隠す" : "パスワードを表示"
     );
-});
 });
