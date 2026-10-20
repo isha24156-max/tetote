@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -21,9 +22,9 @@
 
 <body>
 
+    <!-- メイン画面 -->
     <div class="container">
 
-        <!-- ホームに戻る -->
         <button
             type="button"
             class="back-btn"
@@ -38,50 +39,30 @@
             登録している情報を確認できます
         </p>
 
-
         <!-- 登録情報 -->
         <section class="profile-card">
 
             <h2>登録情報</h2>
 
-
-            <!-- 名前 -->
             <div class="info-item">
+                <div class="info-label">名前</div>
 
-                <div class="info-label">
-                    名前
-                </div>
-
-                <div
-                    id="userName"
-                    class="info-value"
-                >
+                <div id="userName" class="info-value">
                     読み込み中...
                 </div>
-
             </div>
 
-
-            <!-- メールアドレス -->
             <div class="info-item">
+                <div class="info-label">メールアドレス</div>
 
-                <div class="info-label">
-                    メールアドレス
-                </div>
-
-                <div
-                    id="userEmail"
-                    class="info-value email-value"
-                >
+                <div id="userEmail" class="info-value email-value">
                     読み込み中...
                 </div>
-
             </div>
 
         </section>
 
-
-        <!-- 変更ボタン -->
+        <!-- 登録情報変更ボタン -->
         <button
             type="button"
             id="editBtn"
@@ -93,16 +74,11 @@
     </div>
 
 
-
     <!-- =====================================
          編集モーダル
     ====================================== -->
 
-    <div
-        id="editModal"
-        class="modal"
-        hidden
-    >
+    <div id="editModal" class="modal" hidden>
 
         <div class="modal-box">
 
@@ -112,11 +88,8 @@
                 変更したい内容を入力してください。
             </p>
 
-
             <!-- 名前 -->
-            <label for="editName">
-                名前
-            </label>
+            <label for="editName">名前</label>
 
             <input
                 type="text"
@@ -124,11 +97,8 @@
                 placeholder="名前を入力してください"
             >
 
-
-            <!-- メール -->
-            <label for="editEmail">
-                メールアドレス
-            </label>
+            <!-- メールアドレス -->
+            <label for="editEmail">メールアドレス</label>
 
             <input
                 type="email"
@@ -136,23 +106,20 @@
                 placeholder="メールアドレスを入力してください"
             >
 
+            <!-- メールアドレス変更時のパスワード入力 -->
+            <div id="passwordArea" class="password-area" hidden>
 
-            <!-- メールアドレス変更時のみ使用 -->
-            <div
-                id="passwordArea"
-                class="password-area"
-                hidden
-            >
-
-                          <label for="currentPassword">
+                <label for="currentPassword">
                     現在のパスワード
                 </label>
 
                 <div class="password-wrapper">
+
                     <input
                         type="password"
                         id="currentPassword"
                         placeholder="現在のパスワードを入力してください"
+                        autocomplete="current-password"
                     >
 
                     <button
@@ -163,20 +130,20 @@
                     >
                         <img
                             id="currentPasswordEye"
-                           　src="../hana/img/eye2.png"
+                            src="../hana/img/eye2.png"
                             alt=""
                         >
                     </button>
+
                 </div>
 
                 <p class="small-note">
-                    メールアドレスを変更する場合は、
-                    本人確認のため現在のパスワードが必要です。
+                    メールアドレスを変更する場合は、本人確認のため現在のパスワードが必要です。
                 </p>
 
             </div>
 
-
+            <!-- 編集モーダルのボタン -->
             <div class="modal-buttons">
 
                 <button
@@ -202,16 +169,11 @@
     </div>
 
 
-
     <!-- =====================================
          変更確認モーダル
     ====================================== -->
 
-    <div
-        id="confirmModal"
-        class="modal"
-        hidden
-    >
+    <div id="confirmModal" class="modal" hidden>
 
         <div class="modal-box">
 
@@ -221,35 +183,23 @@
                 以下の内容に変更します。
             </p>
 
-
             <div class="confirm-info">
 
                 <div class="confirm-row">
-
                     <span>名前</span>
-
-                    <strong id="confirmName">
-                    </strong>
-
+                    <strong id="confirmName"></strong>
                 </div>
 
-
                 <div class="confirm-row">
-
                     <span>メールアドレス</span>
-
-                    <strong id="confirmEmail">
-                    </strong>
-
+                    <strong id="confirmEmail"></strong>
                 </div>
 
             </div>
 
-
             <p class="question">
                 この内容で変更しますか？
             </p>
-
 
             <div class="modal-buttons">
 
@@ -276,16 +226,11 @@
     </div>
 
 
-
     <!-- =====================================
          完了モーダル
     ====================================== -->
 
-    <div
-        id="completeModal"
-        class="modal"
-        hidden
-    >
+    <div id="completeModal" class="modal" hidden>
 
         <div class="modal-box complete-box">
 
@@ -312,16 +257,11 @@
     </div>
 
 
-
     <!-- =====================================
          エラーモーダル
     ====================================== -->
 
-    <div
-        id="errorModal"
-        class="modal"
-        hidden
-    >
+    <div id="errorModal" class="modal" hidden>
 
         <div class="modal-box">
 
@@ -330,8 +270,7 @@
             <p
                 id="errorMessage"
                 class="error-message"
-            >
-            </p>
+            ></p>
 
             <button
                 type="button"
@@ -346,12 +285,10 @@
     </div>
 
 
-
-    <script
-        type="module"
-        src="mypage.js"
-    ></script>
+    <!-- JavaScript -->
+    <script type="module" src="mypage.js"></script>
 
 </body>
 
 </html>
+```
