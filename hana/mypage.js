@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功13");
+console.log("mypage.js 読み込み成功14");
 // =====================================
 // Firebase
 // =====================================
@@ -10,6 +10,7 @@ import {
 import {
     getAuth,
     onAuthStateChanged,
+    authStateReady,
     EmailAuthProvider,
     reauthenticateWithCredential,
     verifyBeforeUpdateEmail
@@ -233,17 +234,19 @@ async function loadUserData(user) {
 // ログイン状態確認
 // =====================================
 
-onAuthStateChanged(auth, async (user) => {
-  console.log("ログイン状態:", user);
+authStateReady(auth).then(() => {
+    onAuthStateChanged(auth, async (user) => {
+        console.log("ログイン状態:", user);
 
-  if (!user) {
-    console.log("ログインしていないため、ホームには戻さず停止します");
-    return;
-  }
+        if (!user) {
+            console.log("ログインしていません");
+            return;
+        }
 
-  console.log("UID:", user.uid);
-  currentUser = user;
-  await loadUserData(user);
+        console.log("UID:", user.uid);
+        currentUser = user;
+        await loadUserData(user);
+    });
 });
 
 
