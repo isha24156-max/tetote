@@ -41,69 +41,32 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// =====================================
-// パスワード表示・非表示
-// =====================================
+
+ // =====================================
+ // パスワード表示・非表示
+ // =====================================
 
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
+const passwordEye = document.getElementById("passwordEye");
 
-togglePassword.addEventListener("click", () {
+togglePassword.addEventListener("click", () => {
+    const isHidden = passwordInput.type === "password";
 
-  // console.log("目のボタンが押されました");
+    // パスワードを表示・非表示に切り替える
+    passwordInput.type = isHidden ? "text" : "password";
 
-  if (passwordInput.type === "password") {
+    // 目の画像を切り替える
+    passwordEye.src = isHidden
+        ? "../hana/img/eye1.png"
+        : "../hana/img/eye2.png";
 
-    passwordInput.type = "text";
-
-    togglePassword.classList.add("show");
-
+    // 読み上げ用の説明も切り替える
     togglePassword.setAttribute(
-      "aria-label",
-      "パスワードを非表示"
+        "aria-label",
+        isHidden ? "パスワードを隠す" : "パスワードを表示"
     );
-
-  } else {
-
-    passwordInput.type = "password";
-
-    togglePassword.classList.remove("show");
-
-    togglePassword.setAttribute(
-      "aria-label",
-      "パスワードを表示"
-    );
-
-  }
-
 });
-
-
-// =====================================
-// メッセージ表示
-// =====================================
-
-function showMessage(message, callback) {
-
-  const modal = document.getElementById("messageModal");
-  const messageText = document.getElementById("messageText");
-  const messageOk = document.getElementById("messageOk");
-
-  messageText.textContent = message;
-
-  modal.hidden = false;
-
-  messageOk.onclick = () => {
-
-    modal.hidden = true;
-
-    if (callback) {
-      callback();
-    }
-
-  };
-
-}
 
 
 // =====================================
