@@ -1,3 +1,4 @@
+```css
 /* =====================================
    全体
 ===================================== */
@@ -16,12 +17,10 @@ body {
 
 body {
     font-family: "M PLUS Rounded 1c", sans-serif;
-
     background-image: url("../morita/start.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
     color: #333;
 
     display: flex;
@@ -37,20 +36,15 @@ body {
 
 .container {
     width: min(700px, 100%);
-
     min-height: 650px;
 
     background: rgba(255, 255, 255, 0.94);
-
     border-radius: 30px;
-
     padding: 65px 55px 50px;
 
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 
     text-align: center;
-
     position: relative;
 }
 
@@ -61,7 +55,6 @@ body {
 
 .back-btn {
     position: absolute;
-
     top: 20px;
     left: 20px;
 
@@ -79,7 +72,6 @@ body {
     font-weight: 700;
 
     cursor: pointer;
-
     transition: 0.2s;
 }
 
@@ -98,17 +90,13 @@ body {
 
 h1 {
     margin: 5px 0 10px;
-
     font-size: 42px;
-
     color: #333;
 }
 
 .description {
     margin: 0 0 35px;
-
     font-size: 22px;
-
     line-height: 1.6;
 }
 
@@ -121,13 +109,10 @@ h1 {
     width: 100%;
 
     background: #f7faf7;
-
     border: 3px solid #d9ead9;
-
     border-radius: 25px;
 
     padding: 30px;
-
     margin-bottom: 30px;
 
     text-align: left;
@@ -135,26 +120,21 @@ h1 {
 
 .profile-card h2 {
     margin: 0 0 25px;
-
     text-align: center;
-
     font-size: 30px;
-
     color: #3c7045;
 }
 
 
 /* =====================================
-   情報
+   登録情報
 ===================================== */
 
 .info-item {
     background: white;
-
     border-radius: 18px;
 
     padding: 20px 22px;
-
     margin-bottom: 16px;
 
     border: 2px solid #e5e5e5;
@@ -166,17 +146,13 @@ h1 {
 
 .info-label {
     font-size: 20px;
-
     color: #666;
-
     margin-bottom: 8px;
 }
 
 .info-value {
     font-size: 25px;
-
     color: #333;
-
     word-break: break-word;
 }
 
@@ -191,7 +167,6 @@ h1 {
 
 .main-btn {
     width: 100%;
-
     min-height: 65px;
 
     border: none;
@@ -205,7 +180,6 @@ h1 {
     font-weight: 700;
 
     cursor: pointer;
-
     transition: 0.2s;
 }
 
@@ -224,18 +198,15 @@ h1 {
 
 .modal {
     position: fixed;
-
     inset: 0;
 
     background: rgba(0, 0, 0, 0.45);
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     padding: 20px;
-
     z-index: 1000;
 }
 
@@ -250,67 +221,55 @@ h1 {
 
 .modal-box {
     width: min(600px, 100%);
-
     max-height: 90vh;
 
     overflow-y: auto;
 
     background: white;
-
     border-radius: 28px;
-
     padding: 35px;
 
     text-align: center;
 
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
 }
 
 .modal-box h2 {
     margin: 0 0 15px;
-
     font-size: 31px;
-
     color: #333;
 }
 
 .modal-description {
     font-size: 20px;
-
     line-height: 1.6;
-
     margin-bottom: 25px;
 }
 
 
 /* =====================================
-   入力
+   入力欄
 ===================================== */
 
 .modal-box label {
     display: block;
-
     text-align: left;
 
     font-size: 20px;
-
     margin: 18px 0 8px;
 }
 
 .modal-box input {
+    display: block;
     width: 100%;
-
     height: 58px;
 
     padding: 0 18px;
 
     border: 2px solid #ccc;
-
     border-radius: 16px;
 
     font-family: "M PLUS Rounded 1c", sans-serif;
-
     font-size: 19px;
 
     outline: none;
@@ -322,22 +281,61 @@ h1 {
 
 
 /* =====================================
-   パスワード説明
+   パスワード入力欄と目の画像
 ===================================== */
 
 .password-area {
     margin-top: 5px;
 }
 
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.modal-box .password-wrapper input {
+    width: 100%;
+    padding-right: 55px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.toggle-password img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.toggle-password:hover {
+    background: rgba(76, 155, 93, 0.08);
+}
+
 .small-note {
     text-align: left;
-
     font-size: 15px;
-
     line-height: 1.5;
-
     color: #666;
-
     margin: 8px 0 0;
 }
 
@@ -348,25 +346,20 @@ h1 {
 
 .modal-buttons {
     display: flex;
-
     gap: 15px;
-
     margin-top: 30px;
 }
 
 .modal-buttons button {
     flex: 1;
-
+    min-width: 0;
     height: 58px;
 
     border: none;
-
     border-radius: 17px;
 
     font-family: "M PLUS Rounded 1c", sans-serif;
-
     font-size: 20px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -377,7 +370,6 @@ h1 {
 
 .cancel-btn {
     background: #888;
-
     color: white;
 }
 
@@ -390,21 +382,16 @@ h1 {
 
 .confirm-btn {
     background: #4c9b5d;
-
     color: white;
 
     border: none;
-
     border-radius: 17px;
 
-    height: 58px;
-
+    min-height: 58px;
     padding: 0 25px;
 
     font-family: "M PLUS Rounded 1c", sans-serif;
-
     font-size: 20px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -416,16 +403,14 @@ h1 {
 
 
 /* =====================================
-   確認内容
+   変更確認内容
 ===================================== */
 
 .confirm-info {
     background: #f7faf7;
-
     border-radius: 18px;
 
     padding: 18px;
-
     text-align: left;
 
     margin: 20px 0;
@@ -433,7 +418,6 @@ h1 {
 
 .confirm-row {
     padding: 15px 5px;
-
     border-bottom: 1px solid #ddd;
 }
 
@@ -443,31 +427,25 @@ h1 {
 
 .confirm-row span {
     display: block;
-
     font-size: 17px;
-
     color: #666;
-
     margin-bottom: 5px;
 }
 
 .confirm-row strong {
     display: block;
-
     font-size: 21px;
-
     word-break: break-word;
 }
 
 .question {
     font-size: 20px;
-
     margin: 20px 0 0;
 }
 
 
 /* =====================================
-   完了
+   完了モーダル
 ===================================== */
 
 .complete-box {
@@ -479,7 +457,6 @@ h1 {
     height: 75px;
 
     margin: 0 auto 15px;
-
     border-radius: 50%;
 
     background: #4c9b5d;
@@ -494,28 +471,24 @@ h1 {
 
 .complete-box p {
     font-size: 20px;
-
     margin: 15px 0 25px;
 }
 
 
 /* =====================================
-   エラー
+   エラーモーダル
 ===================================== */
 
 .error-message {
     font-size: 19px;
-
     line-height: 1.6;
-
     color: #555;
-
     margin: 20px 0;
 }
 
 
 /* =====================================
-   スマートフォン
+   スマートフォン対応
 ===================================== */
 
 @media (max-width: 600px) {
@@ -526,7 +499,6 @@ h1 {
 
     .container {
         padding: 65px 22px 35px;
-
         border-radius: 25px;
     }
 
@@ -566,37 +538,29 @@ h1 {
         font-size: 27px;
     }
 
+    .modal-box label {
+        font-size: 18px;
+    }
+
+    .modal-box input {
+        font-size: 16px;
+    }
+
     .modal-buttons {
         flex-direction: column;
+        gap: 12px;
     }
 
     .modal-buttons button {
         width: 100%;
     }
 
-   
-/* パスワード入力欄と目のマーク */
-.password-wrapper {
-    position: relative;
-    width: 100%;
-}
+    .small-note {
+        font-size: 14px;
+    }
 
-.modal-box .password-wrapper input {
-    padding-right: 55px;
+    .confirm-row strong {
+        font-size: 18px;
+    }
 }
-
-.toggle-password {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    height: auto;
-    padding: 5px;
-    border: none;
-    background: transparent;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-}
+```</Writing
