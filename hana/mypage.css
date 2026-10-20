@@ -13,6 +13,7 @@ body {
     padding: 0;
     width: 100%;
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -23,9 +24,6 @@ body {
     background-attachment: fixed;
     color: #333;
 
-    display: flex;
-    justify-content: center;
-
     padding: 40px 20px;
 }
 
@@ -35,8 +33,12 @@ body {
 ===================================== */
 
 .container {
-    width: min(700px, 100%);
+    width: 100%;
+    max-width: 700px;
+    min-width: 0;
     min-height: 650px;
+
+    margin: 0 auto;
 
     background: rgba(255, 255, 255, 0.94);
     border-radius: 30px;
@@ -92,12 +94,14 @@ h1 {
     margin: 5px 0 10px;
     font-size: 42px;
     color: #333;
+    overflow-wrap: anywhere;
 }
 
 .description {
     margin: 0 0 35px;
     font-size: 22px;
     line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 
@@ -107,13 +111,15 @@ h1 {
 
 .profile-card {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
 
     background: #f7faf7;
     border: 3px solid #d9ead9;
     border-radius: 25px;
 
     padding: 30px;
-    margin-bottom: 30px;
+    margin: 0 0 30px;
 
     text-align: left;
 }
@@ -123,6 +129,7 @@ h1 {
     text-align: center;
     font-size: 30px;
     color: #3c7045;
+    overflow-wrap: anywhere;
 }
 
 
@@ -131,6 +138,10 @@ h1 {
 ===================================== */
 
 .info-item {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     background: white;
     border-radius: 18px;
 
@@ -148,11 +159,14 @@ h1 {
     font-size: 20px;
     color: #666;
     margin-bottom: 8px;
+    overflow-wrap: anywhere;
 }
 
 .info-value {
     font-size: 25px;
     color: #333;
+
+    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
@@ -166,7 +180,10 @@ h1 {
 ===================================== */
 
 .main-btn {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 65px;
 
     border: none;
@@ -181,6 +198,8 @@ h1 {
 
     cursor: pointer;
     transition: 0.2s;
+
+    overflow-wrap: anywhere;
 }
 
 .main-btn:hover {
@@ -193,7 +212,7 @@ h1 {
 
 
 /* =====================================
-   モーダル
+   モーダル背景
 ===================================== */
 
 .modal {
@@ -220,10 +239,13 @@ h1 {
 ===================================== */
 
 .modal-box {
-    width: min(600px, 100%);
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
     max-height: 90vh;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
     background: white;
     border-radius: 28px;
@@ -238,12 +260,14 @@ h1 {
     margin: 0 0 15px;
     font-size: 31px;
     color: #333;
+    overflow-wrap: anywhere;
 }
 
 .modal-description {
     font-size: 20px;
     line-height: 1.6;
     margin-bottom: 25px;
+    overflow-wrap: anywhere;
 }
 
 
@@ -262,6 +286,8 @@ h1 {
 .modal-box input {
     display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     height: 58px;
 
     padding: 0 18px;
@@ -269,298 +295,4 @@ h1 {
     border: 2px solid #ccc;
     border-radius: 16px;
 
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 19px;
-
-    outline: none;
-}
-
-.modal-box input:focus {
-    border-color: #4c9b5d;
-}
-
-
-/* =====================================
-   パスワード入力欄と目の画像
-===================================== */
-
-.password-area {
-    margin-top: 5px;
-}
-
-.password-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.modal-box .password-wrapper input {
-    width: 100%;
-    padding-right: 55px;
-}
-
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-
-    transform: translateY(-50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 36px;
-    height: 36px;
-    padding: 5px;
-
-    border: none;
-    border-radius: 6px;
-    background: transparent;
-
-    cursor: pointer;
-}
-
-.toggle-password img {
-    display: block;
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
-
-.toggle-password:hover {
-    background: rgba(76, 155, 93, 0.08);
-}
-
-.small-note {
-    text-align: left;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #666;
-    margin: 8px 0 0;
-}
-
-
-/* =====================================
-   モーダルボタン
-===================================== */
-
-.modal-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.modal-buttons button {
-    flex: 1;
-    min-width: 0;
-    height: 58px;
-
-    border: none;
-    border-radius: 17px;
-
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-
-/* キャンセル */
-
-.cancel-btn {
-    background: #888;
-    color: white;
-}
-
-.cancel-btn:hover {
-    opacity: 0.8;
-}
-
-
-/* 決定 */
-
-.confirm-btn {
-    background: #4c9b5d;
-    color: white;
-
-    border: none;
-    border-radius: 17px;
-
-    min-height: 58px;
-    padding: 0 25px;
-
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-.confirm-btn:hover {
-    background: #418851;
-}
-
-
-/* =====================================
-   変更確認内容
-===================================== */
-
-.confirm-info {
-    background: #f7faf7;
-    border-radius: 18px;
-
-    padding: 18px;
-    text-align: left;
-
-    margin: 20px 0;
-}
-
-.confirm-row {
-    padding: 15px 5px;
-    border-bottom: 1px solid #ddd;
-}
-
-.confirm-row:last-child {
-    border-bottom: none;
-}
-
-.confirm-row span {
-    display: block;
-    font-size: 17px;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-.confirm-row strong {
-    display: block;
-    font-size: 21px;
-    word-break: break-word;
-}
-
-.question {
-    font-size: 20px;
-    margin: 20px 0 0;
-}
-
-
-/* =====================================
-   完了モーダル
-===================================== */
-
-.complete-box {
-    padding: 40px 35px;
-}
-
-.complete-icon {
-    width: 75px;
-    height: 75px;
-
-    margin: 0 auto 15px;
-    border-radius: 50%;
-
-    background: #4c9b5d;
-    color: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 45px;
-}
-
-.complete-box p {
-    font-size: 20px;
-    margin: 15px 0 25px;
-}
-
-
-/* =====================================
-   エラーモーダル
-===================================== */
-
-.error-message {
-    font-size: 19px;
-    line-height: 1.6;
-    color: #555;
-    margin: 20px 0;
-}
-
-
-/* =====================================
-   スマートフォン対応
-===================================== */
-
-@media (max-width: 600px) {
-
-    body {
-        padding: 20px 12px;
-    }
-
-    .container {
-        padding: 65px 22px 35px;
-        border-radius: 25px;
-    }
-
-    h1 {
-        font-size: 35px;
-    }
-
-    .description {
-        font-size: 19px;
-    }
-
-    .profile-card {
-        padding: 22px 18px;
-    }
-
-    .profile-card h2 {
-        font-size: 27px;
-    }
-
-    .info-value {
-        font-size: 22px;
-    }
-
-    .email-value {
-        font-size: 18px;
-    }
-
-    .main-btn {
-        font-size: 21px;
-    }
-
-    .modal-box {
-        padding: 28px 20px;
-    }
-
-    .modal-box h2 {
-        font-size: 27px;
-    }
-
-    .modal-box label {
-        font-size: 18px;
-    }
-
-    .modal-box input {
-        font-size: 16px;
-    }
-
-    .modal-buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .modal-buttons button {
-        width: 100%;
-    }
-
-    .small-note {
-        font-size: 14px;
-    }
-
-    .confirm-row strong {
-        font-size: 18px;
-    }
-}
-```
+    font-family: "M PLUS
