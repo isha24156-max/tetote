@@ -314,40 +314,31 @@ document
 
 </script>
 
-  <script>
-  function togglePasswordVisibility() {
 
-  const passwordInput =
-    document.getElementById("password");
+<script>
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const passwordEye = document.getElementById("passwordEye");
 
-  const togglePassword =
-    document.getElementById("togglePassword");
+togglePassword.addEventListener("click", () => {
+  const isHidden = passwordInput.type === "password";
 
-  if (passwordInput.type === "password") {
+  // パスワードを表示・非表示にする
+  passwordInput.type = isHidden ? "text" : "password";
 
-    passwordInput.type = "text";
+  // 目の画像を切り替える
+  passwordEye.src = isHidden
+    ? "../hana/img/eye1.png"
+    : "../hana/img/eye2.png";
 
-    togglePassword.classList.add("show");
-
-    togglePassword.setAttribute(
-      "aria-label",
-      "パスワードを非表示"
-    );
-
-  } else {
-
-    passwordInput.type = "password";
-
-    togglePassword.classList.remove("show");
-
-    togglePassword.setAttribute(
-      "aria-label",
-      "パスワードを表示"
-    );
-
-  }
-}
+  // 説明文を切り替える
+  togglePassword.setAttribute(
+    "aria-label",
+    isHidden ? "パスワードを隠す" : "パスワードを表示"
+  );
+});
 </script>
+
   
 </body>
 </html>
