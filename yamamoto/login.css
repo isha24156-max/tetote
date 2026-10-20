@@ -244,70 +244,65 @@ input:focus {
     object-fit: contain;
 }
 
+
 /* =========================
-   メッセージ
+   メッセージ画面
    ========================= */
-/* メッセージ全体を画面中央に表示 */
+
+.message-modal[hidden] {
+    display: none;
+}
+
 .message-modal {
     position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
+    inset: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
 
-    z-index: 1000;
+    z-index: 9999;
 }
 
-/* hiddenのときは非表示にする */
-.message-modal[hidden] {
-    display: none;
-}
-
-/* メッセージの白い枠 */
+/* 白いメッセージ枠 */
 .message-box {
-    width: 320px;
+    background: #fff;
+
+    width: 80%;
+    max-width: 400px;
+
     padding: 30px;
 
-    background-color: white;
     border-radius: 20px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
     text-align: center;
-    font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 /* メッセージ本文 */
-#messageText {
-    margin-bottom: 25px;
-    font-size: 18px;
-    font-weight: bold;
+.message-box p {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 /* OKボタン */
-#messageOk {
-    width: 100px;
-    padding: 10px;
+.message-box button {
+    width: 120px;
+    height: 50px;
 
-    border: none;
-    border-radius: 10px;
+    padding: 0;
+    margin: 0;
 
-    background-color: #608f3b;
+    background: #16845b;
     color: white;
 
-    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 25px;
     font-weight: bold;
 
     cursor: pointer;
-}
-
-#messageOk:hover {
-    opacity: 0.8;
 }
