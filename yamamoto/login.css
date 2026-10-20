@@ -245,22 +245,69 @@ input:focus {
 }
 
 /* =========================
-   メッセージボックス
+   メッセージ
    ========================= */
-
-#messageModal {
+/* メッセージ全体を画面中央に表示 */
+.message-modal {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
     z-index: 1000;
 }
 
-#messageModal[hidden] {
+/* hiddenのときは非表示にする */
+.message-modal[hidden] {
     display: none;
+}
+
+/* メッセージの白い枠 */
+.message-box {
+    width: 320px;
+    padding: 30px;
+
+    background-color: white;
+    border-radius: 20px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+/* メッセージ本文 */
+#messageText {
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* OKボタン */
+#messageOk {
+    width: 100px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #608f3b;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#messageOk:hover {
+    opacity: 0.8;
 }
