@@ -1,4 +1,4 @@
-console.log("mypage.js 読み込み成功15");
+console.log("mypage.js 読み込み成功17");
 // =====================================
 // Firebase
 // =====================================
@@ -238,6 +238,10 @@ onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
         console.log("ログインしていません");
+    
+        userName.textContent = "ログインが必要です";
+        userEmail.textContent = "";
+    
         return;
     }
 
@@ -501,7 +505,7 @@ confirmSave.addEventListener(
                     currentUser,
                     newEmail,
                     {
-                        url: "https://isha24156-max.github.io/tetote/hada/home.html",
+                        url: "https://isha24156-max.github.io/tetote/yamamoto/login.html",
                         handleCodeInApp: false
                     }
                 );
