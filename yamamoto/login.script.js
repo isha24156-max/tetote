@@ -185,7 +185,7 @@ togglePassword.addEventListener("click", () => {
 
     // 目の画像を切り替える
     passwordEye.src = isHidden
-        ? "../hana/img/eye.png"
+        ? "../hana/img/eye1.png"
         : "../hana/img/eye2.png";
 
     // 読み上げ用の説明も切り替える
