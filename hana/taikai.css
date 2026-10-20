@@ -314,7 +314,11 @@ h1 {
     line-height: 1.8;
 }
 
-/* ログイン画面へボタン */
+/* ==============================
+   ログイン画面へボタン
+   濃い緑色に変更
+   ============================== */
+
 #completeModal #loginPageBtn {
     display: block;
     width: 100%;
@@ -323,8 +327,8 @@ h1 {
     margin: 20px auto 0;
     padding: 14px 20px;
 
-    background: #7da77b;
-    color: #fff;
+    background: #3f7545;
+    color: #ffffff;
 
     border: none;
     border-radius: 15px;
@@ -334,13 +338,13 @@ h1 {
     font-weight: 700;
 
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: background-color 0.2s ease;
 }
 
 #completeModal #loginPageBtn:hover {
-    background: #648e62;
+    background: #315d36;
 }
 
 #completeModal #loginPageBtn:active {
