@@ -493,4 +493,3 @@ completeOk.addEventListener("click", () => {
 errorOk.addEventListener("click", () => {
     closeModal(errorModal);
 });
-```
