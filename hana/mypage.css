@@ -278,7 +278,6 @@ h1 {
 .modal-box label {
     display: block;
     text-align: left;
-
     font-size: 20px;
     margin: 18px 0 8px;
 }
@@ -289,30 +288,29 @@ h1 {
     max-width: 100%;
     min-width: 0;
     height: 58px;
-
     padding: 0 18px;
 
     border: 2px solid #ccc;
     border-radius: 16px;
 
-    font-family: "M PLUS
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 16px;
 }
 
-
+/* パスワード欄の親要素 */
 #passwordArea {
     position: relative;
 }
 
 /* パスワード入力欄 */
 #currentPassword {
-    width: 100%;
-    padding-right: 60px;
+    padding-right: 55px;
 }
 
 /* 目のマークのボタン */
 #toggleCurrentPassword {
     position: absolute;
-    right: 10px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
 
@@ -331,6 +329,7 @@ h1 {
 
 /* 目の画像 */
 #currentPasswordEye {
+    display: block;
     width: 25px;
     height: 25px;
     object-fit: contain;
