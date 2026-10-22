@@ -297,3 +297,41 @@ h1 {
 
     font-family: "M PLUS
 }
+
+
+#passwordArea {
+    position: relative;
+}
+
+/* パスワード入力欄 */
+#currentPassword {
+    width: 100%;
+    padding-right: 60px;
+}
+
+/* 目のマークのボタン */
+#toggleCurrentPassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* 目の画像 */
+#currentPasswordEye {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
