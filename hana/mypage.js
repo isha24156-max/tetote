@@ -24,6 +24,8 @@ import {
     updateDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+import { recordPageView } from "../log.js";
+
 
 // =====================================
 // Firebase設定
@@ -249,6 +251,8 @@ onAuthStateChanged(auth, async (user) => {
     console.log("UID:", user.uid);
 
     currentUser = user;
+
+    recordPageView(db, user, "マイページ");
 
     await loadUserData(user);
 });
