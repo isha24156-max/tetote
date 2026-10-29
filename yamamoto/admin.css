@@ -175,3 +175,53 @@ body {
         padding: 20px;
     }
 }
+
+
+/* 管理者トップへ戻るリンク */
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 説明文 */
+.description {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* 閲覧数の一覧 */
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #e5eaf0;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-row strong {
+    color: #397bb5;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+    .back-link {
+        font-size: 13px;
+    }
+
+    .stat-row {
+        padding: 16px 2px;
+    }
+}
