@@ -150,3 +150,18 @@ body {
     font-size: 32px;
     color: #3984d6;
 }
+
+/* 詳細ページへのリンクを囲む外側 */
+.admin-section:has(.admin-link) {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* リンク本体 */
+.admin-link {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
