@@ -114,3 +114,39 @@ body {
         padding: 18px;
     }
 }
+
+
+.admin-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    color: #333333;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s;
+}
+
+.admin-link:hover {
+    background-color: #f0f7ff;
+}
+
+.admin-link h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.admin-link p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.admin-link .arrow {
+    flex-shrink: 0;
+    font-size: 32px;
+    color: #3984d6;
+}
