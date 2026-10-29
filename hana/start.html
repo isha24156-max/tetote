@@ -20,43 +20,5 @@
         </button>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyA6stEZ00HAtMNEuUzG47zIUArCFJgsfTA",
-            authDomain: "tetote-f459b.firebaseapp.com",
-            projectId: "tetote-f459b",
-            storageBucket: "tetote-f459b.firebasestorage.app",
-            messagingSenderId: "4402684573",
-            appId: "1:4402684573:web:09529c707357ce437dea74",
-            measurementId: "G-CSGLSRBLDR"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        async function recordStartPage() {
-            try {
-                const result = await signInAnonymously(auth);
-
-                await addDoc(collection(db, "usage_logs"), {
-                    userId: result.user.uid,
-                    screen: "スタート画面",
-                    type: "page_view",
-                    timestamp: serverTimestamp()
-                });
-
-                console.log("スタート画面の閲覧記録を保存しました");
-            } catch (error) {
-                console.error("スタート画面の閲覧記録に失敗しました:", error);
-            }
-        }
-
-        recordStartPage();
-    </script>
 </body>
 </html>
