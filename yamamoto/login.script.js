@@ -1,3 +1,4 @@
+console.log('成功１');
 // =====================================
 // Firebase
 // =====================================
@@ -127,19 +128,26 @@ document
             // ログイン成功
             // =================================
 
-            showMessage(
-                "ログインしました！",
-                () => {
+            const user = auth.currentUser;
 
-                    location.href = "../hana/mail.html";
-
-                }
-            );
-
-
-        } catch (error) {
-
-            console.error("ログインエラー:", error);
+            // 管理用アカウントのUIDを指定
+            const ADMIN_UID = "fi2StRZ3mAfkG1clLE5RhSWZpcr2";
+            
+            if (user && user.uid === ADMIN_UID) {
+                showMessage(
+                    "管理者としてログインしました！",
+                    () => {
+                        location.href = "../admin.html";
+                    }
+                );
+            } else {
+                showMessage(
+                    "ログインしました！",
+                    () => {
+                        location.href = "../hana/mail.html";
+                    }
+                );
+            }
 
 
             // =================================
