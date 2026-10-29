@@ -1,4 +1,4 @@
-console.log('成功１');
+console.log('成功２');
 // =====================================
 // Firebase
 // =====================================
@@ -154,27 +154,28 @@ document
             // ログイン失敗
             // =================================
 
-            if (
-                error.code === "auth/invalid-credential" ||
-                error.code === "auth/wrong-password" ||
-                error.code === "auth/user-not-found"
-            ) {
+                    } catch (error) {
 
-                showMessage(
-                    "メールアドレスまたはパスワードが違います。"
-                );
-
-            } else {
-
-                showMessage(
-                    "ログインに失敗しました。"
-                );
-
-            }
-
-        }
-
-    });
+                        console.error("ログインエラー:", error);
+            
+                        // ログイン失敗
+                        if (
+                            error.code === "auth/invalid-credential" ||
+                            error.code === "auth/wrong-password" ||
+                            error.code === "auth/user-not-found"
+                        ) {
+                            showMessage(
+                                "メールアドレスまたはパスワードが違います。"
+                            );
+                        } else {
+                            showMessage(
+                                "ログインに失敗しました。"
+                            );
+                        }
+            
+                    }
+            
+                });
 
 
  // =====================================
