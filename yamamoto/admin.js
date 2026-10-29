@@ -1,4 +1,4 @@
-console.log('成功１');
+console.log('成功2');
 
 import {
     initializeApp
@@ -124,7 +124,8 @@ onAuthStateChanged(auth, async (user) => {
             });
         }
 
-        userCount.textContent = "未設定";
+        const usersSnapshot = await getDocs(collection(db, "users"));
+        userCount.textContent = `${usersSnapshot.size} 人`;
     } catch (error) {
         console.error("利用状況の取得に失敗しました:", error);
         showError("データを取得できませんでした。Firestoreのルールを確認してください。");
