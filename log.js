@@ -1,5 +1,5 @@
+
 import {
-    getFirestore,
     collection,
     addDoc,
     serverTimestamp
@@ -7,15 +7,14 @@ import {
 
 // 画面を開いた記録を保存
 export async function recordPageView(db, user, screenName) {
-    if (!user) return;
-
     try {
         await addDoc(collection(db, "usage_logs"), {
-            userId: user.uid,
+            userId: user ? user.uid : null,
             screen: screenName,
             type: "page_view",
             timestamp: serverTimestamp()
         });
+
         console.log("画面の利用記録を保存しました");
     } catch (error) {
         console.error("利用記録の保存に失敗しました", error);
@@ -34,6 +33,7 @@ export async function recordFunctionUse(db, user, screenName, functionName) {
             functionName: functionName,
             timestamp: serverTimestamp()
         });
+
         console.log("機能の利用記録を保存しました");
     } catch (error) {
         console.error("機能の利用記録の保存に失敗しました", error);
