@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日別の閲覧数 | tetote</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>日別の閲覧数</h1>
+        <a href="./admin.html" class="back-link">← 管理者トップへ</a>
+    </header>
+
+    <main class="admin-container">
+        <section class="admin-section">
+            <h2>日ごとの閲覧状況</h2>
+            <p class="description">
+                日付ごとの画面閲覧回数を表示します。
+            </p>
+            <div id="dailyStats">集計中...</div>
+        </section>
+    </main>
+
+    <script type="module" src="admin-daily.js"></script>
+</body>
+</html>
