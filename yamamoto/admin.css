@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -9,6 +10,7 @@ body {
     color: #333;
 }
 
+/* ヘッダー */
 .admin-header {
     min-height: 80px;
     padding: 16px 30px;
@@ -25,6 +27,7 @@ body {
     font-size: 26px;
 }
 
+/* ログアウトボタン */
 #logoutBtn {
     padding: 10px 18px;
     border: none;
@@ -39,6 +42,7 @@ body {
     background-color: #e8f1fb;
 }
 
+/* メイン領域 */
 .admin-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -50,6 +54,7 @@ body {
     margin-bottom: 24px;
 }
 
+/* 上部の集計カード3つ */
 .summary-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -78,6 +83,7 @@ body {
     color: #397bb5;
 }
 
+/* 通常のセクション */
 .admin-section {
     margin-bottom: 24px;
     padding: 24px;
@@ -91,6 +97,53 @@ body {
     font-size: 20px;
 }
 
+/* 詳細ページへのリンクを囲むセクションは二重装飾しない */
+.admin-section:has(.admin-link) {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* 詳細ページへの移動リンク */
+.admin-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    color: #333;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s;
+}
+
+.admin-link:hover {
+    background-color: #f0f7ff;
+}
+
+.admin-link h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.admin-link p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.admin-link .arrow {
+    flex-shrink: 0;
+    font-size: 32px;
+    color: #3984d6;
+}
+
+/* スマートフォン対応 */
 @media (max-width: 700px) {
     .admin-header {
         padding: 16px;
@@ -109,59 +162,16 @@ body {
         gap: 12px;
     }
 
-    .summary-card,
-    .admin-section {
+    .summary-card {
         padding: 18px;
     }
-}
 
+    /* 通常のセクションだけ余白を調整 */
+    .admin-section:not(:has(.admin-link)) {
+        padding: 18px;
+    }
 
-.admin-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    color: #333333;
-    text-decoration: none;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-    transition: background-color 0.2s;
-}
-
-.admin-link:hover {
-    background-color: #f0f7ff;
-}
-
-.admin-link h2 {
-    margin: 0 0 10px;
-    font-size: 18px;
-}
-
-.admin-link p {
-    margin: 0;
-    font-size: 14px;
-    color: #666666;
-}
-
-.admin-link .arrow {
-    flex-shrink: 0;
-    font-size: 32px;
-    color: #3984d6;
-}
-
-/* 詳細ページへのリンクを囲む外側 */
-.admin-section:has(.admin-link) {
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-/* リンク本体 */
-.admin-link {
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
+    .admin-link {
+        padding: 20px;
+    }
 }
