@@ -1,4 +1,4 @@
-console.log('成功２');
+console.log('成功3');
 // =====================================
 // Firebase
 // =====================================
@@ -137,7 +137,7 @@ document
                 showMessage(
                     "管理者としてログインしました！",
                     () => {
-                        location.href = "../admin.html";
+                        location.href = "./admin.html";
                     }
                 );
             } else {
