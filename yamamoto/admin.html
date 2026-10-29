@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tetote 管理者画面</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>tetote 管理者画面</h1>
+        <button id="logoutBtn">ログアウト</button>
+    </header>
 
+    <main class="admin-container">
+        <h2>利用状況</h2>
+
+        <section class="summary-cards">
+            <div class="summary-card">
+                <h3>登録ユーザー数</h3>
+                <p id="userCount">集計中...</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>画面閲覧数</h3>
+                <p id="pageViewCount">集計中...</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>機能利用回数</h3>
+                <p id="functionUseCount">集計中...</p>
+            </div>
+        </section>
+
+        <section class="admin-section">
+            <h2>画面ごとの閲覧数</h2>
+            <div id="screenStats">集計中...</div>
+        </section>
+
+        <section class="admin-section">
+            <h2>日別の閲覧数</h2>
+            <div id="dailyStats">集計中...</div>
+        </section>
+
+        <section class="admin-section">
+            <h2>機能ごとの利用回数</h2>
+            <div id="functionStats">集計中...</div>
+        </section>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
