@@ -246,5 +246,43 @@
         </section>
 
     </main>
+
+    <script type="module">
+    console.log('成功1');
+        
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+    import { getAuth, onAuthStateChanged }
+        from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+    import { getFirestore }
+        from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+    import { recordPageView }
+        from "../log.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA6stEZ00AtHAtMNEuUzG47zIUArCFJgsfTA",
+        authDomain: "tetote-f459b.firebaseapp.com",
+        projectId: "tetote-f459b",
+        storageBucket: "tetote-f459b.firebasestorage.app",
+        messagingSenderId: "4402684573",
+        appId: "1:4402684573:web:09529c707357ce437dea74",
+        measurementId: "G-CSGLSRBLDR"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            await recordPageView(db, user, "アプリ説明画面");
+        } else {
+            window.location.href = "../yamamoto/login.html";
+        }
+    });
+</script>
 </body>
 </html>
