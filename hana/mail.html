@@ -124,6 +124,7 @@
 
 <script type="module">
 
+    console.log('成功1');
 
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
@@ -142,6 +143,8 @@ import {
     onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+import { recordPageView } from "../log.js";
 
 
 
@@ -193,9 +196,9 @@ const auth = getAuth(app);
 // =====================================
 
 let currentUser = null;
+let pageViewRecorded = false;
 
-
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
 
     if (user) {
 
@@ -205,6 +208,12 @@ onAuthStateChanged(auth, (user) => {
             "ログイン中のUID:",
             user.uid
         );
+
+        // 家族登録画面の閲覧記録
+        if (!pageViewRecorded) {
+            pageViewRecorded = true;
+            await recordPageView(db, user, "家族登録画面");
+        }
 
     } else {
 
