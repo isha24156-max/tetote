@@ -200,8 +200,9 @@
 
     <script src="script.js"></script>
 
-    <script type="module">
-    console.log('成功1');
+   <script type="module">
+    console.log("ホーム画面のFirebase処理開始");
+
     import { initializeApp }
         from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -215,7 +216,7 @@
         from "../log.js";
 
     const firebaseConfig = {
-        apiKey: "AIzaSyA6stEZ00HAtMNEuUzG47zIUArCFJgsfTA",
+        apiKey: "AIzaSyA6stEZ00AtHAtMNEuUzG47ZiuArCFJgsfTA",
         authDomain: "tetote-f459b.firebaseapp.com",
         projectId: "tetote-f459b",
         storageBucket: "tetote-f459b.firebasestorage.app",
@@ -228,12 +229,29 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+    let pageViewRecorded = false;
+
     onAuthStateChanged(auth, async (user) => {
+
+        console.log(
+            "ホーム画面のログイン状態:",
+            user ? user.uid : "ユーザーなし"
+        );
+
         if (user) {
-            await recordPageView(db, user, "ホーム画面");
+
+            if (!pageViewRecorded) {
+                pageViewRecorded = true;
+                await recordPageView(db, user, "ホーム画面");
+            }
+
         } else {
-            window.location.href = "../yamamoto/login.html";
+
+            console.log("ログインユーザーを取得できませんでした");
+
+            // 原因調査のため、今は自動でログイン画面に戻さない
         }
+
     });
 </script>
 
