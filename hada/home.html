@@ -229,6 +229,9 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+    console.log("Auth persistence:", auth);
+    console.log("現在のユーザー:", auth.currentUser);
+
     let pageViewRecorded = false;
 
     onAuthStateChanged(auth, async (user) => {
