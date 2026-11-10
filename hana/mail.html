@@ -124,7 +124,7 @@
 
 <script type="module">
 
-    console.log('成功1');
+console.log('成功2');
 
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
@@ -143,6 +143,13 @@ import {
     onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    setPersistence,
+    browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 import { recordPageView } from "../log.js";
 
@@ -189,8 +196,8 @@ const db = getFirestore(app);
 
 const auth = getAuth(app);
 
-console.log("家族登録画面のAuth:", auth);
-console.log("家族登録画面の現在のユーザー:", auth.currentUser);
+// ログイン状態をローカルに保存
+await setPersistence(auth, browserLocalPersistence);
 
 
 // =====================================
