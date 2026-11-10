@@ -1,4 +1,4 @@
-console.log('成功3');
+console.log('成功4');
 // =====================================
 // Firebase
 // =====================================
@@ -8,7 +8,9 @@ import { initializeApp }
 
 import {
     getAuth,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    setPersistence,
+    browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 
@@ -117,6 +119,10 @@ document
             // Firebaseでログイン
             // =================================
 
+            // ログイン状態をブラウザに保存する
+            await setPersistence(auth, browserLocalPersistence);
+            
+            // Firebaseでログイン
             await signInWithEmailAndPassword(
                 auth,
                 email,
