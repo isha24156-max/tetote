@@ -236,11 +236,18 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
     
-    // ログイン状態の保存方法をほかの画面と統一
+    try {
     await setPersistence(auth, browserLocalPersistence);
-    
-    // 認証状態の復元を待つ
     await auth.authStateReady();
+
+    console.log(
+        "認証復元後のUID:",
+        auth.currentUser?.uid ?? "ユーザーなし"
+    );
+
+} catch (error) {
+    console.error("認証復元エラー:", error.code, error.message);
+}
 
     console.log(
         "認証状態の復元後:",
