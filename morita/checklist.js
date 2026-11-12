@@ -1,3 +1,43 @@
+// Firebase
+import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+import { getFirestore }
+    from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+import { recordPageView }
+    from "../log.js";
+
+// Firebase設定
+const firebaseConfig = {
+    // ここには、ほかの画面で使っているものと
+    // 同じFirebase設定を入れる
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ログイン状態を確認して利用記録
+let pageViewRecorded = false;
+
+onAuthStateChanged(auth, async (user) => {
+    if (user && !pageViewRecorded) {
+        pageViewRecorded = true;
+
+        await recordPageView(
+            db,
+            user,
+            "持ち物チェック画面"
+        );
+    }
+});
+
 const addBtn = document.getElementById("addBtn");
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
