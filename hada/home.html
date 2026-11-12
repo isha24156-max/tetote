@@ -209,8 +209,12 @@
     import { initializeApp }
         from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
-    import { getAuth, onAuthStateChanged }
-        from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+    import {
+        getAuth,
+        onAuthStateChanged,
+        setPersistence,
+        browserLocalPersistence
+    } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
     import { getFirestore }
         from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
@@ -231,7 +235,11 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-
+    
+    // ログイン状態の保存方法をほかの画面と統一
+    await setPersistence(auth, browserLocalPersistence);
+    
+    // 認証状態の復元を待つ
     await auth.authStateReady();
 
     console.log(
