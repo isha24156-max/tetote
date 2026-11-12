@@ -229,6 +229,13 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+    await auth.authStateReady();
+
+    console.log(
+        "認証状態の復元後:",
+        auth.currentUser ? auth.currentUser.uid : "ユーザーなし"
+    );
+
     console.log("Auth persistence:", auth);
     console.log("現在のユーザー:", auth.currentUser);
 
