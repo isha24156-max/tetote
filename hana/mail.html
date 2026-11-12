@@ -124,7 +124,7 @@
 
 <script type="module">
 
-console.log('成功2');
+console.log('家族登録:成功3');
 
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
@@ -404,13 +404,14 @@ document
 
 document
     .getElementById("skipBtn")
-    .addEventListener("click", () => {
+    .addEventListener("click", async () => {
 
+        console.log(
+            "チュートリアルへ移動する直前のUID:",
+            auth.currentUser ? auth.currentUser.uid : "ユーザーなし"
+        );
 
-        // 家族登録をせずにチュートリアルへ
-
-        window.location.href =
-            "../hada/tutorial.html";
+        window.location.href = "../hada/tutorial.html";
 
 });
 
