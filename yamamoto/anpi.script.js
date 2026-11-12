@@ -19,6 +19,9 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+import { recordPageView }
+    from "../log.js";
+
 // ==============================
 // Firebase
 // ==============================
@@ -36,6 +39,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+// ==============================
+// 画面の利用記録
+// ==============================
+
+let pageViewRecorded = false;
+
+onAuthStateChanged(auth, async (user) => {
+    if (user && !pageViewRecorded) {
+        pageViewRecorded = true;
+
+        await recordPageView(
+            db,
+            user,
+            "安否確認画面"
+        );
+    }
+});
 
 
 // ==============================
