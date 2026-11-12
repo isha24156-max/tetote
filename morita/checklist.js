@@ -15,8 +15,13 @@ import { recordPageView }
 
 // Firebase設定
 const firebaseConfig = {
-    // ここには、ほかの画面で使っているものと
-    // 同じFirebase設定を入れる
+  apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
+  authDomain: "tetote-f459b.firebaseapp.com",
+  projectId: "tetote-f459b",
+  storageBucket: "tetote-f459b.firebasestorage.app",
+  messagingSenderId: "4402684573",
+  appId: "1:4402684573:web:09529c707357ce437dea74",
+  measurementId: "G-CSGLSRBLDR"
 };
 
 const app = initializeApp(firebaseConfig);
