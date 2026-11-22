@@ -13,6 +13,7 @@ import {
     getDocs
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+// Firebase設定は現在のものをそのまま残す
 const firebaseConfig = {
     apiKey: "AIzaSyA6stEZ00HAtMNEvUzG47zIUArCFJgsfTA",
     authDomain: "tetote-f459b.firebaseapp.com",
@@ -41,7 +42,7 @@ onAuthStateChanged(auth, async (user) => {
     try {
         const snapshot = await getDocs(collection(db, "usage_logs"));
 
-        // 画面ごとに利用回数を集計
+        // 画面ごとに機能の利用回数を集計
         const screenCounts = {};
 
         snapshot.forEach((doc) => {
@@ -81,22 +82,44 @@ onAuthStateChanged(auth, async (user) => {
 
             section.appendChild(heading);
 
-            // その画面の機能を表示
-            Object.entries(functions)
-                .sort((a, b) => b[1] - a[1])
-                .forEach(([name, count]) => {
-                    const row = document.createElement("div");
-                    row.className = "stat-row";
+            // 利用回数の多い順に並べる
+            const sortedFunctions = Object.entries(functions)
+                .sort((a, b) => b[1] - a[1]);
 
-                    const label = document.createElement("span");
-                    label.textContent = name;
+            // その画面内で最も多い利用回数
+            const maxCount = sortedFunctions[0][1];
 
-                    const value = document.createElement("strong");
-                    value.textContent = `${count} 回`;
+            sortedFunctions.forEach(([name, count]) => {
+                const item = document.createElement("div");
+                item.className = "function-stat-item";
 
-                    row.append(label, value);
-                    section.appendChild(row);
-                });
+                // 機能名と利用回数
+                const top = document.createElement("div");
+                top.className = "function-stat-top";
+
+                const label = document.createElement("span");
+                label.className = "function-stat-name";
+                label.textContent = name;
+
+                const value = document.createElement("strong");
+                value.className = "function-stat-count";
+                value.textContent = `${count}回`;
+
+                top.append(label, value);
+
+                // 横棒グラフ
+                const bar = document.createElement("div");
+                bar.className = "function-stat-bar";
+
+                const fill = document.createElement("div");
+                fill.className = "function-stat-fill";
+                fill.style.width = `${(count / maxCount) * 100}%`;
+
+                bar.appendChild(fill);
+
+                item.append(top, bar);
+                section.appendChild(item);
+            });
 
             functionStats.appendChild(section);
         });
