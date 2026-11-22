@@ -166,6 +166,10 @@ onAuthStateChanged(auth, async (user) => {
                     x: {
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            maxRotation: 0,
+                            minRotation: 0
                         }
                     },
         
