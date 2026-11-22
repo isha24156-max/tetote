@@ -220,13 +220,21 @@ if (!confirmSend) {
         // ==============================
 
         // 安否確認の利用記録
+        console.log("機能記録の呼び出し直前");
+        console.log("送信人数:", sendCount);
+        console.log("ログインUID:", user.uid);
+        
         if (sendCount > 0) {
+            console.log("機能記録を開始します");
+        
             await recordFunctionUse(
                 db,
                 user,
                 "安否確認画面",
                 message
             );
+        
+            console.log("機能記録の処理が終了しました");
         }
 
     　showMessage(
