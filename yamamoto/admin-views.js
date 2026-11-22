@@ -60,65 +60,47 @@ onAuthStateChanged(auth, async (user) => {
 
         const functions = Object.entries(screenCounts)
             .sort((a, b) => b[1] - a[1]);
-
+        
         if (functions.length === 0) {
             screenStats.textContent = "閲覧記録はありません。";
             return;
         }
-
-        // グラフの作成
-        const ctx = document.getElementById("screenChart");
-
-        new Chart(ctx, {
-            type: "bar",
-
-            data: {
-                labels: functions.map(item => item[0]),
-
-                datasets: [{
-                    label: "閲覧回数",
-                    data: functions.map(item => item[1]),
-                    backgroundColor: "#91b9df",
-                    borderRadius: 6,
-                    barThickness: 28
-                }]
-            },
-
-            options: {
-                indexAxis: "y",
-
-                responsive: true,
-                maintainAspectRatio: false,
-
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        ticks: {
-                            precision: 0
-                        }
-                    }
-                }
-            }
-        });
-
-        // 回数一覧の表示
+        
+        // 最も閲覧回数が多い画面を基準にする
+        const maxCount = functions[0][1];
+        
+        // 画面ごとの表示
         functions.forEach(([name, count]) => {
+        
             const item = document.createElement("div");
-            item.className = "stat-row";
-
+            item.className = "screen-stat-item";
+        
+            // 画面名と回数
+            const top = document.createElement("div");
+            top.className = "screen-stat-top";
+        
             const nameElement = document.createElement("span");
+            nameElement.className = "screen-stat-name";
             nameElement.textContent = name;
-
+        
             const countElement = document.createElement("strong");
-            countElement.textContent = `${count} 回`;
-
-            item.append(nameElement, countElement);
+            countElement.className = "screen-stat-count";
+            countElement.textContent = `${count}回`;
+        
+            top.append(nameElement, countElement);
+        
+            // 横棒グラフ
+            const bar = document.createElement("div");
+            bar.className = "screen-stat-bar";
+        
+            const fill = document.createElement("div");
+            fill.className = "screen-stat-fill";
+        
+            fill.style.width = `${(count / maxCount) * 100}%`;
+        
+            bar.appendChild(fill);
+        
+            item.append(top, bar);
             screenStats.appendChild(item);
         });
 
