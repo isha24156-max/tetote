@@ -98,6 +98,13 @@ onAuthStateChanged(auth, async (user) => {
         
             return "";
         });
+
+        const canvas = document.getElementById("dailyChart");
+        if (!canvas) {
+            console.error("dailyChartが見つかりません");
+            return;
+        }
+        const ctx = canvas.getContext("2d");
         
         new Chart(ctx, {
             type: "line",
