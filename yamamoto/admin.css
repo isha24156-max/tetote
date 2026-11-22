@@ -226,10 +226,46 @@ body {
     }
 }
 
-.chart-container {
-    position: relative;
+/* 画面ごとの利用回数 */
+#screenStats {
+    margin-top: 25px;
+}
+
+.screen-stat-item {
+    margin-bottom: 22px;
+}
+
+.screen-stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.screen-stat-name {
+    color: #8883bd;
+    font-size: 20px;
+}
+
+.screen-stat-count {
+    color: #51449a;
+    font-size: 23px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.screen-stat-bar {
     width: 100%;
-    max-width: 750px;
-    margin: 30px auto;
-    min-height: 250px;
+    height: 16px;
+    background-color: #eeedf2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.screen-stat-fill {
+    height: 100%;
+    background-color: #65a9d9;
+    border-radius: 20px;
+    transition: width 0.5s;
 }
