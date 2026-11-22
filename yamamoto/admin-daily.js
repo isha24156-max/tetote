@@ -93,7 +93,11 @@ function renderDailyChart() {
 
         const day = index + 1;
 
-        if (day === 1 || day % 5 === 0 || day === lastDay) {
+        if (
+            day === 1 ||
+            day % 5 === 0 ||
+            (day === lastDay && day % 5 !== 0)
+        ) {
             return `${day}日`;
         }
 
