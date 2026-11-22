@@ -225,3 +225,11 @@ body {
         padding: 16px 2px;
     }
 }
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+    min-height: 250px;
+}
