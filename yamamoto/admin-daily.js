@@ -92,15 +92,17 @@ function renderDailyChart() {
     const chartDates = dates.map((date, index) => {
 
         const day = index + 1;
-
-        if (
-            day === 1 ||
-            day % 5 === 0 ||
-            (day === lastDay && day % 5 !== 0)
-        ) {
+    
+        // 1日と月末は必ず表示
+        if (day === 1 || day === lastDay) {
             return `${day}日`;
         }
-
+    
+        // 月末と重なる5日おきの日付は表示しない
+        if (day % 5 === 0 && day !== lastDay - 1) {
+            return `${day}日`;
+        }
+    
         return "";
     });
 
