@@ -1,4 +1,4 @@
-console.log("anpi.js 読み込み成功１０");
+console.log("anpi.js 読み込み成功１１");
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -149,7 +149,7 @@ if (!confirmSend) {
         const userData = userDoc.data();
         
         const name = userData?.name || "利用者";
-        const senderEmail = userData?.email || user.email || "";
+        const senderEmail = user.email || userData?.email || "";
 
 
         // ==============================
