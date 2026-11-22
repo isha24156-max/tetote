@@ -66,31 +66,38 @@ onAuthStateChanged(auth, async (user) => {
 
         dailyStats.replaceChildren();
 
-        const dates = Object.keys(dailyCounts).sort(
-            (a, b) => a.localeCompare(b)
-        );
+        // 今月の日付を取得
+        const now = new Date();
         
-        if (dates.length === 0) {
-            document.getElementById("dailyChart").parentElement.textContent =
-                "閲覧記録はありません。";
-            return;
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        
+        // 今月の1日から末日までの日付を作成
+        const lastDay = new Date(year, month + 1, 0).getDate();
+        
+        const dates = [];
+        
+        for (let day = 1; day <= lastDay; day++) {
+            const date =
+                `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        
+            dates.push(date);
         }
         
-        // グラフ用データ
-        const chartDates = dates.map(date =>
-            date.slice(5).replace("-", "/")
-        );
+        // 日付ごとの閲覧数。記録がない日は0回
+        const chartCounts = dates.map(date => dailyCounts[date] || 0);
         
-        const chartCounts = dates.map(date => dailyCounts[date]);
+        // グラフの横軸の日付
+        const chartDates = dates.map(date => {
+            const day = Number(date.slice(8, 10));
         
-        const canvas = document.getElementById("dailyChart");
-
-        if (!canvas) {
-            console.error("dailyChartが見つかりません");
-            return;
-        }
+            // 5日おきと月末だけ日付を表示
+            if (day === 1 || day % 5 === 0 || day === lastDay) {
+                return `${day}日`;
+            }
         
-        const ctx = canvas.getContext("2d");
+            return "";
+        });
         
         new Chart(ctx, {
             type: "line",
