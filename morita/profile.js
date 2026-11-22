@@ -1,3 +1,5 @@
+console.log('成功１');
+
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -12,8 +14,10 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
-import { recordPageView }
-    from "../log.js";
+import {
+    recordPageView,
+    recordFunctionUse
+} from "../log.js";
 
 
 // =====================================
@@ -162,17 +166,20 @@ registerBtn.addEventListener("click", async (e) => {
             {
                 name: name,
                 email: email,
-
-                // ★ログインしている本人のUID
                 userId: currentUser.uid,
-
                 createdAt: Date.now()
             }
         );
-
-
+        
+        // 連絡先の登録を記録
+        await recordFunctionUse(
+            db,
+            currentUser,
+            "連絡先登録画面",
+            "連絡先の登録"
+        );
+        
         console.log("連絡先を登録しました");
-
 
         // =================================
         // 入力欄を消す
