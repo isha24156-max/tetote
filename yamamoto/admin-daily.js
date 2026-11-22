@@ -67,28 +67,111 @@ onAuthStateChanged(auth, async (user) => {
         dailyStats.replaceChildren();
 
         const dates = Object.keys(dailyCounts).sort(
-            (a, b) => b.localeCompare(a)
+            (a, b) => a.localeCompare(b)
         );
-
+        
         if (dates.length === 0) {
             dailyStats.textContent = "閲覧記録はありません。";
             return;
         }
-
-        dates.forEach(date => {
+        
+        // グラフ用の日付と回数
+        const chartDates = dates.map(date => date.slice(5).replace("-", "/"));
+        const chartCounts = dates.map(date => dailyCounts[date]);
+        
+        // 折れ線グラフ
+        const ctx = document.getElementById("dailyChart");
+        
+        new Chart(ctx, {
+            type: "line",
+        
+            data: {
+                labels: chartDates,
+        
+                datasets: [{
+                    label: "利用回数",
+                    data: chartCounts,
+        
+                    borderColor: "#65c77d",
+                    backgroundColor: "#65c77d",
+        
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    pointBackgroundColor: "#65c77d",
+                    pointBorderColor: "#ffffff",
+                    pointBorderWidth: 2,
+        
+                    tension: 0
+                }]
+            },
+        
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+        
+                interaction: {
+                    intersect: false,
+                    mode: "index"
+                },
+        
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+        
+                    tooltip: {
+                        callbacks: {
+                            title: function(items) {
+                                return dates[items[0].dataIndex]
+                                    .replaceAll("-", "/");
+                            },
+        
+                            label: function(context) {
+                                return `利用回数　${context.raw}回`;
+                            }
+                        }
+                    }
+                },
+        
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+        
+                    y: {
+                        beginAtZero: true,
+        
+                        ticks: {
+                            precision: 0,
+        
+                            callback: function(value) {
+                                return `${value}回`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 日別の回数一覧
+        // 新しい日付を上に表示
+        [...dates].reverse().forEach(date => {
+        
             const item = document.createElement("div");
             item.className = "stat-row";
-
+        
             const dateElement = document.createElement("span");
             dateElement.textContent = date.replaceAll("-", "/");
-
+        
             const countElement = document.createElement("strong");
             countElement.textContent = `${dailyCounts[date]} 回`;
-
+        
             item.append(dateElement, countElement);
             dailyStats.appendChild(item);
         });
-
     } catch (error) {
         console.error("日別閲覧数の取得に失敗しました:", error);
         dailyStats.textContent =
