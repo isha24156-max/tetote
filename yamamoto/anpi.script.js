@@ -19,8 +19,10 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-import { recordPageView }
-    from "../log.js";
+import {
+    recordPageView,
+    recordFunctionUse
+} from "../log.js";
 
 // ==============================
 // Firebase
@@ -217,15 +219,15 @@ if (!confirmSend) {
         // 安否確認をFirestoreに保存
         // ==============================
 
-        await addDoc(
-            collection(db, "safetyConfirmations"),
-            {
-                userId: user.uid,
-                name: name,
-                message: message,
-                createdAt: serverTimestamp()
-            }
-        );
+        // 安否確認の利用記録
+        if (sendCount > 0) {
+            await recordFunctionUse(
+                db,
+                user,
+                "安否確認画面",
+                message
+            );
+        }
 
     　showMessage(
     　`${name}さんの「${message}」を${sendCount}人に送信しました。`
