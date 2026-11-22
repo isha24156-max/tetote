@@ -12,6 +12,9 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
+import { recordPageView }
+    from "../log.js";
+
 
 // =====================================
 // Firebase設定
@@ -60,12 +63,13 @@ const homeBtn =
 
 
 // =====================================
-// ログイン中のユーザー
+// ログイン中のユーザー・利用記録
 // =====================================
 
 let currentUser = null;
+let pageViewRecorded = false;
 
-onAuthStateChanged(auth, async(user) => {
+onAuthStateChanged(auth, async (user) => {
 
     if (user) {
 
@@ -75,6 +79,19 @@ onAuthStateChanged(auth, async(user) => {
             "ログイン中のUID:",
             user.uid
         );
+
+        // 画面の利用記録
+        if (!pageViewRecorded) {
+
+            pageViewRecorded = true;
+
+            await recordPageView(
+                db,
+                user,
+                "連絡先登録画面"
+            );
+
+        }
 
     } else {
 
@@ -88,7 +105,6 @@ onAuthStateChanged(auth, async(user) => {
     }
 
 });
-
 
 // =====================================
 // 登録ボタン
