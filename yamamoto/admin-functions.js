@@ -1,4 +1,5 @@
-console.log('成功1');
+
+console.log('成功２');
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -40,39 +41,64 @@ onAuthStateChanged(auth, async (user) => {
     try {
         const snapshot = await getDocs(collection(db, "usage_logs"));
 
-        const counts = {};
+        // 画面ごとに利用回数を集計
+        const screenCounts = {};
 
         snapshot.forEach((doc) => {
             const log = doc.data();
 
-            if (log.type === "function_use") {
-                const name = log.functionName || "機能名不明";
-                counts[name] = (counts[name] || 0) + 1;
+            if (log.type !== "function_use") {
+                return;
             }
+
+            const screen = log.screen || "画面名不明";
+            const functionName = log.functionName || "機能名不明";
+
+            if (!screenCounts[screen]) {
+                screenCounts[screen] = {};
+            }
+
+            screenCounts[screen][functionName] =
+                (screenCounts[screen][functionName] || 0) + 1;
         });
 
-        const functions = Object.entries(counts)
-            .sort((a, b) => b[1] - a[1]);
+        functionStats.replaceChildren();
 
-        if (functions.length === 0) {
+        const screens = Object.entries(screenCounts);
+
+        if (screens.length === 0) {
             functionStats.textContent = "機能の利用記録はありません。";
             return;
         }
 
-        functionStats.replaceChildren();
+        // 画面ごとに表示
+        screens.forEach(([screen, functions]) => {
+            const section = document.createElement("div");
+            section.className = "function-screen";
 
-        functions.forEach(([name, count]) => {
-            const row = document.createElement("div");
-            row.className = "stat-row";
+            const heading = document.createElement("h3");
+            heading.textContent = screen;
 
-            const label = document.createElement("span");
-            label.textContent = name;
+            section.appendChild(heading);
 
-            const value = document.createElement("strong");
-            value.textContent = `${count} 回`;
+            // その画面の機能を表示
+            Object.entries(functions)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([name, count]) => {
+                    const row = document.createElement("div");
+                    row.className = "stat-row";
 
-            row.append(label, value);
-            functionStats.appendChild(row);
+                    const label = document.createElement("span");
+                    label.textContent = name;
+
+                    const value = document.createElement("strong");
+                    value.textContent = `${count} 回`;
+
+                    row.append(label, value);
+                    section.appendChild(row);
+                });
+
+            functionStats.appendChild(section);
         });
 
     } catch (error) {
