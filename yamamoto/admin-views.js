@@ -58,26 +58,69 @@ onAuthStateChanged(auth, async (user) => {
 
         screenStats.replaceChildren();
 
-        if (Object.keys(screenCounts).length === 0) {
+        const functions = Object.entries(screenCounts)
+            .sort((a, b) => b[1] - a[1]);
+
+        if (functions.length === 0) {
             screenStats.textContent = "閲覧記録はありません。";
             return;
         }
 
-        Object.entries(screenCounts)
-            .sort((a, b) => b[1] - a[1])
-            .forEach(([name, count]) => {
-                const item = document.createElement("div");
-                item.className = "stat-row";
+        // グラフの作成
+        const ctx = document.getElementById("screenChart");
 
-                const nameElement = document.createElement("span");
-                nameElement.textContent = name;
+        new Chart(ctx, {
+            type: "bar",
 
-                const countElement = document.createElement("strong");
-                countElement.textContent = `${count} 回`;
+            data: {
+                labels: functions.map(item => item[0]),
 
-                item.append(nameElement, countElement);
-                screenStats.appendChild(item);
-            });
+                datasets: [{
+                    label: "閲覧回数",
+                    data: functions.map(item => item[1]),
+                    backgroundColor: "#91b9df",
+                    borderRadius: 6,
+                    barThickness: 28
+                }]
+            },
+
+            options: {
+                indexAxis: "y",
+
+                responsive: true,
+                maintainAspectRatio: false,
+
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+
+        // 回数一覧の表示
+        functions.forEach(([name, count]) => {
+            const item = document.createElement("div");
+            item.className = "stat-row";
+
+            const nameElement = document.createElement("span");
+            nameElement.textContent = name;
+
+            const countElement = document.createElement("strong");
+            countElement.textContent = `${count} 回`;
+
+            item.append(nameElement, countElement);
+            screenStats.appendChild(item);
+        });
 
     } catch (error) {
         console.error("画面閲覧数の取得に失敗しました:", error);
