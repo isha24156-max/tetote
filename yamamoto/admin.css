@@ -277,3 +277,35 @@ body {
     height: 350px;
     margin: 30px auto;
 }
+
+/* 月切り替え */
+.month-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 25px 0 10px;
+}
+
+.month-selector strong {
+    font-size: 22px;
+    color: #51449a;
+    min-width: 130px;
+    text-align: center;
+}
+
+.month-selector button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background-color: #e9f2fa;
+    color: #51449a;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.month-selector button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
