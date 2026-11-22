@@ -20,6 +20,9 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
+import { recordPageView }
+    from "../log.js";
+
 
 
 // =====================================
@@ -67,6 +70,8 @@ const db =
 
 const auth =
     getAuth(app);
+
+let pageViewRecorded = false;
 
 
 
@@ -492,44 +497,39 @@ document.getElementById(
 
 onAuthStateChanged(
     auth,
-    (user) => {
-
+    async (user) => {
 
         if (user) {
-
-
-            // =================================
-            // ログインしている
-            // =================================
 
             console.log(
                 "ログイン中のUID:",
                 user.uid
             );
 
+            // 利用記録
+            if (!pageViewRecorded) {
+                pageViewRecorded = true;
 
+                await recordPageView(
+                    db,
+                    user,
+                    "連絡先一覧画面"
+                );
+            }
 
             // 自分の連絡先だけ表示
-
             showList(user);
 
-
         } else {
-
-
-            // =================================
-            // ログインしていない
-            // =================================
 
             alert(
                 "ログインしてください。"
             );
-
 
             window.location.href =
                 "login.html";
 
         }
 
-
-});
+    }
+);
