@@ -1,3 +1,5 @@
+console.log('成功１');
+
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
@@ -20,8 +22,10 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
-import { recordPageView }
-    from "../log.js";
+import {
+    recordPageView,
+    recordFunctionUse
+} from "../log.js";
 
 
 
@@ -402,6 +406,14 @@ document.getElementById(
                     deleteTargetId
                 )
 
+            );
+
+            // 連絡先の削除を記録
+            await recordFunctionUse(
+                db,
+                auth.currentUser,
+                "連絡先一覧画面",
+                "連絡先の削除"
             );
 
 
