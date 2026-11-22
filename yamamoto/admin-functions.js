@@ -1,5 +1,4 @@
-
-console.log('成功２');
+console.log('成功３');
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
@@ -72,6 +71,13 @@ onAuthStateChanged(auth, async (user) => {
             return;
         }
 
+        // 全画面の機能利用回数の最大値
+        const maxCount = Math.max(
+            ...screens.flatMap(([screen, functions]) =>
+                Object.values(functions)
+            )
+        );
+
         // 画面ごとに表示
         screens.forEach(([screen, functions]) => {
             const section = document.createElement("div");
@@ -85,9 +91,6 @@ onAuthStateChanged(auth, async (user) => {
             // 利用回数の多い順に並べる
             const sortedFunctions = Object.entries(functions)
                 .sort((a, b) => b[1] - a[1]);
-
-            // その画面内で最も多い利用回数
-            const maxCount = sortedFunctions[0][1];
 
             sortedFunctions.forEach(([name, count]) => {
                 const item = document.createElement("div");
