@@ -83,7 +83,14 @@ onAuthStateChanged(auth, async (user) => {
         
         const chartCounts = dates.map(date => dailyCounts[date]);
         
-        const ctx = document.getElementById("dailyChart");
+        const canvas = document.getElementById("dailyChart");
+
+        if (!canvas) {
+            console.error("dailyChartが見つかりません");
+            return;
+        }
+        
+        const ctx = canvas.getContext("2d");
         
         new Chart(ctx, {
             type: "line",
